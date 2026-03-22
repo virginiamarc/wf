@@ -198,17 +198,47 @@
 
 /* Feature card button override */
 .feature-card .btn-orange {
-    background: #2b4506;
-    background-image: none; /* removes the orange gradient */
-    color: #fff;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    background: rgba(43, 69, 6, 0.75); /* 75% opacity */
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+
+    /* Cinematic depth */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Soft shine overlay */
+.feature-card .btn-orange::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0)
+    );
+    transition: left 0.4s ease;
+}
+
+/* Shine animation on hover */
+.feature-card .btn-orange:hover::before {
+    left: 100%;
 }
 
 /* Hover state */
 .feature-card .btn-orange:hover {
-    background: #3a5e0a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+    background: rgba(43, 69, 6, 0.85);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
 }
 
 /* Hero section */
@@ -573,10 +603,18 @@
 /* Footer container */
 .site-footer {
     background-color: #CC5500;
-    color: #F4EFE6;
+    color: #f5e9d6;
     padding: 2rem 1rem;
     margin-top: 3rem;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.site-footer a {
+    color: #fff7e6;
+}
+
+.site-footer a:hover {
+    color: white;
 }
 
 /* Center and contrain content */
@@ -593,6 +631,22 @@
     opacity: 0.95;
 }
 
+.footer-map-btn {
+    display: inline-block;
+    margin-top: 0.5rem 0 1.25rem 0;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.25s ease;
+}
+
+.footer-map-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
 /* Social Media Icons and Links */
 .footer-social {
     display: flex;
@@ -605,20 +659,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(244, 239, 230, 0.15);
-    padding: 0.5rem;
-    border-radius: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: auto;
+    height: auto;
     transition: 0.2s ease-in-out;
-}
-
-.footer-social .social-icon:hover {
-    background-color: rgba(244, 239, 230, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .footer-social .icon {
     width: 24px;
     height: 24px;
-    fill: #CC5500;
+    fill: rgba(255, 255, 255, 0.25);
+    transition: fill 0.2s ease, transform 0.25s ease;
+}
+
+.footer-social .social-icon:hover .icon {
+    fill: rgba(255,255,255,0.55); /* soft sand highlight */
+    transform: scale(1.15);
 }
