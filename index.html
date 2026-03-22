@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel Foodie</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon-wf.ico">
+
+    <!-- cache bust -->
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Light Mode Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon_io/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="favicon_io/favicon-180.png" media="(prefers-color-scheme: light)">
+
+    <!-- Dark Mode Favicon -->
+    <link rel="icon" type="image/png" href="favicon_io/favicon-dark.png" media="(prefers-color-scheme: dark)">
+
+    <!-- Apple Touch Icon (iPhone Home Screen) -->
+    <link rel="apple-touch-icon" href="favicon_io/favicon-180.png">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5M964BHH')
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript> 
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5M964BHH"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="assets/media/logo.png" alt="Logo">
+                </div>
+                <h1 class="site-title">Wheel Foodie</h1>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="specials.html">Specials</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger">&#9776;</button>
+        </div>
+    </header>
+
+    
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1>WHEEL FOODIE CATERING</h1>
+            <h2>FRESH, FAST, AND MADE FOR YOU!</h2>
+            <p>Turn your event into a street-style celebration.</p>
+            <a href="#quote" class="btn-orange">YOUR EVENT. OUR FLAVOR. GET A QUOTE!</a>
+        </div>
+    </section>
+
+    <section class="intro-section">
+        <h3>ROLLIN' GREAT FOOD WHEREVER YOU ARE!</h3>
+        <div class="intro-divider"></div>
+        <p>
+            From sizzling street eats to full-service catering, 
+            Wheel Foodie delivers bold flavors on your schedule. 
+            Order now, check out exclusive specials, or book us to elevate your next event.
+        </p>
+    </section>
+
+    <section class="feature-row">
+        <div class="feature-card">
+            <div class="feature-bg" style="background-image: url('/assets/media/steak-platter.png');"></div>
+            <div class="feature-content">
+                <h2>SPECIALS</h2>
+                <a href="menu.html" class="btn-orange">ORDER</a>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-bg" style="background-image: url('/assets/media/rewards-home.png');"></div>
+            <div class="feature-content">
+                <h2>REWARDS</h2>
+                <div class="feature-divider"></div>
+                <h3 class="subtitle">EARN FREE FOOD</h3>
+                <p>Join our rewards program and save with every order!</p>
+                <a href="specials.html" class="btn-orange">VIEW SPECIALS</a>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-bg" style="background-image: url('/assets/media/cater-home.jpg');"></div>
+            <div class="feature-content">
+                <h2>CATERING</h2>
+                <p>Bring our flavors to your next event!</p>
+                <a href="booking.html" class="btn-orange">BOOK NOW</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cater-quote-row">
+
+        <div class="cater-card">
+            <h2>HOW WE CATER</h2>
+            <div class="cater-divider"></div>
+            <p class="subtitle">LOCAL CATERING YOU CAN TRUST</p>
+            
+            <ul>
+                <li><span class="label worry">Worry Free.</span> We take care of all the detail, so you don’t have to think about the food.</li>
+                <li><span class="label vibes">Positive Vibes.</span> Happy team members creating smiles and memories.</li>
+                <li><span class="label reliability">Reliability.</span> We deliver consistent quality every time.</li>
+                <li><span class="label speedy">Speedy Service.</span> Get your order delivered fast without compromising on taste.</li>
+            </ul>
+
+            <a href="booking.html" class="btn-orange">BOOK NOW</a>
+        </div>
+
+        <div class="cater-card quote-card">
+            <h2>GET A QUOTE TODAY!</h2>
+            
+            <form>
+                <input type="text" placeholder="FIRST NAME*" required>
+                <input type="text" placeholder="LAST NAME*" required>
+                <input type="email" placeholder="EMAIL*" required>
+                <input type="tel" placeholder="PHONE*" required>
+
+                <label class="consent">
+                    <input type="checkbox" required>
+                    By clicking submit you agree for Wheel Foodie to email, text, or call you about your food truck inquiry.
+                </label>
+                
+                <button type="submit" class="btn-orange">SUBMIT</button>
+            </form>
+        </div>
+
+    </section>
+
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>2103 Blossom Ave, Tampa, FL 33614 | Phone: (813) 222-2323 | Hours: Monday-Saturday 11:00 AM - 7:00 PMSunday Closed</p>
+            
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook" class="social-icon">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+                </a>
+
+                <a href="#" aria-label="Instagram" class="social-icon">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zm4.8-8.8a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+                    </svg>
+                </a>
+
+                <a href="#" aria-label="Twitter" class="social-icon">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M22 5.8c-.8.4-1.7.6-2.6.8a4.5 4.5 0 0 0-7.7 4v.6A12.8 12.8 0 0 1 3 5.2s-4 9 5 13c-2.3 1.5-5 1.8-7 1.5 9 5.5 20 0 20-12v-.5c.7-.5 1.4-1.2 2-2z"/>
+                    </svg>
+                </a>
+
+                <a href="#" aria-label="LinkedIn" class="social-icon">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zm7 0h4v1.7h.1a4.4 4.4 0 0 1 4-2.2c4.3 0 5 2.8 5 6.4V21h-4v-5.3c0-1.3 0-3-2-3s-2.3 1.5-2.3 2.9V21h-4z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <p>&copy; 2026 Wheel Foodie™. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/WheelFoodie/service-worker.js");
+    }
+    </script>
+
+</body>
+</html>

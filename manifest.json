@@ -1,0 +1,45 @@
+{
+  "id": "/WheelFoodie/index.html",
+  "name": "Wheel Foodie",
+  "short_name": "WheelFoodie",
+  "description": "Tampa’s favorite food truck — fresh, fast, and flavorful.",
+  "start_url": "/WheelFoodie/index.html",
+  "scope": "/WheelFoodie/",
+  "display": "standalone",
+  "display_override": ["standalone", "window-controls-overlay"],
+  "background_color": "#CC5500",
+  "theme_color": "#CC5500",
+
+  "icons": [
+    {
+      "src": "favicon_io/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/favicon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+
+    "protocol_handlers": [
+        {
+        "protocol": "web+wheelfoodie",
+        "url": "/WheelFoodie/index.html?handler=%s"
+    }
+    ],
+
+    "related_applications": [
+        {
+        "platform": "web",
+        "url": "/WheelFoodie/index.html"
+        }
+    ]
+}

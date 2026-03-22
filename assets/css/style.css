@@ -1,0 +1,507 @@
+/* Header container */
+.site-header {
+    background-color: #CC5500;
+    padding: 6px 0;
+    width: 100%;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Inner layout */
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* group logo and title together */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo */
+.logo img {
+    height: 60px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Title */
+.site-title {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Navigation */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav {
+    margin-right: 4px;
+}
+
+.main-nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #CC5500;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover effect for navigation links */
+.main-nav a:hover {
+    background-color: #ffe6d5;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Active page link */
+.main-nav a[aria-current="page"],
+.main-nav a.active {
+    background-color: black;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Shine effect for active link */
+.main-nav a[aria-current="page"]::before,
+.main-nav a.active::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 6px;
+    background: 
+        linear-gradient(
+            to bottom right, 
+            rgba(255, 255, 255, 0.35), 
+            rgba(255, 255, 255, 0) 60%
+        ),
+        linear-gradient(
+            to top left, 
+            rgba(255, 255, 255, 0.20), 
+            rgba(255, 255, 255, 0) 70%
+        );
+    pointer-events: none;
+    animation: shine 2s infinite;
+}
+
+/* Hamburber (hidden on desktop) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .header-inner {
+        justify-content: space-between;
+    }
+}
+
+/* Global Orange Button */
+.btn-orange {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    background: linear-gradient(180deg, #ff8a2b 0%, #ff5a00 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none; /* helps <button> elements match <a> elements */
+}
+
+/* Hover + Active */
+.btn-orange:hover {
+    background: linear-gradient(180deg, #ffa24d 0%, #ff6a1a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.btn-orange:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Feature card button override */
+.feature-card .btn-orange {
+    background: #2b4506;
+    background-image: none; /* removes the orange gradient */
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+/* Hover state */
+.feature-card .btn-orange:hover {
+    background: #3a5e0a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url('/assets/media/home-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.3)
+  );
+}
+
+.hero-text {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+/* Intro Section Between Hero + Feature Cards */
+.intro-section {
+    text-align: center;
+    padding: 60px 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-section h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2b4506; /* deep green to match your feature card buttons */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Orange divider */
+.intro-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.intro-section p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Feature Section */
+.feature-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 60px 20px;
+    overflow-x: auto; /* allows horizontal scroll on small screens */
+}
+
+.feature-card {
+    position: relative;
+    width: 300px;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 
+    0 20px 40px rgba(0,0,0,0.35),
+    0 0 40px rgba(0,0,0,0.25);
+    flex-shrink: 0;
+}
+
+/* Background image */
+.feature-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Gradient overlay for readability */
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.45) 20%,
+        rgba(0,0,0,0.15) 50%,
+        rgba(0,0,0,0.55) 100%
+    );
+    z-index: 1;
+}
+
+/* Content on top of image */
+.feature-content {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* pushes text up, button down */
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+}
+
+.feature-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.55);
+    letter-spacing: 1px;
+}
+
+.feature-content h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.feature-content p {
+    font-size: 1rem;
+    margin: 10px 0 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.feature-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 8px auto 12px auto;
+    border-radius: 2px;
+}
+ 
+/* Button at bottom */
+.feature-content .btn-orange {
+    margin-top: auto;
+}
+
+/* Cater Row */
+.cater-quote-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding: 80px 20px;
+    flex-wrap: wrap; /* mobile-friendly */
+}
+
+.cater-card {
+    background: #e8d8c3; /* your warm tan */
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    flex: 1;
+    min-width: 320px;
+    color: #000;
+    text-align: left;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.cater-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.cater-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 10px auto 20px auto;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.cater-card .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* List styling */
+.cater-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.cater-card li {
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+/* Colored labels */
+.label {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.label.worry { color: #cc5500; }
+.label.vibes { color: #cc5500; }
+.label.reliability { color: #cc5500; }
+.label.speedy { color: #cc5500; }
+
+/* Center the button */
+.cater-card .btn-orange {
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0 auto;
+}
+
+.quote-card {
+    background: #e8d8c3;
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    flex: 1;
+    min-width: 320px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.quote-card form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quote-card input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Consent checkbox styling */
+.quote-card .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+    margin-top: 5px;
+}
+
+.quote-card .consent input[type="checkbox"] {
+    margin-top: 3px;
+    transform: scale(1.2);
+}
+
+.quote-card button {
+    margin-top: 10px;
+}
+
+/* Footer container */
+.site-footer {
+    background-color: #CC5500;
+    color: #F4EFE6;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Center and contrain content */
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Footer text styling */
+.site-footer p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+/* Social Media Icons and Links */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-social .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(244, 239, 230, 0.15);
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: 0.2s ease-in-out;
+}
+
+.footer-social .social-icon:hover {
+    background-color: rgba(244, 239, 230, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer-social .icon {
+    width: 24px;
+    height: 24px;
+    fill: #CC5500;
+}
