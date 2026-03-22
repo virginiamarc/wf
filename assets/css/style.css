@@ -29,6 +29,7 @@
     width: auto;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 /* Title */
@@ -55,26 +56,31 @@
 
 .main-nav a {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: white;
-    color: #CC5500;
-    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 17px;
     font-weight: 600;
-    border-radius: 20px;
-    font-size: 18px;
-    transition: 0.2s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+
+    /* Match hero-card style */
+    background: rgba(255, 255, 255, 0.25);  /*warm, earthy */
+    backdrop-filter: blur(2px);
+    transition: background 0.25s ease, color 0.25s ease;
+    box-shadow: none;
 }
 
-/* Hover effect for navigation links */
+/* Hover */
 .main-nav a:hover {
-    background-color: #ffe6d5;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.25); /* slightly stronger */
+    color: white;
 }
 
-/* Active page link */
+/* Active link */
 .main-nav a[aria-current="page"],
 .main-nav a.active {
+    color: #fff;
+    box-shadow: none;
     background-color: black;
     color: #fff;
     position: relative;
@@ -117,14 +123,47 @@
 }
 
 @media (max-width: 768px) {
-    .main-nav {
+
+    /* Hide only the UL, not the whole nav */
+    .main-nav ul {
         display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        gap: 15px;
+        border-radius: 8px;
     }
+
+    /* When JS toggles .open, show the menu */
+    .main-nav ul.open {
+        display: flex;
+    }
+
+    /* Show hamburger on mobile */
     .hamburger {
         display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
     }
+
+    /* Keep header spacing clean */
     .header-inner {
         justify-content: space-between;
+    }
+
+    /* Stack feature cards */
+    .feature-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .feature-card {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
 
@@ -137,7 +176,7 @@
     font-family: inherit;
     color: #fff;
     text-decoration: none;
-    border-radius: 40px;
+    border-radius: 6px;
     background: linear-gradient(180deg, #ff8a2b 0%, #ff5a00 100%);
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     transition: all 0.25s ease;
@@ -186,8 +225,8 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.3)
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.4)
   );
 }
 
@@ -200,8 +239,62 @@
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  color: #2b4506;
+  text-shadow:
+  0 4px 10px rgba(0,0,0,0.45),
+  0 2px 4px rgba(0,0,0,0.35);
+}
+
+.hero-text h2 {
+    line-height: 1.2;
+    text-shadow:
+    0 4px 10px rgba(0,0,0,0.55),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow:
+    0 4px 10px rgba(0,0,0,0.55),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+/* HOME HERO CARD STYLE */
+.hero-card {
+    background: rgba(255, 255, 255, 0.5); /* or your brown tone */
+    padding: 10px 40px 30px;
+    border-radius: 20px;
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    backdrop-filter: blur(4px); /* optional */
+    position: absolute;
+    left: 40px;
+    bottom: 80px;
+    text-align: center;
+}
+
+.hero-card h1 {
+    font-size: 2.8rem;
+    margin-top: 6px;
+}
+
+.hero-card h2 {
+    margin-top: 5px;
+}
+
+.hero-card p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
 }
 
 /* Intro Section Between Hero + Feature Cards */
@@ -418,6 +511,30 @@
     flex: 1;
     min-width: 320px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.quote-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.quote-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 10px auto 20px auto;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.quote-card .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
 }
 
 .quote-card form {
