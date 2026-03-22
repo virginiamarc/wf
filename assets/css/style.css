@@ -176,7 +176,7 @@
 .hero {
   position: relative;
   height: 90vh;
-  background: url('/assets/media/home-hero.jpg') center/cover no-repeat;
+  background: url('/assets/media/homehero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
