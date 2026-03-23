@@ -323,6 +323,10 @@
     opacity: 0.9;
 }
 
+.about-hero {
+    background: url('../media/about-hero.jpg') center/cover no-repeat;
+}
+
 /* Feature Section */
 .feature-row {
     display: flex;
@@ -490,6 +494,204 @@
     width: fit-content;
     margin: 25px auto 0 auto;
 }
+
+.about-intro {
+    text-align: center;
+    padding: 40px 20px 15px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-intro h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2b4506; /* deep green to match your feature card buttons */
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.aboutintro-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 25px auto;
+    border-radius: 2px;
+    box-shadow:
+        0 6px 12px rgba(0,0,0,0.25),
+        0 0 18px rgba(0,0,0,0.20);
+}
+
+.about-intro p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #333;
+    opacity: 0.95;
+}
+
+/* About Section */
+.about-row {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 80px 20px;
+    flex-wrap: wrap;
+    overflow-x: auto; /* allows horizontal scroll on small screens */
+}
+
+.about-card {
+    position: relative;
+    width: 340px;
+    min-width: 340px;
+    flex: 1;
+    min-height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 
+    0 20px 40px rgba(0,0,0,0.35),
+    0 0 40px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+ 
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.subscribe-card {
+    background: #e8d8c3; /* your warm tan */
+    padding: 28px 24px;
+    border-radius: 20px;
+    max-width: 380px;
+    flex: 1;
+    min-height: 360px;
+    min-width: 320px;
+    color: #000;
+    text-align: left;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.subscribe-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.subscribe-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 10px auto 20px auto;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scaleX(0.6); }
+    to { opacity: 1; transform: scaleX(1); }
+}
+
+.subscribe-card .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Subscribe Form Styling */
+.subscribe-form input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.subscribe-form input:focus {
+    border-color: #cc5500;
+    box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
+}
+
+.subscribe-form .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.subscribe-form .consent input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+.subscribe-card button {
+    display: block;
+    margin: 20px auto 0 auto; /* centers the button */
+}
+
+.subscribe-card .btn-orange:hover {
+    transform: translateY(-2);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* Field labels */
+.field-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2b4506; /* deep green to match your brand */
+    margin-bottom: 6px;
+    margin-top: 10px;
+}
+
+.field-label .optional {
+    font-weight: 400;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .booking-hero {
     background: url('../media/gallery_img1.jpg') center/cover no-repeat;
