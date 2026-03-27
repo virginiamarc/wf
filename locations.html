@@ -67,6 +67,46 @@
         </div>
     </header>
 
+    <main>
+        <section class="hero locations-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h1>Roll Up for Fresh, Fast, Flavor-Packed Eats.</h1>
+                <button id="locationPopupBtn" class="btn-orange">VIEW TODAY'S LOCATION</button>
+            </div>
+        </section>
+
+        <h2 class="section-title">Where We Roll</h2>
+
+        <section class="info-row" id="">
+            <div class="hours-card">
+                <h2>OPENING HOURS | DELIVERY HOURS</h2>
+                <!--<div class="hours-divider"></div-->
+                
+                <ul>
+                    <li><span class="day">Monday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Tuesday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Wednesday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Thursday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Friday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Saturday</span><span class="time">11:00 am – 7:00 pm</span></li>
+                    <li><span class="day">Sunday</span><span class="time">CLOSED</span></li>
+                </ul>
+
+                <p class="hours-note">Hours may vary based on location and special events.</p>
+            </div>
+            
+            <div class="locations-text locations-card">
+                <h3 class="locations-subtitle">Fresh Food on the Move</h3>
+                <p>Serving Tampa and the surrounding areas, Wheel Foodie brings fresh, 
+                    flavorful dishes wherever we roll. Every meal is crafted with care using
+                    high-quality ingredients to deliver bold, unforgettable taste in every bite.
+                    Follow along to see where we'll be next and come enjoy your new favorite go-to!
+                </p>
+                <a href="menu.html" class="btn-orange">EXPLORE THE MENU</a>
+            </div>
+    </main>
+
     <footer class="site-footer">
         <div class="footer-inner">
 
@@ -121,6 +161,46 @@
         </div>
     </footer>
 
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Today's Location</h2>
+            <p><strong>Address:</strong> 2103 Blossom Ave, Tampa, FL 33614</p>
+            <p><strong>Hours:</strong> 11:00 AM – 7:00 PM</p>
+            
+            <a href="https://www.google.com/maps?q=2103+Blossom+Ave,+Tampa,+FL+33614"
+                target="_blank"
+                class="btn-orange">
+                Get Directions
+            </a>
+
+            <iframe
+                class="mini-map"
+                src="https://www.google.com/maps?q=2103+Blossom+Ave,+Tampa,+FL+33614&output=embed">
+            </iframe>
+
+            <p class="follow-note">Follow us on social media for daily location updates!</p>
+
+            <div class="modal-social">
+                <!-- X (Twitter) Share -->
+                <a href="https://twitter.com/intent/tweet?url=https://virginiamarc.github.io/wf/index.html" 
+                target="_blank" aria-label="Share on X">X</a>
+
+                <!-- Facebook Share -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://virginiamarc.github.io/wf/index.html" 
+                target="_blank" aria-label="Share on Facebook">f</a>
+
+                <!-- Instagram (opens app, no share API) -->
+                <a href="https://www.instagram.com/" 
+                target="_blank" aria-label="Open Instagram">◎</a>
+
+                <!-- TikTok (opens app, no share API) -->
+                <a href="https://www.tiktok.com/share" 
+                target="_blank" aria-label="Open TikTok">♬</a>
+            </div>
+        </div>
+    </div>
+
     <script>
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/WheelFoodie/service-worker.js");
@@ -128,6 +208,19 @@
     </script>
 
     <script src="assets/js/script.js"></script>
+
+    <script>
+    const modal = document.getElementById("locationModal");
+    const btn = document.getElementById("locationPopupBtn");
+    const closeBtn = document.querySelector(".close-modal");
+
+    btn.onclick = () => modal.style.display = "flex";
+    closeBtn.onclick = () => modal.style.display = "none";
+
+    window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    };
+    </script>
 
 </body>
 </html>
