@@ -1492,6 +1492,12 @@ input[type="date"]:valid::before {
     .info-row {
         gap: 50px;
     }
+
+      .hours-card h2 {
+        font-size: 1.1rem; /* adjust until it fits */
+        line-height: 1.2;
+        white-space: nowrap;
+    }
 }
 
 
