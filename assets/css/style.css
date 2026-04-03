@@ -496,9 +496,341 @@
     margin: 25px auto 0 auto;
 }
 
+/* Menu Hero Section */
+.menu-hero {
+    position: relative;
+    background: url('../media/menu-hero.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center; /* centers content horizontally */
+    align-items: flex-end; /* moves text lower */
+    padding-bottom: 280px; /* spacing from bottom */
+    text-align: center;
+}
+
+.menu-hero .hero-text {
+    position: absolute;
+    left: 50%;
+    top: 40%; /* adjust as needed to move text up/down */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers text */
+    margin: 0; /* reset any default margins */
+}
+
+.menu-hero .hero-text h1 {
+    color: #fff;
+    text-align: center;
+}
+
+.menu-hero .btn-orange {
+    margin-top: 15px;
+}
+
+/* Section Wrapper */
+.fan-favorites {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Section Title */
+.fan-favorites h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2b4506;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+/* Grid Layout */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    /*max-width: 1100px;
+    margin: 0 auto;*/
+}
+
+/* Individual Card Item */
+.favorite-item {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    overflow: hidden; /* ensures image doesn't spill out */
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.favorite-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.16);
+}
+
+/* Full-width image at top */
+.favorite-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Item Title */
+.favorite-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 16px 20px 6px 20px;
+    color: #222;
+}
+
+/* Item Description */
+.favorite-item p {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 0 20px 12px 20px;
+    line-height: 1.4;
+}
+
+/* Item Price */
+.favorite-item .price {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2b4506;
+    margin: 0 20px 12px 20px;
+    display: block;
+}
+
+/* Button spacing */
+.favorite-item .btn-orange {
+    margin: 0 20px 16px 20px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+/* Wrapper */
+.menu-categories {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Menu Category header button */
+.menu-category-header {
+    width: 100%;
+    background: #ffffff;
+    padding: 14px 22px;
+    border-radius: 16px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2b4506;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    display: flex;
+    justify-content: flex-start;
+    gap: 18px;
+    align-items: center;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-bottom: 12px;
+}
+
+.menu-category-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.16);
+}
+
+/* Menu Category image */
+.menu-category-header .menu-category-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Title */
+.menu-category-title {
+    margin-left: 12px;
+    flex: 1;
+}
+
+/* Arrow rotation */
+.menu-category-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Arrow styling */
+.arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+/* Hidden content container */
+.menu-category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Menu item card inside accordion */
+.menu-item {
+    background: #fff;
+    padding: 24px 26px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    margin-bottom: 16px;
+}
+
+.menu-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.menu-item p {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.menu-item .price {
+    font-weight: 700;
+    color: #2b4506;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.menu-category-content .menu-item .btn-orange {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    pointer-events: none; /* overlay cannot intercept clicks */
+}
+
+/* When modal is open */
+.modal-overlay.show {
+    display: flex;
+    pointer-events: auto; /* overlay becomes clickable only when open */
+}
+
+/* Modal box */
+.cart-modal-box {
+    background: #fff;
+    width: 90%;
+    max-width: 340px;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    z-index: 10001;
+    pointer-events: auto; /* modal box receives clicks */
+}
+
+.cart-modal-box h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2b4506;
+}
+
+.cart-modal-box p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Modal Actions Layout */
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    align-items: center;
+}
+
+/* Buttons inside modal */
+.cart-modal-box .modal-actions button {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+}
+
+.cart-modal-box .modal-actions .btn-secondary,
+.cart-modal-box .modal-actions .btn-outline {
+    max-width: 200px;
+}
+
+.cart-modal-box .modal-actions button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    transition: 0.15s ease;
+}
+
+.cart-modal-box .modal-actions .btn-secondary:hover {
+    background: #e6e6e6;
+}
+
+.cart-modal-box .modal-actions .btn-outline:hover {
+    background: #2b4506;
+    color: #fff;
+}
+
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.8rem;
+    color: #444;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+
+
 
 .locations-hero {
     background: url('../media/locations-hero.png') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end; /* moves text lower */
+    justify-content: flex-start; /* keeps it left */
+    padding-bottom: 80px; /* spacing from bottom */
 }
 
 .locations-hero .hero-text {
@@ -513,13 +845,6 @@
     color: #fff;
     text-align: left;
     align-items: flex-start;
-}
-
-.locations-hero {
-    display: flex;
-    align-items: flex-end; /* moves text lower */
-    justify-content: flex-start; /* keeps it left */
-    padding-bottom: 80px; /* spacing from bottom */
 }
 
 .locations-hero .btn-orange {
@@ -1427,6 +1752,18 @@ input[type="date"]:valid::before {
         justify-content: space-between;
     }
 
+    header {
+        padding: 8px 16px;
+    }
+
+    header .logo {
+        max-width: 120px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
     .hero img,
     .hero-backgrouond {
         width: 100%;
@@ -1437,7 +1774,8 @@ input[type="date"]:valid::before {
     /* HERO LAYOUT */
     .hero {
         height: auto;
-        padding: 2rem 1rem;
+        padding-top: 40px;
+        padding-bottom: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1463,21 +1801,22 @@ input[type="date"]:valid::before {
     }
 
     .hero-card h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         letter-spacing: 0.5px;
         white-space: nowrap;
     }
 
     .hero-card h2 {
-        font-size: 1.0rem;
+        font-size: 1rem;
         letter-spacing: 0.5px;
         white-space: nowrap;
     }
 
     .hero-card p {
-        font-size: 1.0rem;
+        font-size: 0.9rem;
         letter-spacing: 0.5px;
         white-space: nowrap;
+
     }
 
     .hero-card .btn-orange {
@@ -1497,6 +1836,40 @@ input[type="date"]:valid::before {
         font-size: 1.1rem; /* adjust until it fits */
         line-height: 1.2;
         white-space: nowrap;
+    }
+
+     /* menu page hero only */
+    .menu-page .hero {
+        padding-bottom: 40px;
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .menu-page .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .menu-page .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+
+    .menu-page .hero-text h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .menu-page .hero-text h2 {
+        font-size: 1rem;
+        line-height: 1.3;
     }
 }
 
