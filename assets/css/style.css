@@ -154,8 +154,8 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-/* Feature card button override */
-.feature-card .btn-orange {
+/* Home page Feature Cards */
+.index-page .feature-card .btn-orange {
     background: rgba(43, 69, 6, 0.75); /* 75% opacity */
     color: white;
     padding: 10px 18px;
@@ -172,7 +172,7 @@
 }
 
 /* Soft shine overlay */
-.feature-card .btn-orange::before {
+.index-page .feature-card .btn-orange::before {
     content: "";
     position: absolute;
     top: 0;
@@ -188,18 +188,18 @@
 }
 
 /* Shine animation on hover */
-.feature-card .btn-orange:hover::before {
+.index-page .feature-card .btn-orange:hover::before {
     left: 100%;
 }
 
 /* Hover state */
-.feature-card .btn-orange:hover {
+.index-page .feature-card .btn-orange:hover {
     background: rgba(43, 69, 6, 0.85);
     transform: translateY(-3px);
     box-shadow: 0 8px 18px rgba(0,0,0,0.35);
 }
 
-/* Hero section */
+/* GLOBAL HERO */
 .hero {
   position: relative;
   height: 90vh;
@@ -254,7 +254,7 @@
     0 2px 4px rgba(0, 0, 0, 0.45);
 }
 
-/* HOME HERO CARD STYLE */
+/* GLOBAL HOME HERO CARD STYLE */
 .hero-card {
     background: rgba(255, 255, 255, 0.5); /* or your brown tone */
     padding: 10px 40px 30px;
@@ -286,14 +286,14 @@
 }
 
 /* Intro Section Between Hero + Feature Cards */
-.intro-section {
+.index-page .index-intro-section {
     text-align: center;
     padding: 40px 20px 30px;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.intro-section h3 {
+.index-page .index-intro-section h3 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #2b4506; /* deep green to match your feature card buttons */
@@ -303,7 +303,7 @@
 }
 
 /* Orange divider */
-.intro-divider {
+.index-page .index-intro-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -314,7 +314,7 @@
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.intro-section p {
+.index-intro-section p {
     font-size: 1.15rem;
     line-height: 1.6;
     color: #333;
@@ -325,7 +325,7 @@
 
 
 /* Feature Section */
-.feature-row {
+.index-page .feature-row {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -334,7 +334,7 @@
     overflow-x: auto; /* allows horizontal scroll on small screens */
 }
 
-.feature-card {
+.index-page .feature-card {
     position: relative;
     width: 300px;
     height: 380px;
@@ -347,7 +347,7 @@
 }
 
 /* Background image */
-.feature-bg {
+.index-page .feature-bg {
     position: absolute;
     inset: 0;
     background-size: cover;
@@ -355,7 +355,7 @@
 }
 
 /* Gradient overlay for readability */
-.feature-card::before {
+.index-page .feature-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -369,7 +369,7 @@
 }
 
 /* Content on top of image */
-.feature-content {
+.index-page .feature-content {
     position: absolute;
     inset: 0;
     padding: 20px;
@@ -381,7 +381,7 @@
     text-align: center;
 }
 
-.feature-content h2 {
+.index-page .feature-content h2 {
     font-size: 1.6rem;
     font-weight: 700;
     color: #ffffff;
@@ -390,19 +390,19 @@
     letter-spacing: 1px;
 }
 
-.feature-content h3 {
+.index-page .feature-content h3 {
     font-size: 1.4rem;
     margin: 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.feature-content p {
+.index-page .feature-content p {
     font-size: 1rem;
     margin: 10px 0 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.feature-divider {
+.index-page .feature-divider {
     width: 50px;
     height: 3px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -415,16 +415,21 @@
     margin-top: auto;
 }
 
+.index-page .hero-card p {
+    margin-bottom: 25px; /* adjust to taste */
+}
+
 /* Cater Row */
-.cater-quote-row {
+.index-page section.cater-row {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
+    align-items: stretch;
     padding: 80px 20px;
     flex-wrap: wrap; /* mobile-friendly */
 }
 
-.cater-card {
+.index-page section.cater-row .cater-card {
     background: #e8d8c3; /* your warm tan */
     padding: 40px 30px;
     border-radius: 20px;
@@ -437,13 +442,13 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.cater-card h2 {
+.index-page .cater-card h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-.cater-divider {
+.index-page .cater-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -454,7 +459,7 @@
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.cater-card .subtitle {
+.index-page .cater-card .cater-card-subtitle {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 25px;
@@ -462,35 +467,143 @@
 }
 
 /* List styling */
-.cater-card ul {
+.index-page .cater-card ul {
     list-style: none;
     padding: 0;
     margin: 0 0 30px 0;
 }
 
-.cater-card li {
+.index-page .cater-card li {
     margin-bottom: 18px;
     line-height: 1.5;
     font-size: 1.05rem;
 }
 
 /* Colored labels */
-.label {
-    font-weight: 700;
+.index-page .label {
+    font-size: 1.5rem;
+    font-weight: 800;
     margin-right: 6px;
 }
 
-.label.worry { color: #cc5500; }
-.label.vibes { color: #cc5500; }
-.label.reliability { color: #cc5500; }
-.label.speedy { color: #cc5500; }
+.index-page .label.worry { color: #cc5500; }
+.index-page .label.vibes { color: #cc5500; }
+.index-page .label.reliability { color: #cc5500; }
+.index-page .label.speedy { color: #cc5500; }
+
+.index-page .cater-card .cater-badge {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 30px 0 10px 0;
+    opacity: 0.9;
+}
 
 /* Center the button */
-.cater-card .btn-orange {
+.index-page .cater-card .btn-orange {
     display: block;
     width: fit-content;
     margin: 25px auto 0 auto;
+    margin-top: 70px;
 }
+
+/* HOME PAGE — QUOTE FORM */
+.index-page .index-quote-card {
+    background: #e8d8c3;
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    flex: 1;
+    min-width: 320px;
+    margin: 0;
+}
+
+.index-page .index-quote-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.index-page .index-quote-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 10px auto 20px auto;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.index-page .index-quote-card .quote-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.index-page .index-quote-card form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.index-page .index-quote-card form input,
+.index-page .index-quote-card form select,
+.index-page .index-quote-card form textarea {
+    display: block;
+    width: 90%;
+    align-self: center;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.index-page .index-quote-card textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.index-page .index-quote-card button {
+    margin-top: 10px;
+}
+
+/* HOME PAGE — Fix checkbox alignment */
+.index-page .index-quote-card .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.index-page .index-quote-card .consent input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    transform: scale(1.2);
+    flex-shrink: 0;
+}
+
+.index-page .index-quote-card button {
+    width: fit-content;
+    align-self: center;
+    padding: 12px 24px;
+}
+
+
 
 /* Menu Hero Section */
 .menu-hero {
@@ -818,7 +931,7 @@
     opacity: 1;
 }
 
-
+/* Specials Page will go here */
 
 
 .locations-page .locations-hero {
@@ -1223,7 +1336,7 @@
     box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
 }
 
-.about-page .subscribe-form .consent {
+.about-page .subscribe-form .about-consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1233,7 +1346,7 @@
     margin-bottom: 15px;
 }
 
-.about-page .subscribe-form .consent input[type="checkbox"] {
+.about-page .subscribe-form .about-consent input[type="checkbox"] {
     margin-top: 3px;
     width: 18px;
     height: 18px;
@@ -1270,6 +1383,7 @@
     background: url('../media/gallery_img1.jpg') center/cover no-repeat;
 }
 
+
 .booking-page .hero-card p {
     margin-bottom: 1.25rem; /* adjust to taste */
 }
@@ -1290,12 +1404,17 @@
     font-size: 2rem;
 }
 
-.booking-page .menu-divider {
-    width: 80px;
+
+
+.booking-page .catering-menu-divider {
+    width: 90px;
     height: 4px;
-    background: #cc5500;
-    margin: 10px auto 30px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 20px;
     border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
 }
 
 /* Dropdown container */
@@ -1378,6 +1497,34 @@
 }
 
 /* Booking.html Gallery Section */
+.booking-page .gallery-section {
+    text-align: center;
+    padding: 40px 20px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-page .gallery-section h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2b4506; /* deep green to match your feature card buttons */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.booking-page .gallery-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+
 .booking-page .gallery-row {
     display: flex;
     justify-content: center;
@@ -1451,14 +1598,6 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.booking-page .gallery-divider {
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
-    margin: 8px auto 12px auto;
-    border-radius: 2px;
-}
-
 /* WHAT TO EXPECT SECTION */
 .booking-page .expect-section {
     max-width: 1100px;
@@ -1471,6 +1610,17 @@
     font-size: 2rem;
     color: #2b4506;
     margin-bottom: 10px;
+}
+
+.booking-page .expect-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
 }
 
 .booking-page .expect-grid {
@@ -1499,10 +1649,50 @@
     margin: 0 auto;
 }
 
+.booking-page .contact-section {
+    text-align: center;
+    padding: 40px 20px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-page .contact-section h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2b4506; /* deep green to match your feature card buttons */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Orange divider */
+.booking-page .contact-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.booking-page .booking-quote-card {
+    margin: 0 auto;
+}
+
+.booking-page .booking-form-section,
+.booking-page .booking-gallery-section,
+.booking-page .booking-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Match input styling */
-.booking-page .cater-card form input,
-.booking-page .cater-card form select,
-.booking-page .cater-card form textarea {
+.booking-page .booking-quote-card form input,
+.booking-page .booking-quote-card form select,
+.booking-page .booking-quote-card form textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -1545,14 +1735,14 @@
 }
 
 /* Hover + focus effect */
-.booking-page .cater-card form select:focus,
-.booking-page .cater-card form textarea:focus {
+.booking-page .booking-quote-card form select:focus,
+.booking-page .booking-quote-card form textarea:focus {
     border-color: #cc5500;
     box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
 }
 
 /* Dropdown arrow styling (clean + modern) */
-.booking-page .cater-card form select {
+.booking-page .booking-quote-card form select {
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
@@ -1561,30 +1751,13 @@
 }
 
 /* Textarea height */
-.booking-page .cater-card form textarea {
+.booking-page .booking-quote-card form textarea {
     min-height: 120px;
     resize: vertical;
 }
 
-.booking-page .cater-card form .consent {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
 
-    font-size: 0.9rem;
-    line-height: 1.3;
-    color: #333;
-
-    margin-bottom: 15px;
-}
-
-.booking-page .cater-card form .consent input[type="checkbox"] {
-    margin-top: 3px; /* aligns checkbox with first line of text */
-    width: 18px;
-    height: 18px;
-}
-
-.booking-page .quote-card {
+.booking-page .booking-quote-card {
     background: #e8d8c3;
     padding: 40px 30px;
     border-radius: 20px;
@@ -1594,13 +1767,13 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-.booking-page .quote-card h2 {
+.booking-page .booking-quote-card h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-.booking-page .quote-divider {
+.booking-page .booking-quote-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1611,44 +1784,41 @@
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.booking-page .quote-card .subtitle {
+.booking-page .booking-quote-card .booking-subtitle {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 25px;
     opacity: 0.9;
 }
 
-.booking-page .quote-card form {
+.booking-page .booking-quote-card form {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.booking-page .quote-card input {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
 /* Consent checkbox styling */
-.booking-page .quote-card .consent {
+.booking-page .booking-quote-card .booking-consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     font-size: 0.9rem;
     line-height: 1.4;
     color: #333;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
-.booking-page .quote-card .consent input[type="checkbox"] {
+.booking-page .booking-quote-card .booking-consent input[type="checkbox"] {
     margin-top: 3px;
-    transform: scale(1.2);
+    width: 18px;
+    height: 18px;
 }
 
-.booking-page .quote-card button {
-    margin-top: 10px;
+.booking-page .booking-quote-card button {
+    width: fit-content;
+    align-self: center;
+    padding: 12px 24px;
 }
 
 
@@ -1963,24 +2133,20 @@
     padding: 0.9rem 1.4rem;
   }
 
-    .intro-section {
-        padding: 30px 16px 24px;
-    }
-
     /* Stack feature cards */
-    .feature-row {
+    .index-page .feature-row {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
-    .feature-card {
+    .index-page .feature-card {
         width: 90%;
         max-width: 400px;
         margin: 0 auto;
     }
 
-    .gallery-card {
+    .booking-page .gallery-card {
         width: 90%;
         height: 160px;
     }
