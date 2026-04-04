@@ -782,7 +782,7 @@ nav.main-nav {
     color: #2b4506;
 }
 
-.fan-favorites-divider {
+.menu-page .fan-favorites-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1097,7 +1097,59 @@ nav.main-nav {
 }
 
 /* Specials Page will go here */
+/* Hero Section */
+.specials-page .specials-hero {
+    position: relative;
+    background: url('../media/specials-hero2.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center; /* centers content horizontally */
+    align-items: flex-end; /* moves text lower */
+    padding-bottom: 280px; /* spacing from bottom */
+}
 
+.specials-page .specials-hero .specials-hero-text {
+    position: absolute;
+    left: 50%;
+    top: 40%; /* adjust as needed to move text up/down */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers text */
+    margin: 0; /* reset any default margins */
+}
+
+.specials-page .specials-hero .specials-hero-text h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.specials-page .specials-hero .specials-hero-text p {
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.specials-page .specials-hero .specials-hero-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 12px auto;
+    border-radius: 2px;
+    box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    0 0 18px rgba(0,0,0,0.20);
+}
+
+.specials-page .specials-hero .btn-orange {
+    margin-top: 15px;
+}
+
+   
 
 .locations-page .locations-hero {
     background: url('../media/locations-hero.png') center/cover no-repeat;
