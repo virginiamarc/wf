@@ -1214,20 +1214,25 @@ nav.main-nav {
 /* ===== COUPONS ===== */
 .specials-page .coupon-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin: 40px auto;
+    width: 100%;
     max-width: 1000px;
+    box-sizing: border-box;
 }
 
 .specials-page .coupon-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.coupon-badge {
+.specials-page .coupon-badge {
     display: inline-block;
     margin-top: 6px;
     padding: 4px 10px;
@@ -1250,7 +1255,9 @@ nav.main-nav {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
     .specials-page .specials-row {
-        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .specials-page .coupon-grid {
@@ -1259,13 +1266,16 @@ nav.main-nav {
 }
 
 @media (max-width: 600px) {
-    .specials-page .specials-row {
-        grid-template-columns: 1fr;
-    }
-
     .specials-page .coupon-grid {
         grid-template-columns: 1fr;
+        padding: 0 15px;
     }
+}
+
+.specials-page .coupon-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
    
 
@@ -2289,6 +2299,27 @@ nav.main-nav {
         font-size: 0.9rem;
     }
 
+    /* Make icon + text + arrow stay on one line */
+    .account-menu .account-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+        font-size: 0.85rem;
+    }
+
+    /* Shrink the user icon */
+    .account-menu .user-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Reduce spacing in the utility nav */
+    .utility-nav {
+        gap: 10px;
+    }
+
+
     .hero img,
     .hero-backgrouond {
         width: 100%;
@@ -2514,5 +2545,19 @@ nav.main-nav {
     .catering-page .gallery-card {
         width: 90%;
         height: 160px;
+    }
+}
+
+/* FORCE MOBILE FIX — this overrides everything */
+@media (max-width: 600px) {
+    .specials-page .coupon-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 15px !important;
+    }
+
+    .specials-page .coupon-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
