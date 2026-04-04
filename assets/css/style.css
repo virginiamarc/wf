@@ -1544,26 +1544,26 @@ nav.main-nav {
 }
 
 
-.booking-page .booking-hero {
+.catering-page .catering-hero {
     background: url('../media/gallery_img1.jpg') center/cover no-repeat;
 }
 
 
-.booking-page .hero-card p {
+.catering-page .hero-card p {
     margin-bottom: 1.25rem; /* adjust to taste */
 }
 
-.booking-page .hero-card .btn-orange {
+.catering-page .hero-card .btn-orange {
     margin-top: 1rem; /* optional but creates perfect balance */
 }
 
-.booking-page .menu-section {
+.catering-page .menu-section {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.booking-page .menu-section h2 {
+.catering-page .menu-section h2 {
     text-align: center;
     color: #2b4506;
     font-size: 2rem;
@@ -1571,7 +1571,7 @@ nav.main-nav {
 
 
 
-.booking-page .catering-menu-divider {
+.catering-page .catering-menu-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1583,14 +1583,14 @@ nav.main-nav {
 }
 
 /* Dropdown container */
-.booking-page .menu-dropdown {
+.catering-page .menu-dropdown {
     border-bottom: 1px solid rgba(0,0,0,0.15);
     padding: 0;
     margin-bottom: 15px;
 }
 
 /* Dropdown button */
-.booking-page .dropdown-toggle {
+.catering-page .dropdown-toggle {
     width: 100%;
     background: none;
     border: none;
@@ -1608,7 +1608,7 @@ nav.main-nav {
 }
 
 /* Orange arrow on the right */
-.booking-page .dropdown-toggle::after {
+.catering-page .dropdown-toggle::after {
     content: "›"; /* right arrow */
     font-size: 1.4rem;
     color: #cc5500; /* Wheel Foodie orange */
@@ -1620,17 +1620,17 @@ nav.main-nav {
 }
 
 /* Rotate arrow when open */
-.booking-page .dropdown-toggle.active::after {
+.catering-page .dropdown-toggle.active::after {
     transform: translateY(-50%) rotate(90deg);
 }
 
 /* Hover effect */
-.booking-page .dropdown-toggle:hover {
+.catering-page .dropdown-toggle:hover {
     background: rgba(204, 85, 0, 0.1);
 }
 
 /* Dropdown content */
-.booking-page .dropdown-content {
+.catering-page .dropdown-content {
     display: none;
     padding: 15px 20px;
     background: rgba(255, 255, 255, 0.85);
@@ -1639,37 +1639,37 @@ nav.main-nav {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.booking-page .dropdown-content.two-col {
+.catering-page .dropdown-content.two-col {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 15px 20px;
 }
 
-.booking-page .menu-item {
+.catering-page .menu-item {
     padding: 16px 20px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.85);
 }
 
-.booking-page .menu-item h4 {
+.catering-page .menu-item h4 {
     color: #2b4506;
     margin-bottom: 6px;
 }
 
-.booking-page .price {
+.catering-page .price {
     color: #cc5500;
     font-weight: bold;
 }
 
-/* Booking.html Gallery Section */
-.booking-page .gallery-section {
+/* Catering.html Gallery Section */
+.catering-page .gallery-section {
     text-align: center;
     padding: 40px 20px 30px;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.booking-page .gallery-section h3 {
+.catering-page .gallery-section h3 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #2b4506; /* deep green to match your feature card buttons */
@@ -1678,7 +1678,7 @@ nav.main-nav {
     text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.booking-page .gallery-divider {
+.catering-page .gallery-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1690,7 +1690,7 @@ nav.main-nav {
 }
 
 
-.booking-page .gallery-row {
+.catering-page .gallery-row {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -1698,7 +1698,7 @@ nav.main-nav {
     flex-wrap: wrap;
 }
 
-.booking-page .gallery-card {
+.catering-page .gallery-card {
     position: relative;
     width: 280px;
     height: 180px;
@@ -1708,7 +1708,7 @@ nav.main-nav {
 }
 
 /* Background image */
-.booking-page .gallery-bg {
+.catering-page .gallery-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -1716,7 +1716,7 @@ nav.main-nav {
 }
 
 /* Gradient overlay for readability */
-.booking-page .gallery-card::before {
+.catering-page .gallery-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1730,7 +1730,7 @@ nav.main-nav {
 }
 
 /* Content on top of image */
-.booking-page .gallery-content {
+.catering-page .gallery-content {
     position: absolute;
     inset: 0;
     padding: 20px;
@@ -1742,7 +1742,7 @@ nav.main-nav {
     text-align: center;
 }
 
-.booking-page .gallery-content h2 {
+.catering-page .gallery-content h2 {
     font-size: 1.6rem;
     font-weight: 700;
     color: #ffffff;
@@ -1751,33 +1751,33 @@ nav.main-nav {
     letter-spacing: 1px;
 }
 
-.booking-page .gallery-content h3 {
+.catering-page .gallery-content h3 {
     font-size: 1.4rem;
     margin: 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.booking-page .gallery-content p {
+.catering-page .gallery-content p {
     font-size: 1rem;
     margin: 10px 0 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 /* WHAT TO EXPECT SECTION */
-.booking-page .expect-section {
+.catering-page .expect-section {
     max-width: 1100px;
     margin: 60px auto;
     padding: 0 20px;
     text-align: center;
 }
 
-.booking-page .expect-title {
+.catering-page .expect-title {
     font-size: 2rem;
     color: #2b4506;
     margin-bottom: 10px;
 }
 
-.booking-page .expect-divider {
+.catering-page .expect-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1788,40 +1788,40 @@ nav.main-nav {
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.booking-page .expect-grid {
+.catering-page .expect-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
     margin-top: 40px;
 }
 
-.booking-page .expect-item img {
+.catering-page .expect-item img {
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
 }
 
-.booking-page .expect-item h3 {
+.catering-page .expect-item h3 {
     font-size: 1.2rem;
     color: #2b4506;
     margin-bottom: 8px;
 }
 
-.booking-page .expect-item p {
+.catering-page .expect-item p {
     font-size: 0.95rem;
     color: #444;
     max-width: 260px;
     margin: 0 auto;
 }
 
-.booking-page .contact-section {
+.catering-page .contact-section {
     text-align: center;
     padding: 40px 20px 30px;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.booking-page .contact-section h3 {
+.catering-page .contact-section h3 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #2b4506; /* deep green to match your feature card buttons */
@@ -1831,7 +1831,7 @@ nav.main-nav {
 }
 
 /* Orange divider */
-.booking-page .contact-divider {
+.catering-page .contact-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1842,22 +1842,22 @@ nav.main-nav {
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.booking-page .booking-quote-card {
+.catering-page .catering-quote-card {
     margin: 0 auto;
 }
 
-.booking-page .booking-form-section,
-.booking-page .booking-gallery-section,
-.booking-page .booking-wrapper {
+.catering-page .catering-form-section,
+.catering-page .catering-gallery-section,
+.catering-page .catering-wrapper {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Match input styling */
-.booking-page .booking-quote-card form input,
-.booking-page .booking-quote-card form select,
-.booking-page .booking-quote-card form textarea {
+.catering-page .catering-quote-card form input,
+.catering-page .catering-quote-card form select,
+.catering-page .catering-quote-card form textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -1874,7 +1874,7 @@ nav.main-nav {
 }
 
 /* Fix iPhone Safari date input appearance */
-.booking-page input[type="date"] {
+.catering-page input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
     background-color: rgba(255, 255, 255, 0.85);
@@ -1889,25 +1889,25 @@ nav.main-nav {
 }
 
 /* Fake placeholder for iPhone (Safari hides real placeholders) */
-.booking-page input[type="date"]::before {
+.catering-page input[type="date"]::before {
     content: attr(placeholder);
     color: #777;
 }
 
-.booking-page input[type="date"]:focus::before,
-.booking-page input[type="date"]:valid::before {
+.catering-page input[type="date"]:focus::before,
+.catering-page input[type="date"]:valid::before {
     content: "";
 }
 
 /* Hover + focus effect */
-.booking-page .booking-quote-card form select:focus,
-.booking-page .booking-quote-card form textarea:focus {
+.catering-page .catering-quote-card form select:focus,
+.catering-page .catering-quote-card form textarea:focus {
     border-color: #cc5500;
     box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
 }
 
 /* Dropdown arrow styling (clean + modern) */
-.booking-page .booking-quote-card form select {
+.catering-page .catering-quote-card form select {
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
@@ -1916,13 +1916,13 @@ nav.main-nav {
 }
 
 /* Textarea height */
-.booking-page .booking-quote-card form textarea {
+.catering-page .catering-quote-card form textarea {
     min-height: 120px;
     resize: vertical;
 }
 
 
-.booking-page .booking-quote-card {
+.catering-page .catering-quote-card {
     background: #e8d8c3;
     padding: 40px 30px;
     border-radius: 20px;
@@ -1932,13 +1932,13 @@ nav.main-nav {
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-.booking-page .booking-quote-card h2 {
+.catering-page .catering-quote-card h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-.booking-page .booking-quote-divider {
+.catering-page .catering-quote-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1949,14 +1949,14 @@ nav.main-nav {
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.booking-page .booking-quote-card .booking-subtitle {
+.catering-page .catering-quote-card .catering-subtitle {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 25px;
     opacity: 0.9;
 }
 
-.booking-page .booking-quote-card form {
+.catering-page .catering-quote-card form {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -1964,7 +1964,7 @@ nav.main-nav {
 }
 
 /* Consent checkbox styling */
-.booking-page .booking-quote-card .booking-consent {
+.catering-page .catering-quote-card .catering-consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1974,13 +1974,13 @@ nav.main-nav {
     margin-top: 15px;
 }
 
-.booking-page .booking-quote-card .booking-consent input[type="checkbox"] {
+.catering-page .catering-quote-card .catering-consent input[type="checkbox"] {
     margin-top: 3px;
     width: 18px;
     height: 18px;
 }
 
-.booking-page .booking-quote-card button {
+.catering-page .catering-quote-card button {
     width: fit-content;
     align-self: center;
     padding: 12px 24px;
@@ -2253,12 +2253,12 @@ nav.main-nav {
 
 @media (max-width: 800px) {
 
-  .booking-page .booking-hero {
+  .catering-page .catering-hero {
     padding-top: 4rem;
     padding-bottom: 2rem;
   }
 
-  .booking-page .booking-hero .hero-card {
+  .catering-page .catering-hero .hero-card {
     position: relative;   /* override homepage absolute positioning */
     left: 0;
     top: 0;
@@ -2271,7 +2271,7 @@ nav.main-nav {
     box-sizing: border-box;
   }
 
-  .booking-page .booking-hero .hero-card h1 {
+  .catering-page .catering-hero .hero-card h1 {
     font-size: 2rem;
     line-height: 1.25;
     margin-bottom: 1rem;
@@ -2279,12 +2279,12 @@ nav.main-nav {
     overflow-wrap: break-word;
   }
 
-  .booking-page .booking-hero .hero-card h2 {
+  .catering-page .catering-hero .hero-card h2 {
     white-space: normal !important;
     overflow-wrap: break-word;
   }
 
-  .booking-page .booking-hero .hero-card p {
+  .catering-page .catering-hero .hero-card p {
     font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 1.5rem;
@@ -2292,7 +2292,7 @@ nav.main-nav {
     overflow-wrap: break-word;
   }
 
-  .booking-page .booking-hero .hero-card .btn-orange {
+  .catering-page .catering-hero .hero-card .btn-orange {
     white-space: normal;
     line-height: 1.2;
     padding: 0.9rem 1.4rem;
@@ -2311,7 +2311,7 @@ nav.main-nav {
         margin: 0 auto;
     }
 
-    .booking-page .gallery-card {
+    .catering-page .gallery-card {
         width: 90%;
         height: 160px;
     }
