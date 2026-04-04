@@ -1149,55 +1149,124 @@ nav.main-nav {
     margin-top: 15px;
 }
 
+/* ===== SPECIALS ROW ===== */
 .specials-page .specials-row {
     display: flex;
     justify-content: center;
+    align-items: cneter;
     gap: 30px;
     padding: 40px 20px;
-    background: #d7c2a1; /* warm brown backdrop like your image */
-    flex-wrap: wrap; /* mobile friendly */
+    background: #d7c2a1;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
+/* ===== CARD ===== */
 .specials-page .special-card {
-    background: #fff;
-    width: 350px;
-    border-radius: 14px;
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    width: 500px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     display: flex;
     flex-direction: column;
 }
 
+/* IMAGE */
 .specials-page .special-card img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
 
+/* CONTENT */
 .specials-page .special-content {
     padding: 20px;
     text-align: center;
 }
 
 .specials-page .special-content h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
-    color: #2b4506; /* your green accent */
+    color: #2b4506;
 }
 
 .specials-page .special-content p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.specials-page .special-card .btn-orange {
+/* ===== REWARDS SECTION ===== */
+.specials-page .rewards-section {
+    background: #fff7f0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.specials-page .rewards-divider {
+    width: 80px;
+    height: 4px;
+    background: #ff5a00;
+    margin: 10px auto 20px;
+}
+
+/* ===== COUPONS ===== */
+.specials-page .coupon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.specials-page .coupon-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.coupon-badge {
     display: inline-block;
-    padding: 10px 20px;
-    font-weight: 600;
+    margin-top: 6px;
+    padding: 4px 10px;
+    background: #f3e2c8;
+    color: #2b4506;
+    font-size: 0.75rem;
     border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
+.specials-page .expires {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #2b4506;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .specials-page .specials-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .specials-page .coupon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .specials-page .specials-row {
+        grid-template-columns: 1fr;
+    }
+
+    .specials-page .coupon-grid {
+        grid-template-columns: 1fr;
+    }
+}
    
 
 .locations-page .locations-hero {
@@ -2282,6 +2351,36 @@ nav.main-nav {
         width: fit-content;
         margin: 10px auto 0 auto;
     }
+
+    
+    .specials-page .coupon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .specials-page .coupon-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .specials-page .coupon-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .specials-page .expires {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #a05a2c;
+    }
+
+    .specials-page .view-menu-btn {
+        margin-top: 20px;
+    }
+
 
     .locations-page .info-row {
         padding-top: 10px;
