@@ -52,209 +52,237 @@
                 <h1 class="site-title">Wheel Foodie</h1>
             </div>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="specials.html">Specials</a></li>
-                    <li><a href="locations.html">Locations</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="booking.html" aria-current="page">Book Now</a></li>
-                </ul>
-            </nav>
-            
+            <!-- GROUP NAV + ACCOUNT + CART -->
+            <div class="header-center">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="specials.html">Specials</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="booking.html" aria-current="page">Book Now</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="utility-nav">
+                    <div class="account-menu">
+                        <span class="account-label">
+                            <svg class="user-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
+                            </svg>
+                            Account ▾
+                        </span>
+
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </div>
+
+                    <a href="checkout.html" class="cart-icon">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+
             <button class="hamburger">&#9776;</button>
+        
         </div>
     </header>
 
-    <section class="hero booking-hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-text hero-card">
-            <h1>YOUR EVENT. OUR FLAVOR. GET A QUOTE.</h1>
-            <p>Fresh, fast, and bold catering for parties, corporate, gatherings, weddings, and any event that needs unforgettable flavor.</p>
-            <a href="#quote" class="btn-orange">YOUR EVENT. OUR FLAVOR. GET A QUOTE!</a>
-        </div>
-    </section>
+    <main>
 
-    <section class="menu-section">
-        <h2>Full Catering Menu</h2>
-        <div class="catering-menu-divider"></div>
-        
-        <!-- Signature Bowls -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Signature Bowls (Catering Style)</button>
-            <div class="dropdown-content">
-                <div class="menu-item">
-                    <h4>Street Eats Package</h4>
-                    <ul>
-                        <li>3 Entrées</li>
-                        <li>2 Sides</li>
-                        <li>Fresh sauces + toppings</li>
-                    </ul>
-                    <span class="price">Starting at $18/person</span>
-                </div>
-
-                <div class="menu-item">
-                    <h4>Premium Catering</h4>
-                    <ul>
-                        <li>4 Entrées</li>
-                        <li>3 Sides</li>
-                        <li>Full-service setup</li>
-                    </ul>
-                    <span class="price">Starting at $28/person</span>
-                </div>
+        <section class="hero booking-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-text hero-card">
+                <h1>YOUR EVENT. OUR FLAVOR. GET A QUOTE.</h1>
+                <p>Fresh, fast, and bold catering for parties, corporate, gatherings, weddings, and any event that needs unforgettable flavor.</p>
+                <a href="#quote" class="btn-orange">YOUR EVENT. OUR FLAVOR. GET A QUOTE!</a>
             </div>
-        </div>
+        </section>
 
-        <!-- Entrees -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Entrées</button>
-            <div class="dropdown-content two-col">
-                <div class="menu-item"><h4>Birria Tacos</h4><p>Slow-cooked beef, consommé, melted cheese.</p></div>
-                <div class="menu-item"><h4>Loaded Nachos</h4><p>Choice of protein, queso, pico, jalapeños.</p></div>
-                <div class="menu-item"><h4>Quesadillas</h4><p>Grilled tortillas, cheese blend, protein options.</p></div>
-                <div class="menu-item"><h4>Street Corn Bowls</h4><p>Elote-style corn, cotija, lime crema.</p></div>
-            </div>
-        </div>
-
-        <!-- Sides -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Sides</button>
-            <div class="dropdown-content two-col">
-                <div class="menu-item"><h4>Mexican Rice</h4></div>
-                <div class="menu-item"><h4>Refried Beans</h4></div>
-                <div class="menu-item"><h4>Chips & Salsa</h4></div>
-                <div class="menu-item"><h4>Street Corn Cups</h4></div>
-            </div>
-        </div>
-
-         <!-- Beverages -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Beverages</button>
-            <div class="dropdown-content two-col">
-                <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                <div class="menu-item"><h4>Dessert Churros</h4></div>
-                <div class="menu-item"><h4>Drink Station</h4></div>
-                <div class="menu-item"><h4>Full-Service Staff</h4></div>
-            </div>
-        </div>
-
-        <!-- Add-ons -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Desserts & Add-Ons</button>
-            <div class="dropdown-content two-col">
-                <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                <div class="menu-item"><h4>Dessert Churros</h4></div>
-                <div class="menu-item"><h4>Drink Station</h4></div>
-                <div class="menu-item"><h4>Full-Service Staff</h4></div>
-            </div>
-        </div>
-
-        <!-- Full Packages (Per Person) -->
-        <div class="menu-dropdown">
-            <button class="dropdown-toggle">Full Packages (Per Person)</button>
-            <div class="dropdown-content two-col">
-                <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                <div class="menu-item"><h4>Dessert Churros</h4></div>
-                <div class="menu-item"><h4>Drink Station</h4></div>
-                <div class="menu-item"><h4>Full-Service Staff</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <h3>Catering Gallery</h3>
-        <div class="gallery-divider"></div>
-        <div class="gallery-row">
+        <section class="menu-section">
+            <h2>Full Catering Menu</h2>
+            <div class="catering-menu-divider"></div>
             
-            <div class="gallery-card">
-                <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery1.jpg');"></div>
+            <!-- Signature Bowls -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Signature Bowls (Catering Style)</button>
+                <div class="dropdown-content">
+                    <div class="menu-item">
+                        <h4>Street Eats Package</h4>
+                        <ul>
+                            <li>3 Entrées</li>
+                            <li>2 Sides</li>
+                            <li>Fresh sauces + toppings</li>
+                        </ul>
+                        <span class="price">Starting at $18/person</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Premium Catering</h4>
+                        <ul>
+                            <li>4 Entrées</li>
+                            <li>3 Sides</li>
+                            <li>Full-service setup</li>
+                        </ul>
+                        <span class="price">Starting at $28/person</span>
+                    </div>
+                </div>
             </div>
-        
-            <div class="gallery-card">
-                <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery2.jpg');"></div>
+
+            <!-- Entrees -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Entrées</button>
+                <div class="dropdown-content two-col">
+                    <div class="menu-item"><h4>Birria Tacos</h4><p>Slow-cooked beef, consommé, melted cheese.</p></div>
+                    <div class="menu-item"><h4>Loaded Nachos</h4><p>Choice of protein, queso, pico, jalapeños.</p></div>
+                    <div class="menu-item"><h4>Quesadillas</h4><p>Grilled tortillas, cheese blend, protein options.</p></div>
+                    <div class="menu-item"><h4>Street Corn Bowls</h4><p>Elote-style corn, cotija, lime crema.</p></div>
+                </div>
             </div>
-            
-            <div class="gallery-card">
-                <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery3.jpg');"></div>
+
+            <!-- Sides -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Sides</button>
+                <div class="dropdown-content two-col">
+                    <div class="menu-item"><h4>Mexican Rice</h4></div>
+                    <div class="menu-item"><h4>Refried Beans</h4></div>
+                    <div class="menu-item"><h4>Chips & Salsa</h4></div>
+                    <div class="menu-item"><h4>Street Corn Cups</h4></div>
+                </div>
             </div>
-    </section>
 
-    <section class="expect-section">
-        <h2 class="expect-title">What to Expect</h2>
-        <div class="expect-divider"></div>
-
-            <div class="expect-grid">
-
-                <div class="expect-item">
-                    <img src="assets/icons/checkmark-shield.svg">
-                    <h3>Worry-Free Service</h3>
-                    <p>Your safety is our top priority. We handle setup and packageing, so you can enjou the event.</p>
+            <!-- Beverages -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Beverages</button>
+                <div class="dropdown-content two-col">
+                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
+                    <div class="menu-item"><h4>Dessert Churros</h4></div>
+                    <div class="menu-item"><h4>Drink Station</h4></div>
+                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
                 </div>
+            </div>
 
-                <div class="expect-item">
-                    <img src="assets/icons/delivery_truck.svg">
-                    <h3>Fresh Food, Delivered Fast</h3>
-                    <p>Hot and ready to serve on arrival.</p>
+            <!-- Add-ons -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Desserts & Add-Ons</button>
+                <div class="dropdown-content two-col">
+                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
+                    <div class="menu-item"><h4>Dessert Churros</h4></div>
+                    <div class="menu-item"><h4>Drink Station</h4></div>
+                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
                 </div>
+            </div>
 
-                <div class="expect-item">
-                    <img src="assets/icons/chef.svg">
-                    <h3>Customizable Packages</h3>
-                    <p>Mix and match menu items to fit your needs.</p>
+            <!-- Full Packages (Per Person) -->
+            <div class="menu-dropdown">
+                <button class="dropdown-toggle">Full Packages (Per Person)</button>
+                <div class="dropdown-content two-col">
+                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
+                    <div class="menu-item"><h4>Dessert Churros</h4></div>
+                    <div class="menu-item"><h4>Drink Station</h4></div>
+                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="expect-item">
-                    <img src="assets/icons/handshake-svgrepo-com.svg">
-                    <h3>Reliable Communication</h3>
-                    <p>We keep you updated from booking to delivery.</p>
-                </div>
-    </section>
-
-    <section class="contact-section">
-        <h3>Contact Us</h3>
-        <div class="contact-divider"></div>
-        <div class="cater-quote-row" id="quote">
-            
-            <div class="booking-quote-card">
-                <h2>GET A QUOTE TODAY!</h2>
-                <div class="booking-quote-divider"></div>
-                <p class="booking-subtitle">Fill out the form below. We’ll reach out immediately to gather a little more info and answer all your questions.</p>
+        <section class="gallery-section">
+            <h3>Catering Gallery</h3>
+            <div class="gallery-divider"></div>
+            <div class="gallery-row">
                 
-                <form>
-                    <input type="text" placeholder="FIRST NAME*" required>
-                    <input type="text" placeholder="LAST NAME*" required>
-                    <input type="email" placeholder="EMAIL*" required>
-                    <input type="tel" placeholder="PHONE*" required>
+                <div class="gallery-card">
+                    <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery1.jpg');"></div>
+                </div>
+            
+                <div class="gallery-card">
+                    <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery2.jpg');"></div>
+                </div>
+                
+                <div class="gallery-card">
+                    <div class="gallery-bg" style="background-image: url('assets/media/booking_gallery3.jpg');"></div>
+                </div>
+        </section>
 
-                    <input type="date" placeholder="EVENT DATE" required>
+        <section class="expect-section">
+            <h2 class="expect-title">What to Expect</h2>
+            <div class="expect-divider"></div>
 
-                    <input type="text" placeholder="EVENT LOCATION">
+                <div class="expect-grid">
 
-                    <input type="number" placeholder="NUMBER OF GUESTS">
+                    <div class="expect-item">
+                        <img src="assets/icons/checkmark-shield.svg">
+                        <h3>Worry-Free Service</h3>
+                        <p>Your safety is our top priority. We handle setup and packageing, so you can enjou the event.</p>
+                    </div>
 
-                    <select required>
-                        <option value="" disabled selected>TYPE OF EVENT</option>
-                        <option value="corporate">Corporate Event</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="birthday">Birthday</option>
-                        <option value="festival">Festival</option>
-                        <option value="private">Private Event</option>
-                    </select>
+                    <div class="expect-item">
+                        <img src="assets/icons/delivery_truck.svg">
+                        <h3>Fresh Food, Delivered Fast</h3>
+                        <p>Hot and ready to serve on arrival.</p>
+                    </div>
 
-                    <textarea placeholder="Message/Additional Notes"></textarea>
+                    <div class="expect-item">
+                        <img src="assets/icons/chef.svg">
+                        <h3>Customizable Packages</h3>
+                        <p>Mix and match menu items to fit your needs.</p>
+                    </div>
 
-                    <label class="booking-consent">
-                        <input type="checkbox" required>
-                        By clicking submit you agree for Wheel Foodie to email, text, or call you about your food truck inquiry.
-                    </label>
+                    <div class="expect-item">
+                        <img src="assets/icons/handshake-svgrepo-com.svg">
+                        <h3>Reliable Communication</h3>
+                        <p>We keep you updated from booking to delivery.</p>
+                    </div>
+        </section>
+
+        <section class="contact-section">
+            <h3>Contact Us</h3>
+            <div class="contact-divider"></div>
+            <div class="cater-quote-row" id="quote">
+                
+                <div class="booking-quote-card">
+                    <h2>GET A QUOTE TODAY!</h2>
+                    <div class="booking-quote-divider"></div>
+                    <p class="booking-subtitle">Fill out the form below. We’ll reach out immediately to gather a little more info and answer all your questions.</p>
                     
-                    <button type="submit" class="btn-orange">SUBMIT</button>
-                </form>
-            </div>
-        </div>
+                    <form>
+                        <input type="text" placeholder="FIRST NAME*" required>
+                        <input type="text" placeholder="LAST NAME*" required>
+                        <input type="email" placeholder="EMAIL*" required>
+                        <input type="tel" placeholder="PHONE*" required>
 
-    </section>
+                        <input type="date" placeholder="EVENT DATE" required>
+
+                        <input type="text" placeholder="EVENT LOCATION">
+
+                        <input type="number" placeholder="NUMBER OF GUESTS">
+
+                        <select required>
+                            <option value="" disabled selected>TYPE OF EVENT</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="festival">Festival</option>
+                            <option value="private">Private Event</option>
+                        </select>
+
+                        <textarea placeholder="Message/Additional Notes"></textarea>
+
+                        <label class="booking-consent">
+                            <input type="checkbox" required>
+                            By clicking submit you agree for Wheel Foodie to email, text, or call you about your food truck inquiry.
+                        </label>
+                        
+                        <button type="submit" class="btn-orange">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-inner">

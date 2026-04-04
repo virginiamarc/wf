@@ -52,18 +52,43 @@
                 <h1 class="site-title">Wheel Foodie</h1>
             </div>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html" aria-current="page">Menu</a></li>
-                    <li><a href="specials.html">Specials</a></li>
-                    <li><a href="locations.html">Locations</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="booking.html">Book Now</a></li>
-                </ul>
-            </nav>
+            <!-- GROUP NAV + ACCOUNT + CART -->
+            <div class="header-center">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html" aria-current="page">Menu</a></li>
+                        <li><a href="specials.html">Specials</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </nav>
             
+                <div class="utility-nav">
+                    <div class="account-menu">
+                        <span class="account-label">
+                            <svg class="user-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
+                            </svg>
+                            Account ▾
+                        </span>
+
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </div>
+
+                    <a href="checkout.html" class="cart-icon">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+
             <button class="hamburger">&#9776;</button>
+        
         </div>
     </header>
 

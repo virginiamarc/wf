@@ -54,114 +54,141 @@
                 <h1 class="site-title">Wheel Foodie</h1>
             </div>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="specials.html">Specials</a></li>
-                    <li><a href="locations.html">Locations</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="booking.html">Book Now</a></li>
-                </ul>
-            </nav>
-            
+            <!-- GROUP NAV + ACCOUNT + CART -->
+            <div class="header-center">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="specials.html">Specials</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </nav>
+
+                <div class="utility-nav">
+                    <div class="account-menu">
+                        <span class="account-label">
+                            <svg class="user-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
+                            </svg>
+                            Account ▾
+                        </span>
+
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </div>
+
+                    <a href="checkout.html" class="cart-icon">
+                        🛒 <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+
             <button class="hamburger">&#9776;</button>
+        
         </div>
     </header>
 
+    <main>
     
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-text hero-card">
-            <h1>WHEEL FOODIE CATERING</h1>
-            <h2>FRESH, FAST, AND MADE FOR YOU!</h2>
-            <p>Turn your event into a street-style celebration.</p>
-            <a href="#quote" class="btn-orange">YOUR EVENT. OUR FLAVOR. GET A QUOTE!</a>
-        </div>
-    </section>
-
-    <section class="index-intro-section">
-        <h3>ROLLIN' GREAT FOOD WHEREVER YOU ARE!</h3>
-        <div class="index-intro-divider"></div>
-        <p>
-            From sizzling street eats to full-service catering, 
-            Wheel Foodie delivers bold flavors on your schedule. 
-            Order now, check out exclusive specials, or book us to elevate your next event.
-        </p>
-    </section>
-
-    <section class="feature-row">
-        <div class="feature-card">
-            <div class="feature-bg" style="background-image: url('assets/media/steak-platter.png');"></div>
-            <div class="feature-content">
-                <h2>SPECIALS</h2>
-                <a href="menu.html" class="btn-orange">ORDER</a>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-text hero-card">
+                <h1>WHEEL FOODIE CATERING</h1>
+                <h2>FRESH, FAST, AND MADE FOR YOU!</h2>
+                <p>Turn your event into a street-style celebration.</p>
+                <a href="#quote" class="btn-orange">YOUR EVENT. OUR FLAVOR. GET A QUOTE!</a>
             </div>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-bg" style="background-image: url('assets/media/rewards2-home.jpg');"></div>
-            <div class="feature-content">
-                <h2>REWARDS</h2>
-                <div class="feature-divider"></div>
-                <h3 class="subtitle">EARN FREE FOOD</h3>
-                <p>Join our rewards program and save with every order!</p>
-                <a href="specials.html" class="btn-orange">VIEW SPECIALS</a>
+        </section>
+
+        <section class="index-intro-section">
+            <h3>ROLLIN' GREAT FOOD WHEREVER YOU ARE!</h3>
+            <div class="index-intro-divider"></div>
+            <p>
+                From sizzling street eats to full-service catering, 
+                Wheel Foodie delivers bold flavors on your schedule. 
+                Order now, check out exclusive specials, or book us to elevate your next event.
+            </p>
+        </section>
+
+        <section class="feature-row">
+            <div class="feature-card">
+                <div class="feature-bg" style="background-image: url('assets/media/steak-platter.png');"></div>
+                <div class="feature-content">
+                    <h2>SPECIALS</h2>
+                    <a href="menu.html" class="btn-orange">ORDER</a>
+                </div>
             </div>
-        </div>
+            
+            <div class="feature-card">
+                <div class="feature-bg" style="background-image: url('assets/media/rewards2-home.jpg');"></div>
+                <div class="feature-content">
+                    <h2>REWARDS</h2>
+                    <div class="feature-divider"></div>
+                    <h3 class="subtitle">EARN FREE FOOD</h3>
+                    <p>Join our rewards program and save with every order!</p>
+                    <a href="specials.html" class="btn-orange">VIEW SPECIALS</a>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-bg" style="background-image: url('assets/media/cater-home.jpg');"></div>
+                <div class="feature-content">
+                    <h2>CATERING</h2>
+                    <p>Bring our flavors to your next event!</p>
+                    <a href="booking.html" class="btn-orange">BOOK NOW</a>
+                </div>
+            </div>
+        </section>
         
-        <div class="feature-card">
-            <div class="feature-bg" style="background-image: url('assets/media/cater-home.jpg');"></div>
-            <div class="feature-content">
-                <h2>CATERING</h2>
-                <p>Bring our flavors to your next event!</p>
+        <section class="cater-row" id="quote">
+
+            <div class="cater-card">
+                <h2>HOW WE CATER</h2>
+                <div class="cater-divider"></div>
+                <p class="cater-card-subtitle">LOCAL CATERING YOU CAN TRUST</p>
+                
+                <ul>
+                    <li><span class="label worry">Worry Free.</span> We take care of all the detail, so you don’t have to think about the food.</li>
+                    <li><span class="label vibes">Positive Vibes.</span> Happy team members creating smiles and memories.</li>
+                    <li><span class="label reliability">Reliability.</span> We deliver consistent quality every time.</li>
+                    <li><span class="label speedy">Speedy Service.</span> Get your order delivered fast without compromising on taste.</li>
+                </ul>
+                <div class="cater-badge">
+                    <span>⭐ 5‑Star Local Service</span>
+                </div>
+
                 <a href="booking.html" class="btn-orange">BOOK NOW</a>
             </div>
-        </div>
-    </section>
-    
-    <section class="cater-row" id="quote">
 
-        <div class="cater-card">
-            <h2>HOW WE CATER</h2>
-            <div class="cater-divider"></div>
-            <p class="cater-card-subtitle">LOCAL CATERING YOU CAN TRUST</p>
-            
-            <ul>
-                <li><span class="label worry">Worry Free.</span> We take care of all the detail, so you don’t have to think about the food.</li>
-                <li><span class="label vibes">Positive Vibes.</span> Happy team members creating smiles and memories.</li>
-                <li><span class="label reliability">Reliability.</span> We deliver consistent quality every time.</li>
-                <li><span class="label speedy">Speedy Service.</span> Get your order delivered fast without compromising on taste.</li>
-            </ul>
-            <div class="cater-badge">
-                <span>⭐ 5‑Star Local Service</span>
+
+            <div class="index-quote-card">
+                <h2>GET A QUOTE TODAY!</h2>
+                <div class="index-quote-divider"></div>
+                <p class="quote-subtitle">Fill out the form below. We’ll reach out immediately to gather a little more info and answer all your questions.</p>
+                
+                <form>
+                    <input type="text" placeholder="FIRST NAME*" required>
+                    <input type="text" placeholder="LAST NAME*" required>
+                    <input type="email" placeholder="EMAIL*" required>
+                    <input type="tel" placeholder="PHONE*" required>
+
+                    <label class="consent">
+                        <input type="checkbox" required>
+                        By clicking submit you agree for Wheel Foodie to email, text, or call you about your food truck inquiry.
+                    </label>
+                    
+                    <button type="submit" class="btn-orange">SUBMIT</button>
+                </form>
             </div>
 
-            <a href="booking.html" class="btn-orange">BOOK NOW</a>
-        </div>
-
-
-        <div class="index-quote-card">
-            <h2>GET A QUOTE TODAY!</h2>
-            <div class="index-quote-divider"></div>
-            <p class="quote-subtitle">Fill out the form below. We’ll reach out immediately to gather a little more info and answer all your questions.</p>
-            
-            <form>
-                <input type="text" placeholder="FIRST NAME*" required>
-                <input type="text" placeholder="LAST NAME*" required>
-                <input type="email" placeholder="EMAIL*" required>
-                <input type="tel" placeholder="PHONE*" required>
-
-                <label class="consent">
-                    <input type="checkbox" required>
-                    By clicking submit you agree for Wheel Foodie to email, text, or call you about your food truck inquiry.
-                </label>
-                
-                <button type="submit" class="btn-orange">SUBMIT</button>
-            </form>
-        </div>
-
-    </section>
+        </section>
+    </main>
 
 
     <footer class="site-footer">
