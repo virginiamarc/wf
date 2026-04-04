@@ -323,10 +323,6 @@
     opacity: 0.9;
 }
 
-.about-hero {
-    background: url('../media/about-hero.jpg') center/cover no-repeat;
-}
-
 
 /* Feature Section */
 .feature-row {
@@ -825,7 +821,7 @@
 
 
 
-.locations-hero {
+.locations-page .locations-hero {
     background: url('../media/locations-hero.png') center/cover no-repeat;
     display: flex;
     align-items: flex-end; /* moves text lower */
@@ -833,7 +829,7 @@
     padding-bottom: 80px; /* spacing from bottom */
 }
 
-.locations-hero .hero-text {
+.locations-page .locations-hero .hero-text {
     margin-left: 40px;
     text-align: left;
     display: flex;
@@ -841,18 +837,18 @@
     align-items: flex-start;
 }
 
-.locations-hero .hero-text h1 {
+.locations-page .locations-hero .hero-text h1 {
     color: #fff;
     text-align: left;
     align-items: flex-start;
 }
 
-.locations-hero .btn-orange {
+.locations-page .locations-hero .btn-orange {
     margin-top: 15px;
 }
 
 /* Modal Background */
-.modal {
+.locations-page .modal {
     display: none;
     position: fixed;
     inset: 0;
@@ -864,7 +860,8 @@
 }
 
 /* Modal Box */
-.modal-content {
+.locations-page .modal-content {
+    position: relative;
     background: #fff;
     padding: 30px;
     border-radius: 18px;
@@ -875,15 +872,24 @@
 }
 
 /* Close Button */
-.close-modal {
-    float: right;
+.locations-page .close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
     font-size: 1.8rem;
-    cursor: pointer;
+    font-weight: 600;
     color: #444;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.locations-page .close-modal:hover {
+    opacity: 1;
 }
 
 /* Mini Map */
-.mini-map {
+.locations-page .mini-map {
     width: 100%;
     height: 180px;
     border: none;
@@ -891,20 +897,20 @@
     margin: 15px 0;
 }
 
-.follow-note {
+.locations-page.follow-note {
     margin-top: 10px;
     font-size: 0.9rem;
     opacity: 0.8;
 }
 
-.modal-social {
+.locations-page .modal-social {
     margin-top: 10px;
     display: flex;
     gap: 14px;
     justify-content: center;
 }
 
-.modal-social .social-icon {
+.locations-page .modal-social .social-icon {
     font-size: 1.3rem;
     color: #2b4506;
     text-decoration: none;
@@ -912,11 +918,11 @@
     transition: opacity 0.2s ease;
 }
 
-.modal-social .social-icon:hover {
+.locations-page .modal-social .social-icon:hover {
     opacity: 1;
 }
 
-.section-title {
+.locations-page .section-title {
     text-align: center;
     font-size: 2.2rem;
     margin-top: 60px;
@@ -926,18 +932,18 @@
 }
 
 /* Locations page */
-.info-row {
+.locations-page .info-row {
     background: #faf7f2;
     display: flex;
     gap: 40px;
     justify-content: center;
-    padding: 100px 20px;
+    padding: 50px 20px;
     border-radius: 30px;
     align-items: flex-start;
     flex-wrap: wrap; /* mobile-friendly */
 }
 
-.hours-card {
+.locations-page .hours-card {
     background: #e8d8c3; /* your warm tan */
     padding: 55px 30px 35px 30px;
     border-radius: 20px;
@@ -950,7 +956,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.hours-card h2 {
+.locations-page .hours-card h2 {
     color: #2b4506;
     text-align: center;
     font-size: 1.6rem;
@@ -959,7 +965,7 @@
 }
 
 /* Align days left, times right*/
-.hours-card ul li {
+.locations-page .hours-card ul li {
     display: flex;
     justify-content: space-between;
     gap: 40px;
@@ -968,26 +974,26 @@
     margin-bottom: 14px;
 }
 
-.hours-card .time {
+.locations-page .hours-card .time {
     text-align: right;
     min-width: 140px;
 }
 
 /* List styling */
-.hours-card ul {
+.locations-page .hours-card ul {
     list-style: none;
     padding: 0;
     margin: 0 0 5px 0;
 }
 
-.hours-card li {
+.locations-page .hours-card li {
     margin-bottom: 18px;
     line-height: 0.5;
     font-size: 1.05rem;
 }
 
-.hours-card::before,
-.locations-card::before {
+.locations-page .hours-card::before,
+.locations-page .locations-card::before {
     content: "";
     display: block;
     height: 6px;
@@ -1008,13 +1014,13 @@
     0 0 18px rgba(0,0,0,0.20);
 }*/
 
-.hours-note {
+.locations-page .hours-note {
     margin-top: 10px;
     font-size: 0.95rem;
     color: #555;
 }
 
-.locations-card {
+.locations-page .locations-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1027,14 +1033,14 @@
     min-width: 320px;
 }
 
-.locations-subtitle {
+.locations-page .locations-subtitle {
     font-size: 1.4rem;
     color: #2b4506;
     margin-bottom: 15px;
     font-weight: 700;
 }
 
-.locations-card {
+.locations-page .locations-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1053,7 +1059,7 @@
 }
 
 /* Center the button */
-.locations-card .btn-orange {
+.locations-page .locations-card .btn-orange {
     margin-top: 25px;
     padding: 6px 14px;
     font-size: 0.8rem;
@@ -1063,16 +1069,24 @@
     width: fit-content;
 }
 
+/* ABOUT PAGE */
+.about-hero {
+    background: url('../media/about-hero.jpg') center/cover no-repeat;
+}
 
+.about-page .hero-card p {
+    margin-bottom: 1.5rem; /* or 1.5rem if you want more breathing room */
+}
 
-.about-intro {
+/* Intro Section */
+.about-page .about-intro {
     text-align: center;
     padding: 40px 20px 15px 20px;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.about-intro h2 {
+.about-page .about-intro h2 {
     font-size: 2rem;
     font-weight: 700;
     color: #2b4506; /* deep green to match your feature card buttons */
@@ -1081,7 +1095,7 @@
     text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.aboutintro-divider {
+.about-page .aboutintro-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1092,7 +1106,7 @@
         0 0 18px rgba(0,0,0,0.20);
 }
 
-.about-intro p {
+.about-page .about-intro p {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.1rem;
@@ -1102,7 +1116,7 @@
 }
 
 /* About Section */
-.about-row {
+.about-page .about-row {
     display: flex;
     gap: 32px;
     justify-content: center;
@@ -1112,7 +1126,7 @@
     overflow-x: auto; /* allows horizontal scroll on small screens */
 }
 
-.about-card {
+.about-page .about-card {
     position: relative;
     width: 340px;
     min-width: 340px;
@@ -1128,7 +1142,7 @@
     justify-content: center;
 }
 
-.about-img {
+.about-page .about-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1143,7 +1157,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.subscribe-card {
+.about-page .subscribe-card {
     background: #e8d8c3; /* your warm tan */
     padding: 28px 24px;
     border-radius: 20px;
@@ -1157,13 +1171,13 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.subscribe-card h2 {
+.about-page .subscribe-card h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-.subscribe-divider {
+.about-page .subscribe-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1180,7 +1194,7 @@
     to { opacity: 1; transform: scaleX(1); }
 }
 
-.subscribe-card .subtitle {
+.about-page .subscribe-card .subtitle {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 25px;
@@ -1188,7 +1202,7 @@
 }
 
 /* Subscribe Form Styling */
-.subscribe-form input {
+.about-page .subscribe-form input {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -1204,12 +1218,12 @@
     transition: 0.2s ease;
 }
 
-.subscribe-form input:focus {
+.about-page .subscribe-form input:focus {
     border-color: #cc5500;
     box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
 }
 
-.subscribe-form .consent {
+.about-page .subscribe-form .consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1219,24 +1233,24 @@
     margin-bottom: 15px;
 }
 
-.subscribe-form .consent input[type="checkbox"] {
+.about-page .subscribe-form .consent input[type="checkbox"] {
     margin-top: 3px;
     width: 18px;
     height: 18px;
 }
 
-.subscribe-card button {
+.about-page .subscribe-card button {
     display: block;
     margin: 20px auto 0 auto; /* centers the button */
 }
 
-.subscribe-card .btn-orange:hover {
+.about-page .subscribe-card .btn-orange:hover {
     transform: translateY(-2);
     box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
 
 /* Field labels */
-.field-label {
+.about-page .field-label {
     display: block;
     font-size: 0.95rem;
     font-weight: 600;
@@ -1245,34 +1259,38 @@
     margin-top: 10px;
 }
 
-.field-label .optional {
+.about-page .field-label .optional {
     font-weight: 400;
     color: #555;
     font-size: 0.85rem;
 }
 
 
-
-
-
-
-.booking-hero {
+.booking-page .booking-hero {
     background: url('../media/gallery_img1.jpg') center/cover no-repeat;
 }
 
-.menu-section {
+.booking-page .hero-card p {
+    margin-bottom: 1.25rem; /* adjust to taste */
+}
+
+.booking-page .hero-card .btn-orange {
+    margin-top: 1rem; /* optional but creates perfect balance */
+}
+
+.booking-page .menu-section {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.menu-section h2 {
+.booking-page .menu-section h2 {
     text-align: center;
     color: #2b4506;
     font-size: 2rem;
 }
 
-.menu-divider {
+.booking-page .menu-divider {
     width: 80px;
     height: 4px;
     background: #cc5500;
@@ -1281,14 +1299,14 @@
 }
 
 /* Dropdown container */
-.menu-dropdown {
+.booking-page .menu-dropdown {
     border-bottom: 1px solid rgba(0,0,0,0.15);
     padding: 0;
     margin-bottom: 15px;
 }
 
 /* Dropdown button */
-.dropdown-toggle {
+.booking-page .dropdown-toggle {
     width: 100%;
     background: none;
     border: none;
@@ -1306,7 +1324,7 @@
 }
 
 /* Orange arrow on the right */
-.dropdown-toggle::after {
+.booking-page .dropdown-toggle::after {
     content: "›"; /* right arrow */
     font-size: 1.4rem;
     color: #cc5500; /* Wheel Foodie orange */
@@ -1318,17 +1336,17 @@
 }
 
 /* Rotate arrow when open */
-.dropdown-toggle.active::after {
+.booking-page .dropdown-toggle.active::after {
     transform: translateY(-50%) rotate(90deg);
 }
 
 /* Hover effect */
-.dropdown-toggle:hover {
+.booking-page .dropdown-toggle:hover {
     background: rgba(204, 85, 0, 0.1);
 }
 
 /* Dropdown content */
-.dropdown-content {
+.booking-page .dropdown-content {
     display: none;
     padding: 15px 20px;
     background: rgba(255, 255, 255, 0.85);
@@ -1337,30 +1355,30 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.dropdown-content.two-col {
+.booking-page .dropdown-content.two-col {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 15px 20px;
 }
 
-.menu-item {
+.booking-page .menu-item {
     padding: 16px 20px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.85);
 }
 
-.menu-item h4 {
+.booking-page .menu-item h4 {
     color: #2b4506;
     margin-bottom: 6px;
 }
 
-.price {
+.booking-page .price {
     color: #cc5500;
     font-weight: bold;
 }
 
 /* Booking.html Gallery Section */
-.gallery-row {
+.booking-page .gallery-row {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -1368,7 +1386,7 @@
     flex-wrap: wrap;
 }
 
-.gallery-card {
+.booking-page .gallery-card {
     position: relative;
     width: 280px;
     height: 180px;
@@ -1378,7 +1396,7 @@
 }
 
 /* Background image */
-.gallery-bg {
+.booking-page .gallery-bg {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -1386,7 +1404,7 @@
 }
 
 /* Gradient overlay for readability */
-.gallery-card::before {
+.booking-page .gallery-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1400,7 +1418,7 @@
 }
 
 /* Content on top of image */
-.gallery-content {
+.booking-page .gallery-content {
     position: absolute;
     inset: 0;
     padding: 20px;
@@ -1412,7 +1430,7 @@
     text-align: center;
 }
 
-.gallery-content h2 {
+.booking-page .gallery-content h2 {
     font-size: 1.6rem;
     font-weight: 700;
     color: #ffffff;
@@ -1421,19 +1439,19 @@
     letter-spacing: 1px;
 }
 
-.gallery-content h3 {
+.booking-page .gallery-content h3 {
     font-size: 1.4rem;
     margin: 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.gallery-content p {
+.booking-page .gallery-content p {
     font-size: 1rem;
     margin: 10px 0 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
-.gallery-divider {
+.booking-page .gallery-divider {
     width: 50px;
     height: 3px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1442,39 +1460,39 @@
 }
 
 /* WHAT TO EXPECT SECTION */
-.expect-section {
+.booking-page .expect-section {
     max-width: 1100px;
     margin: 60px auto;
     padding: 0 20px;
     text-align: center;
 }
 
-.expect-title {
+.booking-page .expect-title {
     font-size: 2rem;
     color: #2b4506;
     margin-bottom: 10px;
 }
 
-.expect-grid {
+.booking-page .expect-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
     margin-top: 40px;
 }
 
-.expect-item img {
+.booking-page .expect-item img {
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
 }
 
-.expect-item h3 {
+.booking-page .expect-item h3 {
     font-size: 1.2rem;
     color: #2b4506;
     margin-bottom: 8px;
 }
 
-.expect-item p {
+.booking-page .expect-item p {
     font-size: 0.95rem;
     color: #444;
     max-width: 260px;
@@ -1482,9 +1500,9 @@
 }
 
 /* Match input styling */
-.cater-card form input,
-.cater-card form select,
-.cater-card form textarea {
+.booking-page .cater-card form input,
+.booking-page .cater-card form select,
+.booking-page .cater-card form textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -1501,7 +1519,7 @@
 }
 
 /* Fix iPhone Safari date input appearance */
-input[type="date"] {
+.booking-page input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
     background-color: rgba(255, 255, 255, 0.85);
@@ -1516,25 +1534,25 @@ input[type="date"] {
 }
 
 /* Fake placeholder for iPhone (Safari hides real placeholders) */
-input[type="date"]::before {
+.booking-page input[type="date"]::before {
     content: attr(placeholder);
     color: #777;
 }
 
-input[type="date"]:focus::before,
-input[type="date"]:valid::before {
+.booking-page input[type="date"]:focus::before,
+.booking-page input[type="date"]:valid::before {
     content: "";
 }
 
 /* Hover + focus effect */
-.cater-card form select:focus,
-.cater-card form textarea:focus {
+.booking-page .cater-card form select:focus,
+.booking-page .cater-card form textarea:focus {
     border-color: #cc5500;
     box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.25);
 }
 
 /* Dropdown arrow styling (clean + modern) */
-.cater-card form select {
+.booking-page .cater-card form select {
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
@@ -1543,12 +1561,12 @@ input[type="date"]:valid::before {
 }
 
 /* Textarea height */
-.cater-card form textarea {
+.booking-page .cater-card form textarea {
     min-height: 120px;
     resize: vertical;
 }
 
-.cater-card form .consent {
+.booking-page .cater-card form .consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1560,13 +1578,13 @@ input[type="date"]:valid::before {
     margin-bottom: 15px;
 }
 
-.cater-card form .consent input[type="checkbox"] {
+.booking-page .cater-card form .consent input[type="checkbox"] {
     margin-top: 3px; /* aligns checkbox with first line of text */
     width: 18px;
     height: 18px;
 }
 
-.quote-card {
+.booking-page .quote-card {
     background: #e8d8c3;
     padding: 40px 30px;
     border-radius: 20px;
@@ -1576,13 +1594,13 @@ input[type="date"]:valid::before {
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-.quote-card h2 {
+.booking-page .quote-card h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-.quote-divider {
+.booking-page .quote-divider {
     width: 90px;
     height: 4px;
     background: linear-gradient(90deg, #ff8a2b, #ff5a00);
@@ -1593,28 +1611,28 @@ input[type="date"]:valid::before {
     0 0 18px rgba(0,0,0,0.20);
 }
 
-.quote-card .subtitle {
+.booking-page .quote-card .subtitle {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 25px;
     opacity: 0.9;
 }
 
-.quote-card form {
+.booking-page .quote-card form {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.quote-card input {
+.booking-page .quote-card input {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
 }
 
 /* Consent checkbox styling */
-.quote-card .consent {
+.booking-page .quote-card .consent {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1624,14 +1642,16 @@ input[type="date"]:valid::before {
     margin-top: 5px;
 }
 
-.quote-card .consent input[type="checkbox"] {
+.booking-page .quote-card .consent input[type="checkbox"] {
     margin-top: 3px;
     transform: scale(1.2);
 }
 
-.quote-card button {
+.booking-page .quote-card button {
     margin-top: 10px;
 }
+
+
 
 /* Footer container */
 .site-footer {
@@ -1827,14 +1847,31 @@ input[type="date"]:valid::before {
         margin: 10px auto 0 auto;
     }
 
-    .info-row {
-        gap: 50px;
+    .locations-page .info-row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+        gap: 20px;
     }
 
-      .hours-card h2 {
-        font-size: 1.1rem; /* adjust until it fits */
-        line-height: 1.2;
-        white-space: nowrap;
+    /* Reduce top spacing above the first card */
+    .locations-page .hours-card {
+        margin-top: 0;
+    }
+
+    /* Reduce padding on the container */
+    .locations-page .hours-section,
+    .locations-page .location-section {
+        padding-top: 10px;
+    }
+
+     /* Adjust font size and spacing for better fit */
+    .locations-page .hours-card h2 {
+        font-size: 1.4rem; /* adjust until it fits */
+        line-height: 1.3;
+        text-align: center;
+        white-space: normal;
     }
 
      /* menu page hero only */
@@ -1881,12 +1918,12 @@ input[type="date"]:valid::before {
 
 @media (max-width: 800px) {
 
-  .booking-hero {
+  .booking-page .booking-hero {
     padding-top: 4rem;
     padding-bottom: 2rem;
   }
 
-  .booking-hero .hero-card {
+  .booking-page .booking-hero .hero-card {
     position: relative;   /* override homepage absolute positioning */
     left: 0;
     top: 0;
@@ -1899,7 +1936,7 @@ input[type="date"]:valid::before {
     box-sizing: border-box;
   }
 
-  .booking-hero .hero-card h1 {
+  .booking-page .booking-hero .hero-card h1 {
     font-size: 2rem;
     line-height: 1.25;
     margin-bottom: 1rem;
@@ -1907,12 +1944,12 @@ input[type="date"]:valid::before {
     overflow-wrap: break-word;
   }
 
-  .booking-hero .hero-card h2 {
+  .booking-page .booking-hero .hero-card h2 {
     white-space: normal !important;
     overflow-wrap: break-word;
   }
 
-  .booking-hero .hero-card p {
+  .booking-page .booking-hero .hero-card p {
     font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 1.5rem;
@@ -1920,7 +1957,7 @@ input[type="date"]:valid::before {
     overflow-wrap: break-word;
   }
 
-  .booking-hero .hero-card .btn-orange {
+  .booking-page .booking-hero .hero-card .btn-orange {
     white-space: normal;
     line-height: 1.2;
     padding: 0.9rem 1.4rem;
