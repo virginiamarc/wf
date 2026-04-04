@@ -91,9 +91,7 @@
         
         </div>
     </header>
-
-    </body>
-
+    
     <main>
         <section class="specials-hero">
             <div class="hero-overlay"></div>
@@ -103,6 +101,29 @@
                 <p>Discover our rotating lineup of exclusive dishes and limited-time offers.</p>
                 <a href="#current-specials" class="btn-orange">VIEW CURRENT SPECIALS</a>
             </div>
+        </section>
+
+        <section class="specials-row" id="current-specials">
+                
+            <div class="special-card">
+                <img src="assets/media/taco-trio.png" alt="Taco Trio Special">
+                <div class="special-content">
+                    <h2>Taco Trio Special — $5</h2>
+                    <p>A limited-time deal featuring three loaded tacos with bold flavors.</p>
+                    <a href="#" class="btn-orange add-to-order">Add to Order</a>
+                </div>
+            </div>
+
+            <div class="special-card">
+                <img src="assets/media/grilled-chicken-bowl.jpg" alt="Grilled Chicken Bowl Special">
+                <div class="special-content">
+                    <h2>Grilled Chicken Bowl Special — $8</h2>
+                    <p>Packed with protein, fresh toppings, and your choice of sauce.</p>
+                    <a href="#" class="btn-orange add-to-order">Add to Order</a>
+                </div>
+            </div>
+
+        </section>
 
     </main>
 
@@ -165,6 +186,20 @@
         navigator.serviceWorker.register("/WheelFoodie/service-worker.js");
     }
     </script>
+
+    <div id="cart-modal" class="modal-overlay">
+            <div class="cart-modal-box">
+                <span class="close-modal">&times;</span>
+                <h3>Item Added to Cart</h3>
+                <p>Your item has been added successfully.</p>
+
+                <div class="modal-actions">
+                    <button class="btn-orange full">Checkout</button>
+                    <button class="btn-secondary full">Continue as Guest</button>
+                    <button class="btn-outline full">Login / Create Account</button>
+                </div>
+            </div>
+        </div>
 
     <script src="assets/js/script.js"></script>
 

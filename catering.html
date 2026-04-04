@@ -346,26 +346,5 @@
 
     <script src="assets/js/script.js"></script>
 
-    <script>
-    document.querySelectorAll('.dropdown-toggle').forEach(button => {
-        button.addEventListener('click', () => {
-            const content = button.nextElementSibling;
-
-            if (content.style.display === 'block' || content.style.display === 'grid') {
-                content.style.display = 'none';
-                button.classList.remove('active');
-            } else {
-                // If it's a two-column layout, use grid
-                if (content.classList.contains('two-col')) {
-                    content.style.display = 'grid';
-                } else {
-                    content.style.display = 'block';
-                }
-                button.classList.add('active');
-            }
-        });
-    });   
-    </script>
-
 </body>
 </html>

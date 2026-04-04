@@ -1149,6 +1149,55 @@ nav.main-nav {
     margin-top: 15px;
 }
 
+.specials-page .specials-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background: #d7c2a1; /* warm brown backdrop like your image */
+    flex-wrap: wrap; /* mobile friendly */
+}
+
+.specials-page .special-card {
+    background: #fff;
+    width: 350px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.specials-page .special-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.specials-page .special-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.specials-page .special-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #2b4506; /* your green accent */
+}
+
+.specials-page .special-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.specials-page .special-card .btn-orange {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
    
 
 .locations-page .locations-hero {

@@ -367,53 +367,5 @@
 
     <script src="assets/js/script.js"></script>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-        /* Accordion */
-        const headers = document.querySelectorAll('.menu-category-header');
-
-        headers.forEach(header => {
-            header.addEventListener('click', () => {
-                header.classList.toggle('active');
-
-                const content = header.nextElementSibling;
-
-                if (header.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = 0;
-                }
-            });
-        });
-
-        /* Modal */
-        const orderButtons = document.querySelectorAll(
-            '.favorite-item .btn-orange, .menu-item .btn-orange'
-        );
-
-        orderButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // prevents accordion from blocking the click
-                document.getElementById('cart-modal').classList.add('show');
-            });
-        });
-
-        const modalOverlay = document.getElementById('cart-modal');
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('show');
-            }
-        });
-
-        /* Close Modal Button */
-        document.querySelector('.close-modal').addEventListener('click', () => {
-            document.getElementById('cart-modal').classList.remove('show');
-        });
-
-
-    });
-    </script>
-
 </body>
 </html>
