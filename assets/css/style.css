@@ -1002,16 +1002,220 @@ nav.main-nav {
     justify-content: center;
     align-items: center;
     z-index: 9998;
-    pointer-events: none; /* overlay cannot intercept clicks */
+    pointer-events: none;
 }
 
-/* When modal is open */
 .modal-overlay.show {
     display: flex;
-    pointer-events: auto; /* overlay becomes clickable only when open */
+    pointer-events: auto;
 }
 
-/* Modal box */
+#cart-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    z-index: 9998;
+}
+
+#cart-modal-overlay.is-open {
+    display: block;
+}
+
+/* Modal */
+.cart-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 340px;
+    display: none;
+    z-index: 9999;
+}
+
+.cart-modal.is-open {
+    display: block;
+}
+
+.cart-modal-close {
+    font-size: 1.2rem !important;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    background: none;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    color: #444;
+}
+
+/* Image */
+#cart-modal-item-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto 16px;
+}
+
+/* Quantity + Add to Cart row */
+.cart-modal-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+#cart-modal-qty {
+    width: 55px;
+}
+
+/* Shiny ORANGE Add to Cart */
+#cart-modal-add-btn {
+    position: relative;
+    background-color: #e07f1c !important;
+    color: #fff !important;
+    border: none;
+    width: auto !important;
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+    overflow: hidden;
+}
+
+#cart-modal-add-btn::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 6px;
+    background:
+        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
+        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    animation: shine 2s infinite;
+}
+
+#cart-modal-add-btn:hover {
+    background-color: #ff9d3d !important;
+    transform: translateY(-1px);
+}
+
+/* Actions section */
+.cart-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cart-modal-actions button {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Shiny GREEN Checkout */
+.checkout-btn {
+    position: relative;
+    background-color: #2b4506 !important;
+    color: #fff !important;
+    border: none;
+    padding: 10px 20px !important;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+    overflow: hidden;
+    width: auto !important;
+    margin: 0 auto;
+}
+
+.checkout-btn::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 8px;
+    background:
+        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
+        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    animation: shine 2s infinite;
+}
+
+.checkout-btn:hover {
+    background-color: #1f3304 !important;
+}
+
+/* Continue as Guest hover */
+.cart-modal-actions .btn-secondary:hover {
+    background: #e6e6e6;
+}
+
+/* Login/Create Account shiny hover */
+.btn-outline.full:hover {
+    position: relative;
+    background-color: #2b4506 !important;
+    color: #fff !important;
+    border-color: #2b4506 !important;
+    overflow: hidden;
+}
+
+.btn-outline.full:hover::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 8px;
+    background:
+        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
+        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    animation: shine 2s infinite;
+}
+
+
+
+/* ------------------------------------
+   OLD MODAL CSS - TEMPORARILY DISABLED
+------------------------------------ 
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.modal-overlay.show {
+    display: flex;
+    pointer-events: auto;
+}
+
 .cart-modal-box {
     background: #fff;
     width: 90%;
@@ -1022,7 +1226,7 @@ nav.main-nav {
     text-align: center;
     position: relative;
     z-index: 10001;
-    pointer-events: auto; /* modal box receives clicks */
+    pointer-events: auto;
 }
 
 .cart-modal-box h3 {
@@ -1038,7 +1242,6 @@ nav.main-nav {
     margin-bottom: 20px;
 }
 
-/* Modal Actions Layout */
 .modal-actions {
     display: flex;
     flex-direction: column;
@@ -1047,7 +1250,6 @@ nav.main-nav {
     align-items: center;
 }
 
-/* Buttons inside modal */
 .cart-modal-box .modal-actions button {
     width: 100%;
     max-width: 260px;
@@ -1080,7 +1282,6 @@ nav.main-nav {
     color: #fff;
 }
 
-
 .close-modal {
     position: absolute;
     top: 12px;
@@ -1095,6 +1296,9 @@ nav.main-nav {
 .close-modal:hover {
     opacity: 1;
 }
+
+------------------------------------ */
+
 
 /* Specials Page will go here */
 /* Hero Section */

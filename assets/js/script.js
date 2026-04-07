@@ -34,38 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* MODAL OPEN (Menu + Specials)*/
-    const modal = document.getElementById('cart-modal');
-    const closeModalBtn = document.querySelector('.close-modal');
-
-    // Buttons that should open the modal
-    const orderButtons = document.querySelectorAll(
-        '.favorite-item .btn-orange, .menu-item .btn-orange, .add-to-order'
-    );
-
-    orderButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (modal) modal.classList.add('show');
-        });
-    });
-
-    /* MODAL CLOSE */
-    if (modal) {
-        // Click outside modal box
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-    }
-
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    }
-
+    
     /* LOCATIONS PAGE MODAL */
     const locationModal = document.getElementById("locationModal");
     const locationBtn = document.getElementById("locationPopupBtn");
