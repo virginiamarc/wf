@@ -2684,6 +2684,16 @@ nav.main-nav {
         white-space: normal !important;
         overflow-wrap: break-word;
     }
+
+    /* MOBILE FIX — force hero card higher on menu page */
+    .menu-page-hero .menu-hero-text {
+        top: 18% !important; /* force it higher */
+        transform: translate(-50%, 0) !important; /* remove upward pull */
+        width: 90%;
+        max-width: 360px;
+        padding: 16px 20px;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -2764,4 +2774,67 @@ nav.main-nav {
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
+
+    /* MOBILE HERO FIX — keeps desktop intact */
+    .hero {
+        height: 75vh; /* show more of the hero image */
+    }
+
+    .hero-card {
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+
+        width: 85%;
+        max-width: 380px;
+
+        padding: 18px 20px;
+        border-radius: 16px;
+
+        background: rgba(255, 255, 255, 0.65); /* slightly stronger for readability */
+        backdrop-filter: blur(6px);
+
+        text-align: center;
+    }
+
+    .hero-card h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-card h2 {
+        font-size: 1.2rem;
+        margin-top: 6px;
+    }
+
+    .hero-card p {
+        font-size: 1rem;
+        margin-top: 8px;
+    }
+
+    .menu-page .hero {
+        height: 75vh;
+    }
+
+    .menu-page-hero .menu-hero-text {
+        top: 20%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 360px;
+        padding: 18px 20px;
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 16px;
+        backdrop-filter: blur(4px);
+    }
+
+    .menu-page-hero .menu-hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .menu-page-hero .menu-hero-text p {
+        font-size: 1.1rem;
+        margin-top: 6px;
+    }
+
 }
