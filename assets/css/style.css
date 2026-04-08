@@ -262,6 +262,70 @@ nav.main-nav {
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
+
+/* INDEX HERO */
+.index-page-hero {
+    position: relative;
+    background: url('../media/homehero.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 280px;
+    text-align: center;
+}
+
+.index-page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+}
+
+.index-hero-text {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.index-hero-text h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.index-hero-text h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.index-hero-text p {
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.index-hero-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 12px auto;
+    border-radius: 2px;
+    box-shadow:
+        0 6px 12px rgba(0,0,0,0.25),
+        0 0 18px rgba(0,0,0,0.20);
+}
+
 /* Home page Feature Cards */
 .index-page .feature-card .btn-orange {
     background: rgba(43, 69, 6, 0.75); /* 75% opacity */
@@ -362,36 +426,6 @@ nav.main-nav {
     0 2px 4px rgba(0, 0, 0, 0.45);
 }
 
-/* GLOBAL HOME HERO CARD STYLE */
-.hero-card {
-    background: rgba(255, 255, 255, 0.5); /* or your brown tone */
-    padding: 10px 40px 30px;
-    border-radius: 20px;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    backdrop-filter: blur(4px); /* optional */
-    position: absolute;
-    left: 40px;
-    bottom: 80px;
-    text-align: center;
-}
-
-.hero-card h1 {
-    font-size: 2.8rem;
-    margin-top: 6px;
-}
-
-.hero-card h2 {
-    margin-top: 5px;
-}
-
-.hero-card p {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8px;
-}
 
 /* Intro Section Between Hero + Feature Cards */
 .index-page .index-intro-section {
@@ -521,10 +555,6 @@ nav.main-nav {
 /* Button at bottom */
 .feature-content .btn-orange {
     margin-top: auto;
-}
-
-.index-page .hero-card p {
-    margin-bottom: 25px; /* adjust to taste */
 }
 
 /* Cater Row */
@@ -1360,8 +1390,6 @@ nav.main-nav {
 
 ------------------------------------ */
 
-
-/* Specials Page will go here */
 /* Hero Section */
 .specials-page .specials-hero {
     position: relative;
@@ -1797,11 +1825,73 @@ nav.main-nav {
     background: url('../media/about-hero.jpg') center/cover no-repeat;
 }
 
-.about-page .hero-card p {
-    margin-bottom: 1.5rem; /* or 1.5rem if you want more breathing room */
+
+/* ABOUT HERO */
+.about-page-hero {
+    position: relative;
+    background: url('../media/about-hero.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 280px;
+    text-align: center;
 }
 
-/* Intro Section */
+.about-page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+}
+
+.about-hero-text {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+
+.about-hero-text h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.about-hero-text h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.about-hero-text p {
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+
+.about-hero-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 12px auto;
+    border-radius: 2px;
+    box-shadow:
+        0 6px 12px rgba(0,0,0,0.25),
+        0 0 18px rgba(0,0,0,0.20);
+}
+
+/* About Intro Section */
 .about-page .about-intro {
     text-align: center;
     padding: 40px 20px 15px 20px;
@@ -1989,18 +2079,70 @@ nav.main-nav {
 }
 
 
-.catering-page .catering-hero {
-    background: url('../media/gallery_img1.jpg') center/cover no-repeat;
+
+/* CATERING HERO */
+.catering-page-hero {
+    position: relative;
+    background: url('../media/cateringhero.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 280px;
+    text-align: center;
 }
 
-
-.catering-page .hero-card p {
-    margin-bottom: 1.25rem; /* adjust to taste */
+.catering-page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
 }
 
-.catering-page .hero-card .btn-orange {
-    margin-top: 1rem; /* optional but creates perfect balance */
+.catering-hero-text {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
 }
+
+.catering-hero-text h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.catering-hero-text h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.catering-hero-text p {
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.catering-hero-divider {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8a2b, #ff5a00);
+    margin: 12px auto;
+    border-radius: 2px;
+    box-shadow:
+        0 6px 12px rgba(0,0,0,0.25),
+        0 0 18px rgba(0,0,0,0.20);
+}
+
 
 .catering-page .menu-section {
     max-width: 900px;
@@ -2013,8 +2155,6 @@ nav.main-nav {
     color: #2b4506;
     font-size: 2rem;
 }
-
-
 
 .catering-page .catering-menu-divider {
     width: 90px;
@@ -2592,132 +2732,6 @@ nav.main-nav {
         object-fit: cover;
     }
 
-    /* MOBILE HERO FIX — ONLY for index, about, and catering */
-    .index-page .hero,
-    .about-page .hero,
-    .catering-page .hero {
-        height: auto;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .index-page .hero-card,
-    .about-page .hero-card,
-    .catering-page .hero-card {
-        width: 90%;
-        max-width: 350px;
-        margin: 0 auto;
-        padding: 1.25rem;
-
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-
-        z-index: 1;
-    }
-
-
-    /* 
-    HERO LAYOUT
-    .hero {
-        height: auto;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero-card {
-        width: 90%;
-        max-width: 350px;
-        margin: 0 auto;
-        padding: 1.25rem;
-
-        /* FULL RESET 
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        z-index: 1;
-    }*/
-
-    .hero-card h1 {
-        font-size: 1.25rem;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-    }
-
-    .hero-card h2 {
-        font-size: 1rem;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-    }
-
-    .hero-card p {
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-    }
-
-    .hero-card .btn-orange {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-        width: fit-content;
-        margin: 10px auto 0 auto;
-    }
-
-    
-    .specials-page .coupon-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .specials-page .coupon-card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-
-    .specials-page .coupon-card h3 {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-    }
-
-    .specials-page .expires {
-        display: block;
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #a05a2c;
-    }
-
-    .specials-page .view-menu-btn {
-        margin-top: 20px;
-    }
-
-
-    .locations-page .info-row {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-top: 0;
-        margin-bottom: 0;
-        gap: 20px;
-    }
 
     /* Reduce top spacing above the first card */
     .locations-page .hours-card {
@@ -2771,60 +2785,13 @@ nav.main-nav {
         font-size: 1rem;
         line-height: 1.3;
     }
-
-    .about-page .hero-card h1,
-    .about-page .hero-card h2,
-    .about-page .hero-card p {
-        white-space: normal !important;
-        overflow-wrap: break-word;
-    }
 }
 
 @media (max-width: 800px) {
 
-  .catering-page .catering-hero {
+  .catering-page-hero {
     padding-top: 4rem;
     padding-bottom: 2rem;
-  }
-
-  .catering-page .catering-hero .hero-card {
-    position: relative;   /* override homepage absolute positioning */
-    left: 0;
-    top: 0;
-    transform: none;
-
-    max-width: 320px;
-    margin: auto;         /* <-- FIXED TYPO */
-    padding: 2rem 1.25rem;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  .catering-page .catering-hero .hero-card h1 {
-    font-size: 2rem;
-    line-height: 1.25;
-    margin-bottom: 1rem;
-    white-space: normal !important;
-    overflow-wrap: break-word;
-  }
-
-  .catering-page .catering-hero .hero-card h2 {
-    white-space: normal !important;
-    overflow-wrap: break-word;
-  }
-
-  .catering-page .catering-hero .hero-card p {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    white-space: normal !important;
-    overflow-wrap: break-word;
-  }
-
-  .catering-page .catering-hero .hero-card .btn-orange {
-    white-space: normal;
-    line-height: 1.2;
-    padding: 0.9rem 1.4rem;
   }
 
     /* Stack feature cards */
@@ -2845,74 +2812,3 @@ nav.main-nav {
         height: 160px;
     }
 }
-
-/* FORCE MOBILE FIX — this overrides everything */
-@media (max-width: 600px) {
-    .specials-page .coupon-grid {
-        grid-template-columns: 1fr !important;
-        padding: 0 15px !important;
-    }
-
-    .specials-page .coupon-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-   /* MOBILE TWEAK — only index, about, catering hero cards */
-    .index-page .hero {
-        height: 75vh;
-    }
-    .about-page .hero {
-        height: 75vh;
-    }
-    .catering-page .hero {
-        height: 75vh;
-    }
-
-    .index-page .hero-card,
-    .about-page .hero-card,
-    .catering-page .hero-card {
-        position: absolute;
-        left: 50%;
-        bottom: 40px;
-        transform: translateX(-50%);
-
-        width: 80%;
-        max-width: 300px;      /* smaller card */
-        padding: 10px 14px;    /* less padding */
-
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.65); /* SAME style */
-        backdrop-filter: blur(6px);
-        text-align: center;
-    }
-
-    .index-page .hero-card h1,
-    .about-page .hero-card h1,
-    .catering-page .hero-card h1 {
-        font-size: 1.4rem;     /* smaller text */
-    }
-
-    .index-page .hero-card h2,
-    .about-page .hero-card h2,
-    .catering-page .hero-card h2 {
-        font-size: 1rem;
-    }
-
-    .index-page .hero-card p,
-    .about-page .hero-card p,
-    .catering-page .hero-card p {
-        font-size: 0.9rem;
-    }
-
-    .index-page .hero-card {
-        bottom: 70px;
-    }
-
-    .index-page .hero-card h1 {
-        margin-top: 0;
-    }
-}
-
-
