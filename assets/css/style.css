@@ -993,6 +993,7 @@ nav.main-nav {
     border-radius: 8px;
 }
 
+
 /* Overlay */
 .modal-overlay {
     position: fixed;
@@ -1002,12 +1003,13 @@ nav.main-nav {
     justify-content: center;
     align-items: center;
     z-index: 9998;
-    pointer-events: none;
+    pointer-events: none; /* overlay cannot intercept clicks */
 }
 
+/* When modal is open */
 .modal-overlay.show {
     display: flex;
-    pointer-events: auto;
+    pointer-events: auto; /* overlay becomes clickable only when open */
 }
 
 #cart-modal-overlay {
@@ -1022,7 +1024,6 @@ nav.main-nav {
     display: block;
 }
 
-/* Modal */
 .cart-modal {
     position: fixed;
     top: 50%;
@@ -1043,7 +1044,7 @@ nav.main-nav {
 }
 
 .cart-modal-close {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem !important; /* smaller */
     top: 10px;
     right: 10px;
     padding: 0;
@@ -1054,7 +1055,6 @@ nav.main-nav {
     color: #444;
 }
 
-/* Image */
 #cart-modal-item-img {
     width: 180px;
     height: 180px;
@@ -1064,55 +1064,35 @@ nav.main-nav {
     margin: 0 auto 16px;
 }
 
-/* Quantity + Add to Cart row */
 .cart-modal-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: center; /* centers both elements */
+    gap: 10px; /* controls how close they sit */
     margin: 12px 0;
+}
+
+.cart-modal-row .btn-orange {
+    width: auto !important;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    white-space: nowrap;
 }
 
 #cart-modal-qty {
     width: 55px;
 }
 
-/* Shiny ORANGE Add to Cart */
-#cart-modal-add-btn {
-    position: relative;
-    background-color: #e07f1c !important;
-    color: #fff !important;
-    border: none;
-    width: auto !important;
-    padding: 8px 16px !important;
-    font-size: 0.85rem !important;
-    border-radius: 8px !important;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.35);
-    overflow: hidden;
+.cart-modal h3 {
+    margin-top: 10px;
+    margin-bottom: 4px;
 }
 
-#cart-modal-add-btn::before {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    border-radius: 6px;
-    background:
-        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
-        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
-    pointer-events: none;
-    animation: shine 2s infinite;
+.cart-modal p {
+    margin-bottom: 10px;
 }
 
-#cart-modal-add-btn:hover {
-    background-color: #ff9d3d !important;
-    transform: translateY(-1px);
-}
-
-/* Actions section */
 .cart-modal-actions {
     display: flex;
     flex-direction: column;
@@ -1129,23 +1109,97 @@ nav.main-nav {
     cursor: pointer;
 }
 
-/* Shiny GREEN Checkout */
+.cart-modal-actions .btn-outline:hover {
+    background: #2b4506; /* your green */
+    color: #fff;
+    border-color: #2b4506;
+    transition: 0.2s ease;
+}
+
+.cart-modal-actions .btn-secondary:hover {
+    background: #e6e6e6;
+}
+
+/* Make Add to Cart match the shiny Menu nav button */
+#cart-modal-add-btn {
+    position: relative;
+    background-color: #2b4506 !important;
+    color: #fff !important;
+    border: none;
+    width: auto !important;
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+    line-height: 1.1;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+    overflow: hidden; /* required for shine effect */
+}
+
+/* Shine effect (copied from nav) */
+#cart-modal-add-btn::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 6px;
+    background:
+        linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0) 60%
+        ),
+        linear-gradient(
+            to top left,
+            rgba(255, 255, 255, 0.20),
+            rgba(255, 255, 255, 0) 70%
+        );
+    pointer-events: none;
+    animation: shine 2s infinite;
+}
+
+
+#cart-modal-add-btn:hover {
+    background: linear-gradient(to bottom, #ffbe78, #e07f1c);
+    transform: translateY(-1px);
+}
+
+.cart-modal-actions .btn-orange.checkout-btn {
+    background: #2b4506 !important; /* green */
+    border-color: #2b4506 !important;
+    color: #fff !important;
+}
+
+.cart-modal-actions .btn-orange.checkout-btn:hover {
+    background: #1f3304 !important;
+}
+
+/* Shiny Checkout button */
 .checkout-btn {
     position: relative;
     background-color: #2b4506 !important;
     color: #fff !important;
     border: none;
-    padding: 10px 20px !important;
+    padding: 10px 14px;
     border-radius: 10px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
     overflow: hidden;
+}
+
+.checkout-btn {
     width: auto !important;
+    padding: 10px 20px !important;
+    display: inline-block;
     margin: 0 auto;
 }
 
+/* Shine effect copied from nav */
 .checkout-btn::before {
     content: "";
     position: absolute;
@@ -1155,22 +1209,21 @@ nav.main-nav {
     bottom: 2px;
     border-radius: 8px;
     background:
-        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
-        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
+        linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0) 60%
+        ),
+        linear-gradient(
+            to top left,
+            rgba(255, 255, 255, 0.20),
+            rgba(255, 255, 255, 0) 70%
+        );
     pointer-events: none;
     animation: shine 2s infinite;
 }
 
-.checkout-btn:hover {
-    background-color: #1f3304 !important;
-}
-
-/* Continue as Guest hover */
-.cart-modal-actions .btn-secondary:hover {
-    background: #e6e6e6;
-}
-
-/* Login/Create Account shiny hover */
+/* Shiny hover for Login/Create Account */
 .btn-outline.full:hover {
     position: relative;
     background-color: #2b4506 !important;
@@ -1179,6 +1232,7 @@ nav.main-nav {
     overflow: hidden;
 }
 
+/* Shine overlay on hover */
 .btn-outline.full:hover::before {
     content: "";
     position: absolute;
@@ -1188,12 +1242,19 @@ nav.main-nav {
     bottom: 2px;
     border-radius: 8px;
     background:
-        linear-gradient(to bottom right, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%),
-        linear-gradient(to top left, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
+        linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0) 60%
+        ),
+        linear-gradient(
+            to top left,
+            rgba(255, 255, 255, 0.20),
+            rgba(255, 255, 255, 0) 70%
+        );
     pointer-events: none;
     animation: shine 2s infinite;
 }
-
 
 
 /* ------------------------------------
@@ -2531,7 +2592,41 @@ nav.main-nav {
         object-fit: cover;
     }
 
-    /* HERO LAYOUT */
+    /* MOBILE HERO FIX — ONLY for index, about, and catering */
+    .index-page .hero,
+    .about-page .hero,
+    .catering-page .hero {
+        height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .index-page .hero-card,
+    .about-page .hero-card,
+    .catering-page .hero-card {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 1.25rem;
+
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+
+        z-index: 1;
+    }
+
+
+    /* 
+    HERO LAYOUT
     .hero {
         height: auto;
         padding-top: 40px;
@@ -2549,16 +2644,15 @@ nav.main-nav {
         margin: 0 auto;
         padding: 1.25rem;
 
-        /* FULL RESET */
+        /* FULL RESET 
         position: static !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
         transform: none !important;
-
         z-index: 1;
-    }
+    }*/
 
     .hero-card h1 {
         font-size: 1.25rem;
@@ -2684,16 +2778,6 @@ nav.main-nav {
         white-space: normal !important;
         overflow-wrap: break-word;
     }
-
-    /* MOBILE FIX — force hero card higher on menu page */
-    .menu-page-hero .menu-hero-text {
-        top: 18% !important; /* force it higher */
-        transform: translate(-50%, 0) !important; /* remove upward pull */
-        width: 90%;
-        max-width: 360px;
-        padding: 16px 20px;
-    }
-
 }
 
 @media (max-width: 800px) {
@@ -2775,66 +2859,60 @@ nav.main-nav {
         box-sizing: border-box !important;
     }
 
-    /* MOBILE HERO FIX — keeps desktop intact */
-    .hero {
-        height: 75vh; /* show more of the hero image */
+   /* MOBILE TWEAK — only index, about, catering hero cards */
+    .index-page .hero {
+        height: 75vh;
+    }
+    .about-page .hero {
+        height: 75vh;
+    }
+    .catering-page .hero {
+        height: 75vh;
     }
 
-    .hero-card {
+    .index-page .hero-card,
+    .about-page .hero-card,
+    .catering-page .hero-card {
         position: absolute;
         left: 50%;
         bottom: 40px;
         transform: translateX(-50%);
 
-        width: 85%;
-        max-width: 380px;
+        width: 80%;
+        max-width: 300px;      /* smaller card */
+        padding: 10px 14px;    /* less padding */
 
-        padding: 18px 20px;
         border-radius: 16px;
-
-        background: rgba(255, 255, 255, 0.65); /* slightly stronger for readability */
+        background: rgba(255, 255, 255, 0.65); /* SAME style */
         backdrop-filter: blur(6px);
-
         text-align: center;
     }
 
-    .hero-card h1 {
-        font-size: 1.8rem;
-        line-height: 1.2;
+    .index-page .hero-card h1,
+    .about-page .hero-card h1,
+    .catering-page .hero-card h1 {
+        font-size: 1.4rem;     /* smaller text */
     }
 
-    .hero-card h2 {
-        font-size: 1.2rem;
-        margin-top: 6px;
-    }
-
-    .hero-card p {
+    .index-page .hero-card h2,
+    .about-page .hero-card h2,
+    .catering-page .hero-card h2 {
         font-size: 1rem;
-        margin-top: 8px;
     }
 
-    .menu-page .hero {
-        height: 75vh;
+    .index-page .hero-card p,
+    .about-page .hero-card p,
+    .catering-page .hero-card p {
+        font-size: 0.9rem;
     }
 
-    .menu-page-hero .menu-hero-text {
-        top: 20%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 360px;
-        padding: 18px 20px;
-        background: rgba(0, 0, 0, 0.45);
-        border-radius: 16px;
-        backdrop-filter: blur(4px);
+    .index-page .hero-card {
+        bottom: 70px;
     }
 
-    .menu-page-hero .menu-hero-text h1 {
-        font-size: 1.8rem;
+    .index-page .hero-card h1 {
+        margin-top: 0;
     }
-
-    .menu-page-hero .menu-hero-text p {
-        font-size: 1.1rem;
-        margin-top: 6px;
-    }
-
 }
+
+
