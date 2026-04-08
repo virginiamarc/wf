@@ -1,0 +1,246 @@
+.checkout-page .main-nav {
+    display: none;
+}
+
+
+/* ================================
+   Layout
+================================ */
+.checkout-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+}
+
+/*================================
+Left Column
+================================*/
+.checkout-left {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.checkout-left-inner {
+    max-width: 420px;
+    width: 100%;
+}
+
+.checkout-left h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Auth Buttons */
+.auth-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.auth-options .full {
+    width: 100%;
+}
+
+/* Normalize height of all auth buttons */
+.auth-options button {
+    padding: 10px 14px;   /* consistent height */
+    line-height: 1.2;     /* prevents text from stretching height */
+    height: auto;         /* ensures natural height */
+}
+
+/* Continue as Guest — match Continue Shopping style */
+.auth-options .btn-secondary {
+    background: #f7f7f7;
+    border: 2px solid #000000;
+    color: #000000;
+    font-weight: 600;
+    padding: 10px 14px;      /* matches Continue Shopping height */
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.auth-options .btn-secondary:hover {
+    background: #e8e8e8;
+}
+
+/* Contact Infor Section */
+.checkout-section {
+    width: 100%;
+    max-width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.checkout-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.checkout-section label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.checkout-section input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Proceed Button */
+.checkout-btn.full {
+    margin-left: 0;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* ================================
+   Right Column (Order Summary)
+================================ */
+.checkout-right {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.checkout-right h3 {
+    margin-bottom: 20px;
+}
+
+/* Cart Items */
+.checkout-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+}
+
+.checkout-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.checkout-item-info h4 {
+    margin-bottom: 5px;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.qty-btn:hover {
+    background: #ddd;
+}
+
+/* Remove button */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.remove-btn:hover {
+    text-decoration: underline;
+}
+
+/* Totals */
+.checkout-totals {
+    margin-top: 20px;
+}
+
+.checkout-totals .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.checkout-totals .total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* ================================
+   Empty Cart 
+================================ */
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+.checkout-footer {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+.checkout-footer a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.checkout-footer a:hover {
+    color: #000;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+}

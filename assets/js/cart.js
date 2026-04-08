@@ -272,3 +272,20 @@ window.WheelFoodieCart = {
   state: CartState,
   exportForCheckout: exportCartForCheckout
 };
+
+// -----------------------------
+// Continue Shopping → Scroll to Full Menu
+// -----------------------------
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".continue-shopping-btn");
+  if (!btn) return;
+
+  // Close the modal using your existing modal controller
+  CartModal.close();
+
+  // Scroll to the full menu section
+  const section = document.getElementById("full-menu");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+});
