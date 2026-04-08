@@ -301,12 +301,6 @@ nav.main-nav {
     color: #fff;
 }
 
-.index-hero-text h2 {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-top: 10px;
-}
-
 .index-hero-text p {
     color: #fff;
     font-size: 1.2rem;
@@ -1820,11 +1814,6 @@ nav.main-nav {
     width: fit-content;
 }
 
-/* ABOUT PAGE */
-.about-hero {
-    background: url('../media/about-hero.jpg') center/cover no-repeat;
-}
-
 
 /* ABOUT HERO */
 .about-page-hero {
@@ -1863,12 +1852,6 @@ nav.main-nav {
 .about-hero-text h1 {
     font-size: 3rem;
     color: #fff;
-}
-
-.about-hero-text h2 {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-top: 10px;
 }
 
 .about-hero-text p {
