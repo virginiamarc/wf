@@ -106,20 +106,53 @@
         <section class="specials-row" id="current-specials">
                 
             <div class="special-card">
-                <img src="assets/media/taco-trio.png" alt="Taco Trio Special">
+                <img src="assets/media/menuitems/taco-trio.png" alt="Taco Trio Special">
+                
                 <div class="special-content">
-                    <h2>Taco Trio Special — $5</h2>
-                    <p>A limited-time deal featuring three loaded tacos with bold flavors.</p>
-                    <a href="#" class="btn-orange add-to-order">Add to Order</a>
+                    <h2 class="special-title">Taco Trio Special</h2>
+                    <p class="special-description">
+                        A limited‑time deal featuring a delicious trio of soft tacos made with your choice of chicken, beef, steak, or a mix of all three, layered with crisp lettuce, pico de gallo, melted cheese, sweet corn, and smooth taco sauce.
+                    </p>
+                    
+                    <div class="special-price-row">
+                        <span class="price">$8.00</span>
+                    
+                        <button
+                            class="btn-orange add-to-order-btn"
+                            data-id="taco-trio-special"
+                            data-name="Taco Trio Special"
+                            data-price="8.00"
+                            data-image="assets/media/menuitems/taco-trio.png"
+                        >
+                            Add to Order
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <div class="special-card">
-                <img src="assets/media/roasted-chicken-bowl.jpg" alt="Grilled Chicken Bowl Special">
+                <img src="assets/media/menuitems/roasted-chicken-bowl.jpg" alt="Herb Roasted Chicken Harvest Bowl">
+                
                 <div class="special-content">
-                    <h2>Herb Roasted Chicken Harvest Bowl Special — $8</h2>
-                    <p>Juicy roasted chicken mixed with fire-roasted peppers, onions, and golden potatoes, finished with fresh herbs for a rustic, comforting bite.</p>
-                    <a href="#" class="btn-orange add-to-order">Add to Order</a>
+                    <h2 class="special-title">Herb Roasted Chicken Harvest Bowl Special</h2>
+                    <p class="special-description">
+                        Juicy roasted chicken mixed with fire-roasted peppers, onions, and golden potatoes, 
+                        finished with fresh herbs for a rustic, comforting bite.
+                    </p>
+
+                    <div class="special-price-row">
+                        <span class="price">$10.00</span>
+                    
+                        <button
+                            class="btn-orange add-to-order-btn"
+                            data-id="herb-roasted-chicken-harvest-bowl-special"
+                            data-name="Herb Roasted Chicken Harvest Bowl Special"
+                            data-price="10.00"
+                            data-image="assets/media/menuitems/roasted-chicken-bowl.jpg"
+                        >
+                            Add to Order
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -229,21 +262,60 @@
     }
     </script>
 
-    <div id="cart-modal" class="modal-overlay">
-            <div class="cart-modal-box">
-                <span class="close-modal">&times;</span>
-                <h3>Item Added to Cart</h3>
-                <p>Your item has been added successfully.</p>
+    <script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/WheelFoodie/service-worker.js");
+    }
+    </script>
 
-                <div class="modal-actions">
-                    <button class="btn-orange full">Checkout</button>
-                    <button class="btn-secondary full">Continue as Guest</button>
-                    <button class="btn-outline full">Login / Create Account</button>
-                </div>
+    <div id="cart-modal-overlay"></div>
+
+    <div id="cart-modal" class="cart-modal">
+        <button class="cart-modal-close" type="button">✕</button>
+
+        <!-- ⭐ STATE 1: ORIGINAL CONTENT WRAPPER -->
+        <div id="cart-modal-content">
+            
+            <img id="cart-modal-item-img" alt="" />
+
+            <h3 id="cart-modal-item-name"></h3>
+            <p id="cart-modal-item-price"></p>
+
+            <div class="cart-modal-row">
+                <label class="cart-modal-qty-label">
+                    Quantity
+                    <input id="cart-modal-qty" type="number" min="1" value="1" />
+                </label>
+
+                <button id="cart-modal-add-btn" type="button" class="btn-orange">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        <!-- END STATE 1: ORIGINAL CONTENT WRAPPER -->
+
+        <!-- ⭐ STATE 2: CONFIRMATION STATE (must be OUTSIDE the wrapper) -->
+        <div id="cart-modal-confirmation" style="display:none; text-align:center;">
+            <h3>Item added to your cart!</h3>
+
+            <div class="cart-modal-actions" style="margin-top:20px;">
+                <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+                    Checkout Now
+                </button>
+
+                <button class="btn-secondary full continue-shopping-btn">
+                    Continue Shopping
+                </button>
+
             </div>
         </div>
 
+    </div>
+
+
     <script src="assets/js/script.js"></script>
+
+    <script src="assets/js/cart.js" defer></script>
 
 </body>
 </html>

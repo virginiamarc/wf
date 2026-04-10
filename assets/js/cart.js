@@ -205,16 +205,24 @@ const CartModal = {
     const qty = this.qtyInputEl ? parseInt(this.qtyInputEl.value, 10) || 1 : 1;
 
     const item = {
-      id: this.currentItemData.id,
-      name: this.currentItemData.name,
-      price: this.currentItemData.price,
-      image: this.currentItemData.image || "",
-      quantity: qty
+        id: this.currentItemData.id,
+        name: this.currentItemData.name,
+        price: this.currentItemData.price,
+        image: this.currentItemData.image || "",
+        quantity: qty,
+        flavors: selectedFlavors.length > 0 ? [...selectedFlavors] : ["No flavor selected"]
     };
 
     CartState.addItem(item);
+
+    // Reset flavor selections for next time
+    selectedFlavors = [];
+    document.querySelectorAll(".flavor-card.selected").forEach(card => {
+        card.classList.remove("selected");
+    });
+
     this.showConfirmation();
-  },
+},
 
   showConfirmation() {
     // Hide original content
@@ -238,12 +246,11 @@ function bindAddToOrderButtons() {
         id: btn.dataset.id,
         name: btn.dataset.name,
         price: parseFloat(btn.dataset.price || "0"),
-        image: btn.dataset.image || ""
+        image: btn.dataset.image || "",
+        hasFlavors: btn.dataset.hasFlavors === "true"
       };
 
-      // If you want to skip the modal and add directly, call CartState.addItem here.
-      // For now, we open the modal so user can confirm quantity/options.
-      CartModal.open(itemData);
+      CartModal.open(itemData); // ONLY this here
     });
   });
 }
@@ -288,4 +295,22 @@ document.addEventListener("click", (e) => {
   if (section) {
     section.scrollIntoView({ behavior: "smooth" });
   }
+});
+
+let selectedFlavors = [];
+
+document.addEventListener("click", function(e) {
+    if (e.target.closest(".flavor-card")) {
+        const card = e.target.closest(".flavor-card");
+        const flavor = card.dataset.flavor;
+
+        // Toggle selection
+        if (card.classList.contains("selected")) {
+            card.classList.remove("selected");
+            selectedFlavors = selectedFlavors.filter(f => f !== flavor);
+        } else {
+            card.classList.add("selected");
+            selectedFlavors.push(flavor);
+        }
+    }
 });

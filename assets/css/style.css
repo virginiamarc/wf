@@ -983,6 +983,14 @@ nav.main-nav {
     transition: max-height 0.35s ease;
 }
 
+.no-specials-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin: 1em 0;
+}
+
+
 /* Menu item card inside accordion */
 .menu-page .menu-item {
     background: #fff;
@@ -1280,6 +1288,46 @@ nav.main-nav {
     animation: shine 2s infinite;
 }
 
+/* ===== FLAVOR SELECTOR (WINGS) ===== */
+.flavor-selector {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.flavor-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 0.8rem;
+}
+
+.flavor-card {
+    background: #fff7ef;
+    border: 2px solid #ffb36b;
+    border-radius: 10px;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.flavor-card:hover {
+    background: #ffe2c7;
+}
+
+.flavor-card.selected {
+    background: #ffb36b;
+    color: white;
+    border-color: #ff7a00;
+}
+
+.flavor-selector {
+  display: none;
+}
+
+.hidden {
+    display: none;
+}
+
 
 /* ------------------------------------
    OLD MODAL CSS - TEMPORARILY DISABLED
@@ -1440,12 +1488,11 @@ nav.main-nav {
 .specials-page .specials-row {
     display: flex;
     justify-content: center;
-    align-items: cneter;
+    align-items: stretch;
     gap: 30px;
     padding: 40px 20px;
     background: #d7c2a1;
     flex-wrap: wrap;
-    text-align: center;
 }
 
 /* ===== CARD ===== */
@@ -1466,23 +1513,49 @@ nav.main-nav {
     object-fit: cover;
 }
 
-/* CONTENT */
-.specials-page .special-content {
-    padding: 20px;
+.special-content {
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
     text-align: center;
+    align-items: center;
 }
 
-.specials-page .special-content h2 {
+.special-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.special-description {
+    margin: 0;
+    color: #555;
+    line-height: 1.45;
+}
+
+.special-price-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+}
+
+.special-price-row .price {
     font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-weight: 700;
     color: #2b4506;
 }
 
-.specials-page .special-content p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    color: #333;
+.special-price-row .btn-orange {
+    padding: 0.5rem 1.5rem;   /* smaller button */
+    font-size: 1rem;      /* smaller text */
+    width: auto;            /* prevents full-width behavior */
 }
+
+
 
 /* ===== REWARDS SECTION ===== */
 .specials-page .rewards-section {
