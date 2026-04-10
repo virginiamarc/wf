@@ -1,3 +1,5 @@
+// cart.js – Wheel Foodie
+
 // -----------------------------
 // Storage layer
 // -----------------------------
@@ -141,8 +143,6 @@ const CartUI = {
 // -----------------------------
 // Modal controller
 // -----------------------------
-let selectedFlavors = [];
-
 const CartModal = {
   modalEl: null,
   overlayEl: null,
@@ -182,40 +182,22 @@ const CartModal = {
     if (this.imgEl && itemData.image) this.imgEl.src = itemData.image;
     if (this.qtyInputEl) this.qtyInputEl.value = 1;
 
-    // ⭐ Show/hide flavor selector
-    const flavorSection = document.querySelector(".flavor-selector");
-
-    if (flavorSection) {
-        if (itemData.hasFlavors) {
-            flavorSection.style.display = "block";
-        } else {
-            flavorSection.style.display = "none";
-            selectedFlavors = [];
-            document.querySelectorAll(".flavor-card.selected").forEach(c => c.classList.remove("selected"));
-        }
-    }
-
     if (this.modalEl) this.modalEl.classList.add("is-open");
     if (this.overlayEl) this.overlayEl.classList.add("is-open");
   },
 
-  close() {
-    if (this.modalEl) this.modalEl.classList.remove("is-open");
-    if (this.overlayEl) this.overlayEl.classList.remove("is-open");
-    this.currentItemData = null;
+ close() {
+  if (this.modalEl) this.modalEl.classList.remove("is-open");
+  if (this.overlayEl) this.overlayEl.classList.remove("is-open");
+  this.currentItemData = null;
 
-    // ⭐ Reset flavors
-    selectedFlavors = [];
-    document.querySelectorAll(".flavor-card.selected").forEach(c =>
-      c.classList.remove("selected")
-    );
+  // Reset modal content for next time
+  const content = document.getElementById("cart-modal-content");
+  const confirmation = document.getElementById("cart-modal-confirmation");
 
-    const content = document.getElementById("cart-modal-content");
-    const confirmation = document.getElementById("cart-modal-confirmation");
-
-    if (content) content.style.display = "block";
-    if (confirmation) confirmation.style.display = "none";
-  },
+  if (content) content.style.display = "block";
+  if (confirmation) confirmation.style.display = "none";
+},
 
   handleAddToCart() {
     if (!this.currentItemData) return;
@@ -223,35 +205,33 @@ const CartModal = {
     const qty = this.qtyInputEl ? parseInt(this.qtyInputEl.value, 10) || 1 : 1;
 
     const item = {
-      id: this.currentItemData.id,
-      name: this.currentItemData.name,
-      price: this.currentItemData.price,
-      image: this.currentItemData.image || "",
-      quantity: qty,
-      flavors:
-        selectedFlavors.length > 0
-          ? [...selectedFlavors]
-          : ["No flavor selected"]
+        id: this.currentItemData.id,
+        name: this.currentItemData.name,
+        price: this.currentItemData.price,
+        image: this.currentItemData.image || "",
+        quantity: qty,
+        flavors: selectedFlavors.length > 0 ? [...selectedFlavors] : ["No flavor selected"]
     };
 
     CartState.addItem(item);
 
-    // Reset flavors
+    // Reset flavor selections for next time
     selectedFlavors = [];
-    document.querySelectorAll(".flavor-card.selected").forEach(card =>
-      card.classList.remove("selected")
-    );
+    document.querySelectorAll(".flavor-card.selected").forEach(card => {
+        card.classList.remove("selected");
+    });
 
     this.showConfirmation();
-  },
+},
 
   showConfirmation() {
+    // Hide original content
     const content = document.getElementById("cart-modal-content");
     const confirmation = document.getElementById("cart-modal-confirmation");
 
     if (content) content.style.display = "none";
     if (confirmation) confirmation.style.display = "block";
-  }
+  },
 };
 
 // -----------------------------
@@ -270,43 +250,19 @@ function bindAddToOrderButtons() {
         hasFlavors: btn.dataset.hasFlavors === "true"
       };
 
-      CartModal.open(itemData);
+      CartModal.open(itemData); // ONLY this here
     });
   });
 }
 
 // -----------------------------
-// Flavor selection
+// Checkout helper (for checkout.html)
 // -----------------------------
-document.addEventListener("click", function (e) {
-  const card = e.target.closest(".flavor-card");
-  if (!card) return;
-
-  const flavor = card.dataset.flavor;
-
-  card.classList.toggle("selected");
-
-  if (card.classList.contains("selected")) {
-    selectedFlavors.push(flavor);
-  } else {
-    selectedFlavors = selectedFlavors.filter(f => f !== flavor);
-  }
-});
-
-// -----------------------------
-// Continue Shopping → Scroll to Full Menu
-// -----------------------------
-document.addEventListener("click", e => {
-  const btn = e.target.closest(".continue-shopping-btn");
-  if (!btn) return;
-
-  CartModal.close();
-
-  const section = document.getElementById("full-menu");
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-});
+function exportCartForCheckout() {
+  // This is optional: you can call this before redirecting to checkout.html
+  // If you already rely on localStorage only, you may not need this.
+  localStorage.setItem("wf_cart_for_checkout", JSON.stringify(CartState.cart));
+}
 
 // -----------------------------
 // Init
@@ -318,8 +274,43 @@ document.addEventListener("DOMContentLoaded", () => {
   bindAddToOrderButtons();
 });
 
-
-// Expose minimal API
+// Expose minimal API if needed elsewhere
 window.WheelFoodieCart = {
   state: CartState,
+  exportForCheckout: exportCartForCheckout
 };
+
+// -----------------------------
+// Continue Shopping → Scroll to Full Menu
+// -----------------------------
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".continue-shopping-btn");
+  if (!btn) return;
+
+  // Close the modal using your existing modal controller
+  CartModal.close();
+
+  // Scroll to the full menu section
+  const section = document.getElementById("full-menu");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+let selectedFlavors = [];
+
+document.addEventListener("click", function(e) {
+    if (e.target.closest(".flavor-card")) {
+        const card = e.target.closest(".flavor-card");
+        const flavor = card.dataset.flavor;
+
+        // Toggle selection
+        if (card.classList.contains("selected")) {
+            card.classList.remove("selected");
+            selectedFlavors = selectedFlavors.filter(f => f !== flavor);
+        } else {
+            card.classList.add("selected");
+            selectedFlavors.push(flavor);
+        }
+    }
+});
