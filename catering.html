@@ -334,6 +334,60 @@
         </div>
     </footer>
 
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="auth-modal-content">
+
+            <button class="auth-close">&times;</button>
+
+            <!-- Logo -->
+            <div class="auth-logo">
+                <img src="assets/media/logo.png" alt="Wheel Foodie Logo">
+            </div>
+
+            <h2 class="auth-title">SIGN IN</h2>
+
+            <!-- Form -->
+            <form class="auth-form">
+                <label>Email</label>
+                <input type="email" required>
+
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="auth-password" required>
+                    <span class="toggle-password">&#128065;</span>
+                </div>
+
+                <div class="auth-row">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <p class="auth-legal">
+                    By signing in, I agree to Wheel Foodie’s Privacy Policy, Terms of Use, 
+                    and to receiving account security/verification text messages. 
+                    Msg & Data rates may apply.
+                </p>
+
+                <button type="submit" class="modal-btn-orange auth-submit">SIGN IN</button>
+            </form>
+
+            <div class="auth-divider"></div>
+
+            <h2 class="auth-subtitle">NOT A MEMBER?</h2>
+            <h3 class="auth-subsubtitle">JOIN REWARDS. GET REWARDED.</h3>
+
+            <button class="modal-btn-outline-orange auth-create">CREATE AN ACCOUNT</button>
+
+            <div class="auth-help">
+                <span class="chat-icon">💬</span>
+                <p>Need Help? <strong>Chat with Foodie</strong></p>
+            </div>
+        </div>
+    </div>
+
     <script>
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/WheelFoodie/service-worker.js");

@@ -84,4 +84,28 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    /* AUTH MODAL - global login/create account modal */
+    // Open modal from header
+    document.querySelector('.auth-trigger')?.addEventListener('click', () => {
+        document.getElementById('auth-modal').classList.remove('hidden');
+    });
+
+    // Open modal from checkout button
+    document.querySelector('.checkout-auth-btn')?.addEventListener('click', () => {
+        document.getElementById('auth-modal').classList.remove('hidden');
+    });
+
+    // Close modal
+    document.querySelector('.auth-close').addEventListener('click', () => {
+        document.getElementById('auth-modal').classList.add('hidden');
+    });
+
+    // Close when clicking outside
+    document.getElementById('auth-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'auth-modal') {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+    });
+
 });
