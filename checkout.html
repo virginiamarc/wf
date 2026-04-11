@@ -57,6 +57,8 @@
                     </a>
                 </div>
                 <h1 class="site-title">Wheel Foodie</h1>
+
+                <a href="menu.html" class="return-menu">RETURN TO MENU</a>
             </div>
 
             <!-- GROUP NAV + ACCOUNT + CART -->
@@ -73,23 +75,21 @@
                 </nav>
 
                 <div class="utility-nav">
-                    <div class="account-menu">
-                        <span class="account-label">
-                            <svg class="user-icon" viewBox="0 0 24 24">
-                                <circle cx="12" cy="7" r="4"></circle>
-                                <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
-                            </svg>
-                            Account ▾
-                        </span>
+                    <!-- SIGN IN / JOIN trigger -->
+                    <button class="auth-trigger">
+                        <svg class="user-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
+                        </svg>
+                        SIGN IN / JOIN
+                    </button>
 
-                        <ul class="account-dropdown">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                        </ul>
-                    </div>
-
-                    <a href="checkout.html" class="cart-icon">
-                        🛒 <span class="cart-count">0</span>
+                    <!-- Bag icon -->
+                    <a href="checkout.html" class="bag-icon">
+                        <svg viewBox="0 0 24 24" class="bag-svg">
+                            <path d="M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3zm2 0h6V6a3 3 0 0 0-6 0v1z"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
                     </a>
                 </div>
             </div>
@@ -101,55 +101,32 @@
 
     <main class="checkout-container">
 
-        <!-- ⭐ LEFT COLUMN: USER OPTIONS + CONTACT INFO -->
-        <section class="checkout-left">
-            <div class="checkout-left-inner">
-                
-                <h2>Checkout</h2>
-
-                <!-- LOGIN / GUEST OPTIONS -->
-                <div class="auth-options">
-                    <button class="btn-secondary full">Continue as Guest</button>
-                    <button class="btn-orange full">Login</button>
-                    <button class="btn-orange full">Create Account</button>
-                </div>
-
-                <!-- CONTACT INFO FORM -->
-                <div class="checkout-section">
-                    <h3>Contact Information</h3>
-
-                    <form id="checkout-form">
-                        <label>
-                            Full Name
-                            <input type="text" id="fullName" required>
-                        </label>
-
-                        <label>
-                            Email
-                            <input type="email" id="email" required>
-                        </label>
-
-                        <label>
-                            Phone Number
-                            <input type="tel" id="phone" required>
-                        </label>
-                    </form>
-                </div>
-
-                <!-- PAYMENT BUTTON -->
-                <button id="placeOrderBtn" class="checkout-btn full">
-                    Proceed to Payment
-                </button>
-            </div>
+        <!-- ⭐ PICKUP LOCATION -->
+        <section class="checkout-section">
+            <h2>Pickup Location</h2>
+            <p class="pickup-location-text">2103 Blossom Ave, Tampa, FL 33614</p>
         </section>
 
-        <!-- ⭐ RIGHT COLUMN: ORDER SUMMARY -->
-        <aside class="checkout-right">
+        <!-- PICKUP INFO -->
+        <section class="checkout-section">
+            <h2>Pickup Info</h2>
 
-            <h3>Your Order</h3>
+            <div class="auth-options">
+                <button id="guestBtn" class="btn-secondary full">Continue as Guest</button>
+                <button id="loginBtn" class="btn-orange full">Login</button>
+                <button id="createBtn" class="btn-orange full">Create Account</button>
+            </div>
 
+            <!-- Dynamic form appears here -->
+            <div id="identityFormContainer"></div>
+        </section>
+
+        <!-- ORDER DETAIL -->
+        <section class="checkout-section">
+            <h2>Your Order</h2>
             <div id="checkout-items"></div>
 
+            <!-- TOTALS + ACTIONS -->
             <div class="checkout-totals">
                 <div class="row">
                     <span>Subtotal</span>
@@ -166,8 +143,19 @@
                     <span id="total">$0.00</span>
                 </div>
             </div>
+        </section>
 
-        </aside>
+        <section class="checkout-section">
+            <!-- PAYMENT BUTTON -->
+            <button id="placeOrderBtn" class="checkout-btn full">
+                Proceed to Payment
+            </button>
+
+            <!-- CONTINUE SHOPPING BUTTON -->
+            <button id="continueShoppingBtn" class="continue-btn full">
+                Continue Shopping
+            </button>
+        </section>
 
     </main>
     
@@ -177,10 +165,10 @@
     </footer>
 
     <!-- GLOBAL SCRIPTS -->
-    <script src="assets/js/cart-state.js"></script>
-    <script src="assets/js/cart-storage.js"></script>
-    <script src="assets/js/cart-ui.js"></script>
-    <script src="assets/js/checkout.js"></script>
+    <script type="module" src="assets/js/cart-state.js"></script>
+    <script type="module" src="assets/js/cart-storage.js"></script>
+    <script type="module" src="assets/js/cart-ui.js"></script>
+    <script type="module" src="assets/js/checkout.js"></script>
     <script src="assets/js/script.js" defer></script>
 
 </body>

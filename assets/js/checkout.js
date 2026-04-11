@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const taxEl = document.getElementById("tax");
     const totalEl = document.getElementById("total");
     const placeOrderBtn = document.getElementById("placeOrderBtn");
+    const continueShoppingBtn = document.getElementById("continueShoppingBtn");
 
     // -----------------------------
     // ⭐ RENDER CHECKOUT ITEMS
     // -----------------------------
     function renderCheckout() {
-        const cart = CartState.items;
+        const cart = CartState.cart;
 
         itemsContainer.innerHTML = "";
 
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ⭐ UPDATE TOTALS
     // -----------------------------
     function updateTotals() {
-        const cart = CartState.items;
+        const cart = CartState.cart;
 
         const subtotal = cart.reduce((sum, item) => {
             return sum + item.price * item.quantity;
@@ -82,8 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Increase quantity
         document.querySelectorAll(".qty-btn.plus").forEach(btn => {
             btn.addEventListener("click", () => {
-                CartState.increase(btn.dataset.id);
-                CartStorage.save(CartState.items);
+                const id = btn.dataset.id;
+                const item = CartState.cart.find(i => i.id === id);
+                if (!item) return;
+
+                CartState.updateQuantity(id, item.quantity + 1);
+                CartStorage.save(CartState.cart);
                 renderCheckout();
                 CartUI.updateCounter();
             });
@@ -92,8 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // Decrease quantity
         document.querySelectorAll(".qty-btn.minus").forEach(btn => {
             btn.addEventListener("click", () => {
-                CartState.decrease(btn.dataset.id);
-                CartStorage.save(CartState.items);
+                const id = btn.dataset.id;
+                const item = CartState.cart.find(i => i.id === id);
+                if (!item) return;
+
+                if (item.quantity > 1) {
+                    CartState.updateQuantity(id, item.quantity - 1);
+                } else {
+                    CartState.removeItem(id);
+                }
+
+                CartStorage.save(CartState.cart);
                 renderCheckout();
                 CartUI.updateCounter();
             });
@@ -102,8 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Remove item
         document.querySelectorAll(".remove-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                CartState.remove(btn.dataset.id);
-                CartStorage.save(CartState.items);
+                const id = btn.dataset.id;
+                CartState.removeItem(id);
+                CartStorage.save(CartState.cart);
                 renderCheckout();
                 CartUI.updateCounter();
             });
@@ -114,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ⭐ PLACE ORDER BUTTON
     // -----------------------------
     placeOrderBtn.addEventListener("click", () => {
-        const cart = CartState.items;
+        const cart = CartState.cart;
 
         if (cart.length === 0) {
             alert("Your cart is empty.");
@@ -125,8 +140,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // -----------------------------
+    // ⭐ CONTINUE SHOPPING BUTTON
+    // -----------------------------
+    continueShoppingBtn.addEventListener("click", () => {
+        window.location.href = "menu.html#full-menu";
+    });
+
+    // -----------------------------
     // ⭐ INITIAL LOAD
     // -----------------------------
-    CartState.items = CartStorage.load();
+    CartState.cart = CartStorage.load();
     renderCheckout();
 });

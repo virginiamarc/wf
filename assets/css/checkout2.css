@@ -1,0 +1,257 @@
+.checkout-page .main-nav {
+    display: none;
+}
+
+
+/* ================================
+   Layout
+================================ */
+.checkout-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    display: block;
+}
+
+
+/* DELETE Auth Buttons
+.auth-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}*/
+
+/* DELETE Global width for all checkout buttons
+.checkout-page button.full {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+}*/
+
+/* DELETE Normalize height of all auth buttons
+.auth-options button {
+    padding: 10px 14px;   /* consistent height
+    line-height: 1.2;     /* prevents text from stretching height
+    height: auto;         /* ensures natural height
+}*/
+
+/* DELETE Continue as Guest — match Continue Shopping style
+.auth-options .btn-secondary {
+    background: #f7f7f7;
+    color: #333;
+    border: 2px solid #c9c9c9;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}*/
+
+/*DELETE .auth-options .btn-secondary:hover {
+    background: #ececec;
+    border-color: #b5b5b5;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.22);
+    transform: translateY(-1px);
+}*/
+
+/* Contact Infor Section */
+.checkout-section {
+    width: 100%;
+    max-width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.checkout-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.checkout-section label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.checkout-section input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* DELETE Proceed Button 
+.checkout-btn.full {
+    margin-left: 0;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 8px;
+}*/
+
+/* DELETE Continue Shopping (secondary action)
+.continue-btn {
+    background: #f7f7f7;
+    color: #333;
+    border: 1px solid #c9c9c9;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}*/
+
+/* DELETE .continue-btn:hover {
+    background: #ececec;
+    border-color: #b5b5b5;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.22);
+    transform: translateY(-1px);
+}*/
+
+
+/* Cart Items */
+.checkout-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.checkout-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.checkout-item-info h4 {
+    margin-bottom: 8px;
+}
+
+.checkout-item-info .price {
+    margin-bottom: 12px;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* Quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.qty-btn:hover {
+    background: #ddd;
+}
+
+/* Remove button */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.remove-btn:hover {
+    text-decoration: underline;
+}
+
+/* Totals */
+.checkout-totals {
+    margin-top: 20px;
+}
+
+.checkout-totals .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.checkout-totals .total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* ================================
+   Empty Cart 
+================================ */
+.empty-cart {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+.checkout-footer {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+.checkout-footer a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.checkout-footer a:hover {
+    color: #000;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .checkout-section {
+        padding: 15px;
+    }
+
+    .checkout-section h3 {
+        font-size: 1.15rem;
+    }
+}

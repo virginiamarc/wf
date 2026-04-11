@@ -3,7 +3,8 @@ import { CartState } from "./cart-state.js";
 export const CartUI = {
   updateCounter() {
     const counter = document.querySelector(".cart-count");
-    counter.textContent = CartState.cart.length;
+    const totalQty = CartState.cart.reduce((sum, item) => sum + item.quantity, 0);
+    counter.textContent = totalQty;
   },
 
   renderMiniCart() {

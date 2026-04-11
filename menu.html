@@ -52,39 +52,34 @@
                 <h1 class="site-title">Wheel Foodie</h1>
             </div>
 
-            <!-- GROUP NAV + ACCOUNT + CART -->
-            <div class="header-center">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="menu.html" aria-current="page">Menu</a></li>
-                        <li><a href="specials.html">Specials</a></li>
-                        <li><a href="locations.html">Locations</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="catering.html">Catering</a></li>
-                    </ul>
-                </nav>
-            
-                <div class="utility-nav">
-                    <div class="account-menu">
-                        <span class="account-label">
-                            <svg class="user-icon" viewBox="0 0 24 24">
-                                <circle cx="12" cy="7" r="4"></circle>
-                                <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
-                            </svg>
-                            Account ▾
-                        </span>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" aria-current="page">Menu</a></li>
+                    <li><a href="specials.html">Specials</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="catering.html">Catering</a></li>
+                </ul>
+            </nav>
+        
+            <div class="utility-nav">
+                <!-- SIGN IN / JOIN trigger -->
+                <button class="auth-trigger">
+                    <svg class="user-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path>
+                    </svg>
+                    SIGN IN / JOIN
+                </button>
 
-                        <ul class="account-dropdown">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                        </ul>
-                    </div>
-
-                    <a href="checkout.html" class="cart-icon">
-                        🛒 <span class="cart-count">0</span>
-                    </a>
-                </div>
+                <!-- Bag icon -->
+                <a href="checkout.html" class="bag-icon">
+                    <svg viewBox="0 0 24 24" class="bag-svg">
+                        <path d="M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3zm2 0h6V6a3 3 0 0 0-6 0v1z"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
             </div>
 
             <button class="hamburger">&#9776;</button>
