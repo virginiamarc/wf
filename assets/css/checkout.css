@@ -57,18 +57,26 @@
 
 /* RETURN TO MENU (checkout only) */
 .return-menu {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #f5f5f5;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-left: 15px;
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+
+    /* Match hero-card style */
+    background: rgba(255, 255, 255, 0.25);  /*warm, earthy */
+    backdrop-filter: blur(2px);
+    transition: background 0.25s ease, color 0.25s ease;
+    box-shadow: none;
 }
 
+/* Hover */
 .return-menu:hover {
-    text-decoration: underline;
+    background: rgba(0, 0, 0, 0.25); /* slightly stronger */
+    color: white;
 }
-
 
 /* ================================
    Layout
