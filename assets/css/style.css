@@ -662,7 +662,7 @@ nav.main-nav {
     margin: 0 auto;
 }
 
-.index-page .index-intro-section h3 {
+.index-page .index-intro-section h2 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #2b4506; /* deep green to match your feature card buttons */
