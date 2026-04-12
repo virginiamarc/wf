@@ -87,8 +87,6 @@ function clearUser() {
     localStorage.removeItem("wfUser");
 }
 
-
-
 /* ================================
    UPDATE HEADER
 ================================ */
@@ -107,8 +105,6 @@ function updateHeader() {
         dropdown.classList.add("hidden");
     }
 }
-
-
 
 /* ================================
    AUTH MODAL LOGIC
@@ -304,12 +300,11 @@ document.querySelector(".payment-close").addEventListener("click", () => {
 document.getElementById("paymentForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
+    console.log("PAYMENT SUBMIT FIRED");
+    renderReviewSummary();
+
     paymentView.classList.add("hidden");
     reviewView.classList.remove("hidden");
-
-    document.getElementById("reviewOrderSummary").innerHTML = `
-        <p>Order summary goes here...</p>
-    `;
 });
 
 

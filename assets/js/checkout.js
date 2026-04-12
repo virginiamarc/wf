@@ -77,6 +77,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------
+    // RENDERS ORDER SUMMARY (NEW CODE ADDED DELETE IF NOT WORKING)
+    //-------------------------------
+    function renderReviewSummary() {
+        const reviewBox = document.getElementById("reviewOrderSummary");
+        const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
+
+        if (cart.length === 0) {
+            reviewBox.innerHTML = "<p>Your cart is empty.</p>";
+            return;
+        }
+
+        let html = "";
+
+        cart.forEach(item => {
+            html += `
+                <div class="review-item">
+                    <img src="${item.image}" alt="${item.name}" class="review-img">
+
+                    <div class="review-details">
+                        <div class="review-name">${item.name}</div>
+                        <div class="review-qty">Qty: ${item.quantity}</div>
+                    </div>
+
+                    <div class="review-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                </div>
+            `;
+        });
+
+        reviewBox.innerHTML = html;
+    }
+
+    // -----------------------------
     // ⭐ ATTACH EVENTS TO ITEMS
     // -----------------------------
     function attachItemEvents() {
@@ -187,4 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Expose renderCheckout globally so script.js can call it
     window.renderCheckout = renderCheckout;
+
+    // NEW CODE ADDED DELETE IF NON FUNCTIONING
+    window.renderReviewSummary = renderReviewSummary;
 });
