@@ -410,6 +410,18 @@ nav.main-nav {
     cursor: pointer;
 }
 
+.terms-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.terms-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
 
 .bag-icon {
     position: relative;
@@ -2974,4 +2986,50 @@ nav.main-nav {
         width: 90%;
         height: 160px;
     }
+}
+
+.account-area {
+    position: relative;
+}
+
+.account-dropdown {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 12px;
+    width: 180px;
+}
+
+.account-dropdown a,
+.account-dropdown button {
+    display: block;
+    padding: 8px 0;
+    text-align: left;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.payment-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 380px;
+}
+
+.hidden {
+    display: none !important;
 }

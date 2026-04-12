@@ -226,18 +226,6 @@ document.getElementById("authSuccessBtn").addEventListener("click", () => {
     updateHeader();
 });
 
-// Checkout page Login/Create Account button
-document.getElementById("loginBtn")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    // Always reset modal to Sign In view
-    signinView.classList.remove("hidden");
-    createView.classList.add("hidden");
-    successView.classList.add("hidden");
-
-    authModal.classList.remove("hidden");
-});
 
 
 /* ================================
@@ -261,35 +249,16 @@ const successView2 = document.getElementById("success-view");
 
 // Open payment modal
 document.getElementById("placeOrderBtn")?.addEventListener("click", () => {
+    // Check cart before opening payment modal
     const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
 
-    // 1. CART CHECK
     if (cart.length === 0) {
         alert("Your cart is empty.");
         return;
     }
 
-    // 2. USER LOGIN CHECK
-    const user = getUser();
-
-    // 3. GUEST INFO CHECK
-    const guestName = document.getElementById("guestName")?.value.trim();
-    const guestPhone = document.getElementById("guestPhone")?.value.trim();
-    const guestEmail = document.getElementById("guestEmail")?.value.trim();
-
-    const guestInfoComplete =
-        guestName && guestPhone && guestEmail;
-
-    // 4. BLOCK PAYMENT IF NO IDENTITY PROVIDED
-    if (!user && !guestInfoComplete) {
-        alert("Please sign in or enter your customer information before continuing.");
-        return;
-    }
-
-    // 5. OPEN PAYMENT MODAL
     paymentModal.classList.remove("hidden");
 });
-
 
 // Close payment modal
 document.querySelector(".payment-close").addEventListener("click", () => {

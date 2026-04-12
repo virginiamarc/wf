@@ -2,7 +2,7 @@
 // Storage layer
 // -----------------------------
 const CartStorage = {
-  key: "wf_cart",
+  key: "wfCart",
 
   save(cart) {
     localStorage.setItem(this.key, JSON.stringify(cart));

@@ -128,15 +128,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // -----------------------------
     // ⭐ PLACE ORDER BUTTON
     // -----------------------------
-    placeOrderBtn.addEventListener("click", () => {
+    placeOrderBtn.addEventListener("click", (e) => {
         const cart = CartState.cart;
 
-        if (cart.length === 0) {
+       if (cart.length === 0) {
             alert("Your cart is empty.");
-            return;
+
+            // ⭐ Prevent ANY further click behavior
+            e.preventDefault();
+            e.stopImmediatePropagation();  // ⭐ stops script.js listener from firing
+            
+            // ⭐ Disable the button for a moment to prevent double-click behavior
+            placeOrderBtn.disabled = true;
+            setTimeout(() => {
+                placeOrderBtn.disabled = false;
+            }, 300);
+
+            // Fully cancel the click so no second click is required
+            return false;
         }
 
-        alert("Proceeding to payment… (future feature)");
+        // script.js will handle opening the payment modal
+    
     });
 
     // -----------------------------
@@ -171,4 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // -----------------------------
     CartState.cart = CartStorage.load();
     renderCheckout();
+
+    // Expose renderCheckout globally so script.js can call it
+    window.renderCheckout = renderCheckout;
 });
