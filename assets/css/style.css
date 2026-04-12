@@ -1762,6 +1762,39 @@ nav.main-nav {
         grid-template-columns: 1fr;
         padding: 0 15px;
     }
+
+    header nav a, 
+    .nav-btn, 
+    .return-menu {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+
+    }
+
+    header {
+        padding: 10px 12px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-text {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .hero-section {
+        min-height: 60vh;
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 .specials-page .coupon-card {
