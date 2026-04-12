@@ -106,6 +106,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         reviewBox.innerHTML = html;
+
+        // Add totals section
+        const subtotal = document.getElementById("subtotal").textContent;
+        const tax = document.getElementById("tax").textContent;
+        const total = document.getElementById("total").textContent;
+
+        reviewBox.innerHTML += `
+            <div class="review-totals">
+                <div class="review-row">
+                    <span>Subtotal:</span>
+                    <span>${subtotal}</span>
+                </div>
+                <div class="review-row">
+                    <span>Tax:</span>
+                    <span>${tax}</span>
+                </div>
+                <div class="review-row review-total">
+                    <span>Total:</span>
+                    <span>${total}</span>
+                </div>
+            </div>
+        `;
     }
 
     // -----------------------------
@@ -222,4 +244,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // NEW CODE ADDED DELETE IF NON FUNCTIONING
     window.renderReviewSummary = renderReviewSummary;
+
+    // -----------------------------
+    // ⭐ GENERATE RECEIPT PDF
+    // -----------------------------
+    function generateReceiptPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        const cart = CartState.cart;
+        let y = 20;
+
+        doc.setFontSize(18);
+        doc.text("Wheel Foodie Receipt", 20, y);
+        y += 10;
+
+        doc.setFontSize(12);
+        doc.text(`Date: ${new Date().toLocaleString()}`, 20, y);
+        y += 10;
+
+        doc.text("Items:", 20, y);
+        y += 10;
+
+        cart.forEach(item => {
+            doc.text(
+                `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`,
+                20,
+                y
+            );
+            y += 8;
+        });
+
+        y += 5;
+        doc.text(`Subtotal: ${document.getElementById("subtotal").textContent}`, 20, y);
+        y += 8;
+        doc.text(`Tax: ${document.getElementById("tax").textContent}`, 20, y);
+        y += 8;
+        doc.text(`Total: ${document.getElementById("total").textContent}`, 20, y);
+
+        doc.save("receipt.pdf");
+    }
+
+    window.generateReceiptPDF = generateReceiptPDF;
+
 });

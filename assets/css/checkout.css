@@ -503,3 +503,28 @@
     display: block;
 }
 
+/* ================================
+   REVIEW TOTALS ONLY
+================================ */
+
+.review-totals {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.review-totals .review-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333; /* adjust if needed */
+}
+
+.review-totals .review-total {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #2b4506; /* your brand green */
+    margin-top: 10px;
+}
+

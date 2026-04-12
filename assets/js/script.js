@@ -307,6 +307,10 @@ document.getElementById("paymentForm").addEventListener("submit", (e) => {
     reviewView.classList.remove("hidden");
 });
 
+document.getElementById("downloadReceipt").addEventListener("click", () => {
+    generateReceiptPDF();
+});
+
 
 // FINAL ORDER
 document.getElementById("placeOrderFinal").addEventListener("click", () => {
