@@ -746,6 +746,61 @@ HOME PAGE FEATURE CARDS*/
     margin-top: auto;
 }
 
+/*COME BACK HERE TO REVISE*/
+
+/* Green glossy button for feature cards */
+.index-page .feature-card .btn-orange {
+    background: linear-gradient(
+        to bottom,
+        #3d5f1b,
+        #2b4506
+    );
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+
+    /* Glossy depth */
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 4px 12px rgba(0,0,0,0.25);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Shiny corner highlight */
+.index-page .feature-card .btn-orange::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    background: radial-gradient(
+        circle at top left,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0) 60%
+    );
+
+    pointer-events: none;
+}
+
+/* Hover lift + stronger glow */
+.index-page .feature-card .btn-orange:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 8px 18px rgba(0,0,0,0.35);
+}
+
 
 /* Cater Row */
 .index-page section.cater-row {
