@@ -542,9 +542,6 @@
     padding-bottom: 20px;   /* ensures button never touches the edge */
 }
 
-
-
-
 /* MOBILE-ONLY HEADER RESIZE — checkout page only */
 @media (max-width: 600px) {
     .checkout-page .site-header {
