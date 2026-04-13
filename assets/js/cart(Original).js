@@ -182,17 +182,6 @@ const CartModal = {
     if (this.imgEl && itemData.image) this.imgEl.src = itemData.image;
     if (this.qtyInputEl) this.qtyInputEl.value = 1;
 
-    // Reset flavors every time modal opens
-    selectedFlavors = [];
-    document.querySelectorAll(".flavor-card.selected").forEach(c =>
-      c.classList.remove("selected")
-    );
-
-    // Reset flavor display
-    const flavorDisplay = document.getElementById("cart-modal-selected-flavors");
-    if (flavorDisplay) flavorDisplay.textContent = "No flavor selected";
-
-
     // ⭐ Show/hide flavor selector
     const flavorSection = document.querySelector(".flavor-selector");
 
@@ -233,33 +222,19 @@ const CartModal = {
 
     const qty = this.qtyInputEl ? parseInt(this.qtyInputEl.value, 10) || 1 : 1;
 
-    // If multiple flavors selected → add multiple items
-    if (selectedFlavors.length > 0) {
-      selectedFlavors.forEach(f => {
-        const item = {
-          id: `${this.currentItemData.id}-${f.flavor.toLowerCase().replace(/\s+/g, '-')}`,
-          name: `${this.currentItemData.name} - ${f.flavor}`,
-          price: this.currentItemData.price,
-          image: f.image || this.currentItemData.image, // USE FLAVOR IMAGE
-          quantity: 1, // each flavor = 1 item
-          flavors: [f.flavor]
-        };
+    const item = {
+      id: this.currentItemData.id,
+      name: this.currentItemData.name,
+      price: this.currentItemData.price,
+      image: this.currentItemData.image || "",
+      quantity: qty,
+      flavors:
+        selectedFlavors.length > 0
+          ? [...selectedFlavors]
+          : ["No flavor selected"]
+    };
 
-        CartState.addItem(item);
-      });
-    } else {
-      // No flavors selected → add one item
-      const item = {
-        id: this.currentItemData.id,
-        name: this.currentItemData.name,
-        price: this.currentItemData.price,
-        image: this.currentItemData.image || "",
-        quantity: qty,
-        flavors: ["No flavor selected"]
-      };
-
-      CartState.addItem(item);
-    }
+    CartState.addItem(item);
 
     // Reset flavors
     selectedFlavors = [];
@@ -269,7 +244,6 @@ const CartModal = {
 
     this.showConfirmation();
   },
-
 
   showConfirmation() {
     const content = document.getElementById("cart-modal-content");
@@ -309,23 +283,13 @@ document.addEventListener("click", function (e) {
   if (!card) return;
 
   const flavor = card.dataset.flavor;
-  const flavorImage = card.dataset.image;
 
   card.classList.toggle("selected");
 
   if (card.classList.contains("selected")) {
-    selectedFlavors.push({ flavor, image: flavorImage });
+    selectedFlavors.push(flavor);
   } else {
-    selectedFlavors = selectedFlavors.filter(f => f.flavor !== flavor);
-  }
-
-  // ⭐ Update modal flavor display
-  const flavorDisplay = document.getElementById("cart-modal-selected-flavors");
-  if (flavorDisplay) {
-    flavorDisplay.textContent =
-      selectedFlavors.length > 0
-        ? `Selected: ${selectedFlavors.map(f => f.flavor).join(", ")}`
-        : "No flavor selected";
+    selectedFlavors = selectedFlavors.filter(f => f !== flavor);
   }
 });
 
