@@ -536,3 +536,63 @@
     margin-top: 10px;
 }
 
+/* MOBILE-ONLY HEADER RESIZE — checkout page only */
+@media (max-width: 600px) {
+    .checkout-page .site-header {
+        padding: 6px 0;
+    }
+
+    .checkout-page .header-inner {
+        gap: 4px;
+    }
+
+    /* Logo */
+    .checkout-page .logo img {
+        height: 32px;
+    }
+
+    /* Site title */
+    .checkout-page .site-title {
+        font-size: 1.1rem;
+    }
+
+    /* RETURN TO MENU */
+    .checkout-page .return-menu {
+        font-size: 0.8rem;
+        padding: 2px 4px;
+    }
+
+    /* Navigation links (if visible on mobile) */
+    .checkout-page .main-nav ul li a {
+        font-size: 0.85rem;
+    }
+
+    /* SIGN IN / JOIN text */
+    .checkout-page #authHeaderText {
+        font-size: 0.8rem;
+    }
+
+    /* Account icon */
+    .checkout-page .user-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Cart icon */
+    .checkout-page .bag-svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .checkout-page .cart-count {
+        font-size: 0.7rem;
+        padding: 1px 4px;
+    }
+
+    /* Hamburger icon */
+    .checkout-page .hamburger {
+        font-size: 22px;
+        padding: 4px;
+    }
+}
+
