@@ -70,7 +70,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 }); // END DOMContentLoaded
 
+// ------------------------------
+// FORM HANDLERS (GLOBAL)
+// ------------------------------
 
+// INDEX FORM
+const indexForm = document.querySelector('.index-quote-card form');
+if (indexForm) {
+  indexForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('indexQuoteSuccess').style.display = 'block';
+    this.reset();
+  });
+}
+
+// CATERING FORM
+const cateringForm = document.querySelector('.catering-quote-card form');
+if (cateringForm) {
+  cateringForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('caterQuoteSuccess').style.display = 'block';
+    this.reset();
+  });
+}
+
+// ABOUT SUBSCRIBE FORM
+const subscribeForm = document.querySelector('.subscribe-form');
+if (subscribeForm) {
+  subscribeForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const msg = document.getElementById('aboutSubscribeSuccess');
+    msg.style.display = 'block';
+
+    this.reset();
+
+    setTimeout(() => {
+      msg.style.display = 'none';
+    }, 6000);
+  });
+}
 
 /* ================================
    USER STATE
