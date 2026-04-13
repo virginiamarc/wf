@@ -536,6 +536,15 @@
     margin-top: 10px;
 }
 
+.payment-modal-content {
+    max-height: 90vh;       /* keeps modal inside screen */
+    overflow-y: auto;       /* allows scrolling when content is long */
+    padding-bottom: 20px;   /* ensures button never touches the edge */
+}
+
+
+
+
 /* MOBILE-ONLY HEADER RESIZE — checkout page only */
 @media (max-width: 600px) {
     .checkout-page .site-header {
