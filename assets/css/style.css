@@ -748,12 +748,12 @@ HOME PAGE FEATURE CARDS*/
 
 /*COME BACK HERE TO REVISE*/
 
-/* Green glossy button for feature cards */
+/* Green glossy button with reduced shine + stronger green */
 .index-page .feature-card .btn-orange {
     background: linear-gradient(
         to bottom,
-        #3d5f1b,
-        #2b4506
+        #4a7a22,   /* brighter, richer green */
+        #2b4506    /* deep base green */
     );
     color: #fff;
     padding: 10px 20px;
@@ -764,42 +764,64 @@ HOME PAGE FEATURE CARDS*/
     position: relative;
     overflow: hidden;
 
-    /* Glossy depth */
+    /* Stronger green, softer bevel */
     box-shadow:
-        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 1px 2px rgba(255,255,255,0.15),
         inset 0 -2px 4px rgba(0,0,0,0.35),
         0 4px 12px rgba(0,0,0,0.25);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Shiny corner highlight */
+/* Top-left shine (reduced intensity + smaller radius) */
 .index-page .feature-card .btn-orange::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     border-radius: inherit;
 
     background: radial-gradient(
         circle at top left,
-        rgba(255,255,255,0.35),
-        rgba(255,255,255,0) 60%
+        rgba(255,255,255,0.18),   /* reduced from 0.35 */
+        rgba(255,255,255,0) 40%   /* tighter fade */
     );
 
     pointer-events: none;
 }
 
-/* Hover lift + stronger glow */
+/* Bottom-right shine (reduced intensity + smaller radius) */
+.index-page .feature-card .btn-orange::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(255,255,255,0.12),   /* reduced from 0.25 */
+        rgba(255,255,255,0) 50%
+    );
+
+    pointer-events: none;
+}
+
+/* Hover lift */
 .index-page .feature-card .btn-orange:hover {
     transform: translateY(-3px);
     box-shadow:
-        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 1px 2px rgba(255,255,255,0.15),
         inset 0 -2px 4px rgba(0,0,0,0.35),
         0 8px 18px rgba(0,0,0,0.35);
 }
+
+/* Add this to your existing button styles */
+.index-page .feature-card .btn-orange {
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.15),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 3px 8px rgba(0,0,0,0.28); /* <-- soft outer lift */
+}
+
 
 
 /* Cater Row */
