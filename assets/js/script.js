@@ -154,6 +154,19 @@ const createView = document.getElementById("auth-create-view");
 const successView = document.getElementById("auth-success-view");
 
 
+// Rewards JOIN NOW button → open modal on Create Account view
+document.getElementById("openRewardsJoin")?.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Open modal
+    authModal.classList.remove("hidden");
+
+    // Switch to Create Account view
+    signinView.classList.add("hidden");
+    createView.classList.remove("hidden");
+});
+
+
 // Unified header button behavior
 document.getElementById("authHeaderBtn").addEventListener("click", () => {
     const user = getUser();
