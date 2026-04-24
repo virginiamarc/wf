@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
+import connectDB from "./src/config/db.js";
 
-import authRoutes from "./routes/authRoutes.js";
-import rewardRoutes from "./routes/rewardRoutes.js";
-import pointsRoutes from "./routes/pointsRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import rewardRoutes from "./src/routes/rewardRoutes.js";
+import pointsRoutes from "./src/routes/pointsRoutes.js";
 
-dotenv.config();
+dotenv.config({ path: "./.env"});
 
 // DB connection
 connectDB();
@@ -28,8 +28,8 @@ app.use(express.json());
  * ROUTES
  */
 app.use("/api/auth", authRoutes);
-//app.use("/api/rewards", rewardRoutes);
-//app.use("/api/points", pointsRoutes);
+app.use("/api/rewards", rewardRoutes);
+app.use("/api/points", pointsRoutes);
 
 /**
  * HEALTH CHECK

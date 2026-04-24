@@ -37,3 +37,21 @@ export const addPoints = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+/**
+ * GET USER POINTS  ← ⭐ ADD THIS BELOW addPoints
+ */
+export const getPoints = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await User.findById(userId).select("points");
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json({ points: user.points });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
