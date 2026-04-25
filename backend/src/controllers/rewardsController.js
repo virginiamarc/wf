@@ -14,9 +14,9 @@ export const getRewards = async (req, res) => {
 /* REDEEM A REWARD */
 export const redeemReward = async (req, res) => {
   try {
-    const { userId, rewardId } = req.body;
+    const { rewardId } = req.body;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(req.user.id);
     const reward = await Reward.findById(rewardId);
 
     if (!user || !reward) {
@@ -28,6 +28,12 @@ export const redeemReward = async (req, res) => {
     }
 
     user.points -= reward.cost;
+
+    user.rewardHistory.push({
+      title: reward.title,
+      points: reward.cost
+    });
+
     await user.save();
 
     res.json({

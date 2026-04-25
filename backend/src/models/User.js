@@ -26,7 +26,18 @@ const userSchema = new mongoose.Schema(
     points: {
       type: Number,
       default: 0
-    }
+    },
+
+    rewardHistory: [
+      {
+        title: String,
+        points: Number,
+        date: {
+          type: Date,
+          default: Date.now
+        }
+      }
+    ]
   },
   { timestamps: true }
 );

@@ -6,9 +6,9 @@ import User from "../models/User.js";
  */
 export const addPoints = async (req, res) => {
   try {
-    const { userId, amountSpent } = req.body;
+    const { amountSpent } = req.body;
 
-    if (!userId || amountSpent === undefined) {
+    if (amountSpent === undefined) {
       return res.status(400).json({ error: "Missing data" });
     }
 
@@ -18,7 +18,7 @@ export const addPoints = async (req, res) => {
 
     const pointsEarned = Math.floor(amountSpent);
 
-    const user = await User.findById(userId);
+    const user = await User.findById(req.user.id);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -38,19 +38,20 @@ export const addPoints = async (req, res) => {
   }
 };
 
+
 /**
- * GET USER POINTS  ← ⭐ ADD THIS BELOW addPoints
+ * GET USER POINTS
  */
 export const getPoints = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const user = await User.findById(req.user.id).select("points");
 
-    const user = await User.findById(userId).select("points");
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
     res.json({ points: user.points });
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

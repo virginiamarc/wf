@@ -19,7 +19,7 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    const emailNorm = email.toLowerCase();
+    const emailNorm = email.trim().toLowerCase();
 
     const exists = await User.findOne({ email: emailNorm });
     if (exists) {
@@ -55,7 +55,7 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const emailNorm = email.toLowerCase();
+    const emailNorm = email.trim().toLowerCase();
 
     const user = await User.findOne({ email: emailNorm });
     if (!user) {
@@ -74,7 +74,8 @@ export const login = async (req, res) => {
       user: {
         id: user._id,
         name: user.name,
-        email: user.email
+        email: user.email,
+        points: user.points
       }
     });
 
@@ -86,18 +87,14 @@ export const login = async (req, res) => {
 
 export const me = async (req, res) => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
+    const user = await User.findById(req.user.id).select("-password");
 
-    if (!token) {
-      return res.status(401).json({ message: "No token" });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    const user = await User.findById(decoded.id).select("-password");
 
     res.json(user);
   } catch (err) {
-    res.status(401).json({ message: "Invalid token" });
+    res.status(500).json({ message: "Server error" });
   }
 };
