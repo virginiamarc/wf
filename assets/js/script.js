@@ -1,6 +1,5 @@
-/* ================================
-   DOMContentLoaded — UI ONLY
-================================ */
+import { login, register } from "./wf-api.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // Mobile hamburger menu toggle
@@ -119,11 +118,17 @@ function saveUser(user) {
 }
 
 function getUser() {
-    return JSON.parse(localStorage.getItem("wfUser"));
+    const user = localStorage.getItem("wfUser");
+    return user ? JSON.parse(user) : null;
+}
+
+function getToken() {
+    return localStorage.getItem("token");
 }
 
 function clearUser() {
     localStorage.removeItem("wfUser");
+    localStorage.removeItem("token");
 }
 
 /* ================================
@@ -168,17 +173,19 @@ document.getElementById("openRewardsJoin")?.addEventListener("click", function (
 
 
 // Unified header button behavior
-document.getElementById("authHeaderBtn").addEventListener("click", () => {
-    const user = getUser();
+const authHeaderBtn = document.getElementById("authHeaderBtn");
 
-    if (user) {
-        // Logged in → toggle dropdown
-        document.getElementById("accountDropdown").classList.toggle("hidden");
-    } else {
-        // Logged out → open modal
-        authModal.classList.remove("hidden");
-    }
-});
+if (authHeaderBtn) {
+    authHeaderBtn.addEventListener("click", () => {
+        const user = getUser();
+
+        if (user) {
+            document.getElementById("accountDropdown")?.classList.toggle("hidden");
+        } else {
+            authModal?.classList.remove("hidden");
+        }
+    });
+}
 
 
 // Close modal
@@ -215,56 +222,66 @@ document.querySelectorAll(".toggle-password").forEach(icon => {
 
 
 // SIGN IN
-document.getElementById("signinForm").addEventListener("submit", (e) => {
-    e.preventDefault();
+const signinForm = document.getElementById("signinForm");
 
-    const email = document.getElementById("signinEmail").value;
-    const password = document.getElementById("signinPassword").value;
+if (signinForm) {
+    signinForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const user = getUser();
+        const email = document.getElementById("signinEmail").value;
+        const password = document.getElementById("signinPassword").value;
 
-    if (!user || user.email !== email || user.password !== password) {
-        alert("Invalid credentials");
-        return;
-    }
+        const data = await login(email, password);
 
-    signinView.classList.add("hidden");
-    successView.classList.remove("hidden");
-});
+        if (data.token) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("wfUser", JSON.stringify(data.user));
+
+            signinView.classList.add("hidden");
+            successView.classList.remove("hidden");
+        } else {
+            alert("Invalid credentials");
+        }
+    });
+}
 
 
 // CREATE ACCOUNT
-document.getElementById("createAccountForm").addEventListener("submit", (e) => {
-    e.preventDefault();
+const createAccountForm = document.getElementById("createAccountForm");
 
-    const name = document.getElementById("createName").value;
-    const email = document.getElementById("createEmail").value;
-    const pass = document.getElementById("createPassword").value;
-    const confirm = document.getElementById("confirmPassword").value;
-    const agree = document.getElementById("agreeTerms").checked;
+if (createAccountForm) {
+    createAccountForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    if (pass !== confirm) {
-        alert("Passwords do not match");
-        return;
-    }
+        const name = document.getElementById("createName").value;
+        const email = document.getElementById("createEmail").value;
+        const pass = document.getElementById("createPassword").value;
+        const confirm = document.getElementById("confirmPassword").value;
+        const agree = document.getElementById("agreeTerms").checked;
 
-    if (!agree) {
-        alert("You must agree to the terms");
-        return;
-    }
+        if (pass !== confirm) {
+            alert("Passwords do not match");
+            return;
+        }
 
-    const existing = getUser();
-    if (existing && existing.email === email) {
-        alert("An account with this email already exists.");
-        return;
-    }
+        if (!agree) {
+            alert("You must agree to the terms");
+            return;
+        }
 
-    saveUser({ name, email, password: pass });
+        const data = await register(name, email, pass);
 
-    createView.classList.add("hidden");
-    successView.classList.remove("hidden");
-});
+        if (data.token) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("wfUser", JSON.stringify(data.user));
 
+            createView.classList.add("hidden");
+            successView.classList.remove("hidden");
+        } else {
+            alert(data.message || "Signup failed");
+        }
+    });
+}
 
 // SUCCESS → CLOSE MODAL
 document.getElementById("authSuccessBtn").addEventListener("click", () => {
@@ -291,10 +308,14 @@ document.getElementById("loginBtn")?.addEventListener("click", (e) => {
 /* ================================
    SIGN OUT
 ================================ */
-document.getElementById("signOutBtn").addEventListener("click", () => {
-    clearUser();
-    updateHeader();
-});
+const signOutBtn = document.getElementById("signOutBtn");
+
+if (signOutBtn) {
+    signOutBtn.addEventListener("click", () => {
+        clearUser();
+        updateHeader();
+    });
+}
 
 
 

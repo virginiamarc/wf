@@ -357,5 +357,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Expose minimal API
 window.WheelFoodieCart = {
-  state: CartState,
+  addItem: (item) => CartState.addItem(item),
+  removeItem: (id) => CartState.removeItem(id),
+  getTotal: () => CartState.getTotalItems(),
+  clear: () => CartState.clear()
 };
