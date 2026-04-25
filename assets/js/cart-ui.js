@@ -20,9 +20,12 @@ export const CartUI = {
       div.innerHTML = `
         <div class="mini-cart-item-name">${item.name}</div>
 
-        <div class="mini-cart-item-flavors">
-            <strong>Flavors:</strong> ${item.flavors.join(", ")}
-        </div>
+        ${item.flavors && item.flavors.length > 0 ? `
+          <div class="mini-cart-item-flavors">
+              <strong>Flavors:</strong> ${item.flavors.join(", ")}
+          </div>
+        ` : ""}
+
 
         <div class="mini-cart-item-qty-price">
             Qty: ${item.quantity} • $${(item.price * item.quantity).toFixed(2)}
@@ -46,9 +49,11 @@ export const CartUI = {
       div.innerHTML = `
         <div class="cart-item-name">${item.name}</div>
 
-        <div class="cart-item-flavors">
-            <strong>Flavors:</strong> ${item.flavors.join(", ")}
-        </div>
+        ${item.flavors && item.flavors.length > 0 ? `
+          <div class="cart-item-flavors">
+              <strong>Flavors:</strong> ${item.flavors.join(", ")}
+          </div>
+        ` : ""}
 
         <div class="cart-item-qty-price">
             Qty: ${item.quantity} • $${(item.price * item.quantity).toFixed(2)}

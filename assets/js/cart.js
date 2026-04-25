@@ -190,7 +190,11 @@ const CartModal = {
 
     // Reset flavor display
     const flavorDisplay = document.getElementById("cart-modal-selected-flavors");
-    if (flavorDisplay) flavorDisplay.textContent = "No flavor selected";
+    if (flavorDisplay) {
+        flavorDisplay.textContent = this.currentItemData.hasFlavors
+            ? "No flavor selected"
+            : "";
+    }
 
 
     // ⭐ Show/hide flavor selector
@@ -229,47 +233,53 @@ const CartModal = {
   },
 
   handleAddToCart() {
-    if (!this.currentItemData) return;
+      if (!this.currentItemData) return;
 
-    const qty = this.qtyInputEl ? parseInt(this.qtyInputEl.value, 10) || 1 : 1;
+      const qty = this.qtyInputEl ? parseInt(this.qtyInputEl.value, 10) || 1 : 1;
 
-    // If multiple flavors selected → add multiple items
-    if (selectedFlavors.length > 0) {
-      selectedFlavors.forEach(f => {
-        const item = {
-          id: `${this.currentItemData.id}-${f.flavor.toLowerCase().replace(/\s+/g, '-')}`,
-          name: `${this.currentItemData.name} - ${f.flavor}`,
-          price: this.currentItemData.price,
-          image: f.image || this.currentItemData.image, // USE FLAVOR IMAGE
-          quantity: 1, // each flavor = 1 item
-          flavors: [f.flavor]
-        };
+      // ⭐ Mandatory flavor selection ONLY for items that require it
+      if (this.currentItemData.hasFlavors && selectedFlavors.length === 0) {
+          alert("Please select a flavor before adding to cart.");
+          return;
+      }
 
-        CartState.addItem(item);
-      });
-    } else {
-      // No flavors selected → add one item
-      const item = {
-        id: this.currentItemData.id,
-        name: this.currentItemData.name,
-        price: this.currentItemData.price,
-        image: this.currentItemData.image || "",
-        quantity: qty,
-        flavors: ["No flavor selected"]
-      };
+      // If multiple flavors selected → add multiple items
+      if (selectedFlavors.length > 0) {
+        selectedFlavors.forEach(f => {
+          const item = {
+            id: `${this.currentItemData.id}-${f.flavor.toLowerCase().replace(/\s+/g, '-')}`,
+            name: `${this.currentItemData.name} - ${f.flavor}`,
+            price: this.currentItemData.price,
+            image: f.image || this.currentItemData.image,
+            quantity: 1,
+            flavors: [f.flavor]
+          };
 
-      CartState.addItem(item);
-    }
+          CartState.addItem(item);
+        });
+      } else if (!this.currentItemData.hasFlavors) {
+          // Item does NOT use flavors → store empty array
+          const item = {
+            id: this.currentItemData.id,
+            name: this.currentItemData.name,
+            price: this.currentItemData.price,
+            image: this.currentItemData.image || "",
+            quantity: qty,
+            flavors: []
+          };
 
-    // Reset flavors
-    selectedFlavors = [];
-    document.querySelectorAll(".flavor-card.selected").forEach(card =>
-      card.classList.remove("selected")
-    );
+          CartState.addItem(item);
+      }
 
-    this.showConfirmation();
+
+      // Reset flavors
+      selectedFlavors = [];
+      document.querySelectorAll(".flavor-card.selected").forEach(card =>
+        card.classList.remove("selected")
+      );
+
+      this.showConfirmation();
   },
-
 
   showConfirmation() {
     const content = document.getElementById("cart-modal-content");
