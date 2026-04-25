@@ -213,26 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "menu.html#full-menu";
     });
 
-    // -----------------------------
-    // ⭐ CONTINUE AS GUEST
-    // -----------------------------
-    document.getElementById("guestBtn").addEventListener("click", () => {
-        const container = document.getElementById("identityFormContainer");
-
-        container.innerHTML = `
-            <div class="guest-form">
-                <label>Full Name</label>
-                <input type="text" id="guestName" required>
-
-                <label>Phone Number</label>
-                <input type="tel" id="guestPhone" required>
-
-                <label>Email</label>
-                <input type="email" id="guestEmail" required>
-            </div>
-        `;
-    });
-
+    
     // -----------------------------
     // ⭐ INITIAL LOAD
     // -----------------------------

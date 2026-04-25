@@ -66,6 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    
+    const guestBtn = document.getElementById("guestBtn");
+
+    if (guestBtn) {
+        guestBtn.addEventListener("click", showGuestForm);
+    }
+
+    checkUser(); // keep this
+    initCheckoutState();
 
 }); // END DOMContentLoaded
 
@@ -110,6 +119,31 @@ if (subscribeForm) {
   });
 }
 
+function initCheckoutState() {
+    const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
+
+    // sync cart system
+    if (window.WheelFoodieCart) {
+        WheelFoodieCart.state.cart = cart;
+    }
+
+    // update cart UI
+    const cartCount = document.querySelector(".cart-count");
+    if (cartCount) {
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    // restore guest info if exists
+    restoreGuestInfo();
+
+    // update identity UI
+    const user = getUser();
+    if (user) {
+        showLoggedInUser(user);
+    }
+}
+
+
 /* ================================
    USER STATE
 ================================ */
@@ -131,6 +165,38 @@ function clearUser() {
     localStorage.removeItem("token");
 }
 
+function resetCheckoutState() {
+    const cartCount = document.querySelector(".cart-count");
+    if (cartCount) cartCount.textContent = "0";
+
+    if (window.WheelFoodieCart) {
+        WheelFoodieCart.state.cart = [];
+    }
+
+    localStorage.removeItem("wfCart");
+}
+
+// RESET IDENTITY
+function resetIdentityUI() {
+    const summary = document.getElementById("customerSummary");
+    const guest = document.getElementById("guestFormContainer");
+
+    if (summary) {
+        summary.classList.add("hidden");
+        summary.innerHTML = "";
+    }
+
+    if (guest) {
+        guest.classList.add("hidden");
+        guest.innerHTML = "";
+    }
+
+    const authOptions = document.getElementById("authOptions");
+    if (!getUser() && authOptions) {
+        authOptions.style.display = "block";
+    }
+}
+
 /* ================================
    UPDATE HEADER
 ================================ */
@@ -140,13 +206,18 @@ function updateHeader() {
     const dropdown = document.getElementById("accountDropdown");
     const nameSlot = document.getElementById("dropdownName");
 
-    if (user) {
+    if (user?.name) {
         const firstName = user.name.split(" ")[0];
-        text.textContent = `Hi, ${firstName}`;
-        nameSlot.textContent = user.name;
+
+        if (text) text.textContent = `Hi, ${firstName}`;
+        if (nameSlot) nameSlot.textContent = user.name;
+        if (dropdown) dropdown.classList.add("hidden");
+
     } else {
-        text.textContent = "SIGN IN / JOIN";
-        dropdown.classList.add("hidden");
+        if (text) text.textContent = "SIGN IN / JOIN";
+        if (dropdown) dropdown.classList.add("hidden");
+
+        resetIdentityUI();
     }
 }
 
@@ -159,57 +230,65 @@ const createView = document.getElementById("auth-create-view");
 const successView = document.getElementById("auth-success-view");
 
 
-// Rewards JOIN NOW button → open modal on Create Account view
-document.getElementById("openRewardsJoin")?.addEventListener("click", function (e) {
-    e.preventDefault();
+if (authModal && signinView && createView && successView) {
 
-    // Open modal
-    authModal.classList.remove("hidden");
+    // Rewards JOIN NOW button → open modal on Create Account view
+    document.getElementById("openRewardsJoin")?.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    // Switch to Create Account view
-    signinView.classList.add("hidden");
-    createView.classList.remove("hidden");
-});
-
-
-// Unified header button behavior
-const authHeaderBtn = document.getElementById("authHeaderBtn");
-
-if (authHeaderBtn) {
-    authHeaderBtn.addEventListener("click", () => {
-        const user = getUser();
-
-        if (user) {
-            document.getElementById("accountDropdown")?.classList.toggle("hidden");
-        } else {
-            authModal?.classList.remove("hidden");
-        }
+        authModal.classList.remove("hidden");
+        signinView.classList.add("hidden");
+        createView.classList.remove("hidden");
     });
-}
 
+    // Unified header button behavior
+    const authHeaderBtn = document.getElementById("authHeaderBtn");
 
-// Close modal
-document.querySelector(".auth-close").addEventListener("click", () => {
-    // Reset views
-    createView.classList.add("hidden");
-    successView.classList.add("hidden");
-    signinView.classList.remove("hidden");
+    if (authHeaderBtn) {
+        authHeaderBtn.addEventListener("click", () => {
+            const user = getUser();
+
+            if (user) {
+                document.getElementById("accountDropdown")?.classList.toggle("hidden");
+            } else {
+                authModal.classList.remove("hidden");
+            }
+        });
+    }
 
     // Close modal
-    authModal.classList.add("hidden");
-});
+    const authClose = document.querySelector(".auth-close");
+
+    if (authClose) {
+        authClose.addEventListener("click", () => {
+            createView.classList.add("hidden");
+            successView.classList.add("hidden");
+            signinView.classList.remove("hidden");
+            authModal.classList.add("hidden");
+        });
+    }
+
+}
 
 // Switch to Create Account
-document.getElementById("openCreateAccount").addEventListener("click", () => {
+const el = document.getElementById("openCreateAccount");
+
+if (el) {
+  el.addEventListener("click", () => {
     signinView.classList.add("hidden");
     createView.classList.remove("hidden");
-});
+  });
+}
 
 // Switch to Sign In
-document.getElementById("openSignIn").addEventListener("click", () => {
+const openSignInBtn = document.getElementById("openSignIn");
+
+if (openSignInBtn) {
+  openSignInBtn.addEventListener("click", () => {
     createView.classList.add("hidden");
     signinView.classList.remove("hidden");
-});
+  });
+}
 
 
 // Password toggle
@@ -283,13 +362,153 @@ if (createAccountForm) {
     });
 }
 
+//DETECT LOGGED-IN USER
+async function checkUser() {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/me", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    if (!res.ok) {
+      console.log("User not authenticated");
+      return;
+    }
+
+    const user = await res.json();
+    saveUser(user);
+    showLoggedInUser(user);
+
+  } catch (err) {
+    console.error("checkUser failed:", err);
+  }
+}
+
+// HIDE AUTH BUTTONS
+function hideAuthOptions() {
+  const el = document.getElementById("authOptions");
+  if (el) el.style.display = "none";
+}
+
+// LOGGED-IN UI
+function showLoggedInUser(user) {
+  hideAuthOptions();
+
+  const guest = document.getElementById("guestFormContainer");
+  if (guest) guest.classList.add("hidden");
+
+  const container = document.getElementById("customerSummary");
+  if (!container) return;
+
+  container.classList.remove("hidden");
+
+  container.innerHTML = `
+    <h3>Logged in as</h3>
+    <p><strong>Name:</strong> ${user.name}</p>
+    <p><strong>Email:</strong> ${user.email}</p>
+  `;
+
+  updateHeader();
+}
+
+//GUEST FLOW
+function showGuestForm() {
+  hideAuthOptions();
+
+  const container = document.getElementById("guestFormContainer");
+  container.classList.remove("hidden");
+
+  container.innerHTML = `
+    <h3>Guest Checkout</h3>
+
+    <input id="guestName" placeholder="Full Name" />
+    <input id="guestEmail" placeholder="Email" />
+    <input id="guestPhone" placeholder="Phone" />
+
+    <button id="confirmGuestBtn" class="checkout-btn full">
+      Confirm Info
+    </button>
+  `;
+}
+
+// CONFIRM GUEST INFO
+document.addEventListener("click", (e) => {
+  if (e.target.id === "confirmGuestBtn") {
+    const name = document.getElementById("guestName").value;
+    const email = document.getElementById("guestEmail").value;
+    const phone = document.getElementById("guestPhone").value;
+
+    if (!name || !email || !phone) {
+      alert("Please fill out all fields");
+      return;
+    }
+
+    localStorage.setItem(
+      "guestInfo",
+      JSON.stringify({ name, email, phone })
+    );
+
+    document.getElementById("guestFormContainer").innerHTML = `
+      <h3>Confirm Your Info</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+
+      <button id="editGuestBtn" class="continue-btn full">Edit</button>
+    `;
+  }
+});
+
+// EDIT BUTTON
+document.addEventListener("click", (e) => {
+  if (e.target.id === "editGuestBtn") {
+    showGuestForm(); // reload form
+  }
+});
+
+// RESTORE GUEST INFO
+function restoreGuestInfo() {
+    const guest = JSON.parse(localStorage.getItem("guestInfo"));
+    if (!guest) return;
+
+    const container = document.getElementById("guestFormContainer");
+    if (!container) return;
+
+    container.classList.remove("hidden");   // ← ⭐ REQUIRED
+    
+    // Hide identity buttons when guest info exists
+    const authOptions = document.getElementById("authOptions");
+    if (authOptions) authOptions.style.display = "none";
+
+
+    container.innerHTML = `
+        <h3>Confirm Your Info</h3>
+        <p><strong>Name:</strong> ${guest.name}</p>
+        <p><strong>Email:</strong> ${guest.email}</p>
+        <p><strong>Phone:</strong> ${guest.phone}</p>
+
+        <button id="editGuestBtn" class="continue-btn full">Edit</button>
+    `;
+}
+
+
 // SUCCESS → CLOSE MODAL
-document.getElementById("authSuccessBtn").addEventListener("click", () => {
+const authSuccessBtn = document.getElementById("authSuccessBtn");
+
+if (authSuccessBtn) {
+  authSuccessBtn.addEventListener("click", () => {
     successView.classList.add("hidden");
     signinView.classList.remove("hidden");
     authModal.classList.add("hidden");
     updateHeader();
-});
+    initCheckoutState(); // rehydrate identity + cart + guest
+
+  });
+}
 
 // Checkout page Login/Create Account button
 document.getElementById("loginBtn")?.addEventListener("click", (e) => {
@@ -297,11 +516,11 @@ document.getElementById("loginBtn")?.addEventListener("click", (e) => {
     e.stopImmediatePropagation();
 
     // Always reset modal to Sign In view
-    signinView.classList.remove("hidden");
-    createView.classList.add("hidden");
-    successView.classList.add("hidden");
+    if (signinView) signinView.classList.add("hidden");
+    if (createView) createView.classList.remove("hidden");
+    if (successView) successView.classList.add("hidden");
 
-    authModal.classList.remove("hidden");
+    if (authModal) authModal.classList.remove("hidden");
 });
 
 
@@ -314,10 +533,10 @@ if (signOutBtn) {
     signOutBtn.addEventListener("click", () => {
         clearUser();
         updateHeader();
+        resetIdentityUI();
+        initCheckoutState();
     });
 }
-
-
 
 /* ================================
    PAYMENT MODAL
@@ -342,9 +561,11 @@ document.getElementById("placeOrderBtn")?.addEventListener("click", () => {
     const user = getUser();
 
     // 3. GUEST INFO CHECK
-    const guestName = document.getElementById("guestName")?.value.trim();
-    const guestPhone = document.getElementById("guestPhone")?.value.trim();
-    const guestEmail = document.getElementById("guestEmail")?.value.trim();
+    const guestInfo = JSON.parse(localStorage.getItem("guestInfo"));
+
+    const guestName = guestInfo?.name;
+    const guestEmail = guestInfo?.email;
+    const guestPhone = guestInfo?.phone;
 
     const guestInfoComplete =
         guestName && guestPhone && guestEmail;
@@ -361,16 +582,56 @@ document.getElementById("placeOrderBtn")?.addEventListener("click", () => {
 
 
 // Close payment modal
-document.querySelector(".payment-close").addEventListener("click", () => {
+const paymentClose = document.querySelector(".payment-close");
+
+function closePaymentModal() {
+
+    // ⭐ If user is on the Order Confirmed screen
+    if (!successView2.classList.contains("hidden")) {
+        paymentModal.classList.add("hidden");
+
+        // 🔥 Clear the Your Order UI
+        const items = document.getElementById("checkout-items");
+        if (items) {
+            items.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`; // ⭐ ADD THIS
+        }
+
+        const subtotal = document.getElementById("subtotal");
+        const tax = document.getElementById("tax");
+        const total = document.getElementById("total");
+
+        if (subtotal) subtotal.textContent = "$0.00";
+        if (tax) tax.textContent = "$0.00";
+        if (total) total.textContent = "$0.00";
+
+        return; // stop here so normal reset doesn't run
+    }
+
+    // ⭐ Normal close behavior (before order is placed)
     paymentModal.classList.add("hidden");
+
     paymentView.classList.remove("hidden");
     reviewView.classList.add("hidden");
     successView2.classList.add("hidden");
+
+    resetCheckoutState();
+    initCheckoutState();
+}
+
+paymentClose?.addEventListener("click", closePaymentModal);
+
+paymentModal?.addEventListener("click", (e) => {
+    if (e.target === paymentModal) {
+        closePaymentModal();
+    }
 });
 
 
 // PAYMENT SUBMIT → REVIEW
-document.getElementById("paymentForm").addEventListener("submit", (e) => {
+const paymentForm = document.getElementById("paymentForm");
+
+if (paymentForm) {
+  paymentForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     console.log("PAYMENT SUBMIT FIRED");
@@ -378,54 +639,68 @@ document.getElementById("paymentForm").addEventListener("submit", (e) => {
 
     paymentView.classList.add("hidden");
     reviewView.classList.remove("hidden");
-});
-
-document.getElementById("downloadReceipt").addEventListener("click", () => {
-    generateReceiptPDF();
-});
+  });
+}
 
 
 // FINAL ORDER
-document.getElementById("placeOrderFinal").addEventListener("click", () => {
+const placeOrderFinalBtn = document.getElementById("placeOrderFinal");
+
+if (placeOrderFinalBtn) {
+  placeOrderFinalBtn.addEventListener("click", () => {
+
+    // calculate total BEFORE cart clears
+    const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
+
+    const total = cart.reduce((sum, item) => {
+      return sum + item.price * item.quantity;
+    }, 0);
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      fetch("http://localhost:5000/api/points/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ amountSpent: total })
+      })
+      .then(res => res.json())
+      .then(data => console.log("Points updated:", data))
+      .catch(err => console.error("Points error:", err));
+    }
+
+    // SHOW SUCCESS VIEW
     reviewView.classList.add("hidden");
     successView2.classList.remove("hidden");
 
-    // CLEAR CART
-    localStorage.removeItem("wfCart");
+    // 🔥 Unified final reset
+    resetCheckoutState();
+    resetIdentityUI();
+    initCheckoutState();
+    localStorage.removeItem("guestInfo");
+  });
+}
 
-    // RESET CartState so checkout.js sees empty cart
-    if (window.WheelFoodieCart) {
-        WheelFoodieCart.state.cart = [];
-    }
+// DOWNLOAD RECEIPT
+const downloadBtn = document.getElementById("downloadReceipt");
 
-    // UPDATE BAG COUNT
-    const cartCount = document.querySelector(".cart-count");
-    if (cartCount) cartCount.textContent = "0";
-
-    // REFRESH CHECKOUT PAGE IF USER IS ON IT
-    if (window.location.pathname.includes("checkout.html")) {
-        if (window.renderCheckout) {
-            window.renderCheckout();
-        }
-    }
-});
-
-// RECEIPT DOWNLOAD
-document.getElementById("downloadReceipt").addEventListener("click", () => {
-    const blob = new Blob(["Receipt content..."], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "receipt.txt";
-    a.click();
-});
-
+if (downloadBtn) {
+  downloadBtn.addEventListener("click", () => {
+    generateReceiptPDF();
+  });
+}
 
 // RETURN TO MENU
-document.getElementById("returnToMenu").addEventListener("click", () => {
+const returnBtn = document.getElementById("returnToMenu");
+
+if (returnBtn) {
+  returnBtn.addEventListener("click", () => {
     window.location.href = "menu.html";
-});
+  });
+}
 
 // INIT HEADER
 updateHeader();

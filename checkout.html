@@ -143,14 +143,21 @@
             </div>
         </section>
 
-         <!-- PICKUP INFO -->
+        <!-- PICKUP INFO -->
         <section class="checkout-section">
             <h2>Customer Info</h2>
 
-            <div class="auth-options">
+            <!-- AUTH CHOICE -->
+            <div class="auth-options" id="authOptions">
                 <button id="guestBtn" class="btn-secondary full">Continue as Guest</button>
                 <button id="loginBtn" class="btn-orange full checkout-auth-btn">Login / Create Account</button>
             </div>
+
+            <!-- LOGGED IN DISPLAY -->
+            <div id="customerSummary" class="hidden"></div>
+
+            <!-- GUEST FORM -->
+            <div id="guestFormContainer" class="hidden"></div>
 
             <!-- Dynamic form appears here -->
             <div id="identityFormContainer"></div>
