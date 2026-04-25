@@ -422,17 +422,22 @@ function showGuestForm() {
   const container = document.getElementById("guestFormContainer");
   container.classList.remove("hidden");
 
+  const guest = JSON.parse(localStorage.getItem("guestInfo")) || {};
+
   container.innerHTML = `
     <h3>Guest Checkout</h3>
 
-    <input id="guestName" placeholder="Full Name" />
-    <input id="guestEmail" placeholder="Email" />
-    <input id="guestPhone" placeholder="Phone" />
+    <input id="guestName" placeholder="Full Name" value="${guest.name || ""}" />
+    <input id="guestEmail" placeholder="Email" value="${guest.email || ""}" />
+    <input id="guestPhone" placeholder="Phone" value="${guest.phone || ""}" />
 
     <button id="confirmGuestBtn" class="checkout-btn full">
       Confirm Info
     </button>
   `;
+
+  // ⭐ Automatically place cursor in the first field
+  document.getElementById("guestName")?.focus();
 }
 
 // CONFIRM GUEST INFO
