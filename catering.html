@@ -57,8 +57,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="menu.html">Menu</a></li>
                     <li><a href="specials.html">Specials</a></li>
-                    <a href="profile.html">Profile</a>
-                    <a href="order-history.html">Order History</a>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="catering.html" aria-current="page">Catering</a></li>
                 </ul>
             </nav>
@@ -76,8 +76,8 @@
 
                     <div id="accountDropdown" class="account-dropdown hidden">
                         <p id="dropdownName"></p>
-                        <a href="#">Profile</a>
-                        <a href="#">Order History</a>
+                        <a href="profile.html">Profile</a>
+                        <a href="order-history.html">Order History</a>
                         <button id="signOutBtn">Sign Out</button>
                     </div>
                 </div>
@@ -117,13 +117,13 @@
                 <button class="dropdown-toggle">Signature Bowls (Catering Style)</button>
                 <div class="dropdown-content">
                     <div class="menu-item">
-                        <h4>Street Eats Package</h4>
+                        <h4>Wheel House Bowls</h4>
                         <ul>
-                            <li>3 Entrées</li>
-                            <li>2 Sides</li>
+                            <li>Choice of protein: grilled chicken, crispy chicken, or pulled pork</li>
+                            <li>Served over rice with veggies</li>
                             <li>Fresh sauces + toppings</li>
                         </ul>
-                        <span class="price">Starting at $18/person</span>
+                        <span class="price">$18 per person (10-person min)</span>
                     </div>
 
                     <div class="menu-item">
@@ -133,7 +133,7 @@
                             <li>3 Sides</li>
                             <li>Full-service setup</li>
                         </ul>
-                        <span class="price">Starting at $28/person</span>
+                        <span class="price">Starting at $28 per person</span>
                     </div>
                 </div>
             </div>
@@ -142,10 +142,35 @@
             <div class="menu-dropdown">
                 <button class="dropdown-toggle">Entrées</button>
                 <div class="dropdown-content two-col">
-                    <div class="menu-item"><h4>Birria Tacos</h4><p>Slow-cooked beef, consommé, melted cheese.</p></div>
-                    <div class="menu-item"><h4>Loaded Nachos</h4><p>Choice of protein, queso, pico, jalapeños.</p></div>
-                    <div class="menu-item"><h4>Quesadillas</h4><p>Grilled tortillas, cheese blend, protein options.</p></div>
-                    <div class="menu-item"><h4>Street Corn Bowls</h4><p>Elote-style corn, cotija, lime crema.</p></div>
+                    <div class="menu-item">
+                        <h4>Wing Party Platter</h4>
+                        <ul>
+                            <li>60 wings, choice of up to 4 flavors</li>
+                            <li>Includes celery, carrots, and dipping sauces</li>
+                            <li>Choose from your signature flavors (Buffalo, Lemon Pepper, Garlic Parm, Sweet Chili, BBQ, Plain)</li>
+                        </ul>
+                        <span class="price">$165 (feeds ~12-15)</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Street Taco Tray</h4>
+                        <ul>
+                            <li>30 tacos (chicken, pork, or beef)</li>
+                            <li>Includes pico, shredded cheese,lettuce, and sauces</li>
+                            <li>Soft tortillas + lime wedges</li>
+                        </ul>
+                        <span class="price">$155 (feeds ~12-15)</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Chicken Sandwich Box</h4>
+                        <ul>
+                            <li>Crispy or grilled chicken sandwich</li>
+                            <li>Choice of sauce: Buffalo, Sweet Chili, Garlic Parm, or BBQ</li>
+                            <li>Comes with kettle chips or fries</li>
+                        </ul>
+                        <span class="price">$12 per person (10-person minimum)</span>
+                    </div>
                 </div>
             </div>
 
@@ -153,10 +178,25 @@
             <div class="menu-dropdown">
                 <button class="dropdown-toggle">Sides</button>
                 <div class="dropdown-content two-col">
-                    <div class="menu-item"><h4>Mexican Rice</h4></div>
-                    <div class="menu-item"><h4>Refried Beans</h4></div>
-                    <div class="menu-item"><h4>Chips & Salsa</h4></div>
-                    <div class="menu-item"><h4>Street Corn Cups</h4></div>
+                     <div class="menu-item">
+                        <h4>Loaded Fries Bar</h4>
+                        <ul>
+                            <li>Base of crispy seasoned fries</li>
+                            <li>Choice of 2 proteins: chicken, pulled pork, or beef</li>
+                            <li>Includes toppings: cheese, scallions, jalapenos (build-your-own for guests)</li>
+                        </ul>
+                        <span class="price">$140 (feeds ~10-12)</span>
+                    </div>
+
+                     <div class="menu-item">
+                        <h4>Mac & Cheese Pan</h4>
+                        <ul>
+                            <li>Creamy, cheesy, baked mac</li>
+                            <li>Optional crispy breadcrumb topping</li>
+                        </ul>
+                        <span class="price">$45 (feeds ~10-12)</span>
+                    </div>
+    
                 </div>
             </div>
 
@@ -164,34 +204,84 @@
             <div class="menu-dropdown">
                 <button class="dropdown-toggle">Beverages</button>
                 <div class="dropdown-content two-col">
-                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                    <div class="menu-item"><h4>Dessert Churros</h4></div>
-                    <div class="menu-item"><h4>Drink Station</h4></div>
-                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
+                     <div class="menu-item">
+                        <h4>Fresh Lemonade</h4>
+                        <ul>
+                            <li>House-made, bright, and refreshing</li>
+                            <li>Available in classic or strawberry</li>
+                        </ul>
+                        <span class="price">$6 (Gallon)</span>
+                    </div>
+
+                     <div class="menu-item">
+                        <h4>Sweet Tea</h4>
+                        <ul>
+                            <li>Southern-style sweet tea</li>
+                            <li>Great for large groups</li>
+                        </ul>
+                        <span class="price">$5 (Gallon)</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Add-ons -->
+            <!-- Desserts -->
             <div class="menu-dropdown">
-                <button class="dropdown-toggle">Desserts & Add-Ons</button>
+                <button class="dropdown-toggle">Desserts</button>
                 <div class="dropdown-content two-col">
-                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                    <div class="menu-item"><h4>Dessert Churros</h4></div>
-                    <div class="menu-item"><h4>Drink Station</h4></div>
-                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
+                     <div class="menu-item">
+                        <h4>Cookie platter</h4>
+                        <ul>
+                            <li>Mix of chocolate chip, sugar, and double chocolate</li>
+                            <li>Fresh-baked</li>
+                        </ul>
+                        <span class="price">$30 (24 cookies)</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Brownie Bites Tray</h4>
+                        <ul>
+                            <li>Rich, fudgy brownie squares</li>
+                            <li>Fresh-baked</li>
+                            <li>Easy grab-and-go dessert</li>
+                        </ul>
+                        <span class="price">$35 (30 bites)</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Cupcake Platter</h4>
+                        <ul>
+                            <li>Assorted flavors: vanilla, chocolate, and red velvet</li>
+                            <li>Topped with whipped buttercream</li>
+                        </ul>
+                        <span class="price">$30 (24 mini cupcakes)</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Full Packages (Per Person) -->
+             <!-- Add-ons -->
             <div class="menu-dropdown">
-                <button class="dropdown-toggle">Full Packages (Per Person)</button>
+                <button class="dropdown-toggle">Add-Ons</button>
                 <div class="dropdown-content two-col">
-                    <div class="menu-item"><h4>Extra Protein Trays</h4></div>
-                    <div class="menu-item"><h4>Dessert Churros</h4></div>
-                    <div class="menu-item"><h4>Drink Station</h4></div>
-                    <div class="menu-item"><h4>Full-Service Staff</h4></div>
+                     <div class="menu-item">
+                        <h4>Extra Sauce Bottles</h4>
+                        <ul>
+                            <li>Buffalo, Garlic Parmesan, Sweet Chili, BBQ, Lemon Pepper</li>
+                            <li>Great for events with big flavor lovers</li>
+                        </ul>
+                        <span class="price">$4.50 each</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4>Slider Add-On Pack</h4>
+                        <ul>
+                            <li>Mix of chicken or pulled pork</li>
+                            <li>Includes pickles + sauce</li>
+                        </ul>
+                        <span class="price">$45 (12 sliders)</span>
+                    </div>
                 </div>
             </div>
+
         </section>
 
         <section class="gallery-section">

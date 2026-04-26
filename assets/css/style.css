@@ -3199,12 +3199,12 @@ nav.main-nav {
         transform: translate(-50%, -50%);
     }
 
-    /* ABOUT PAGE — shrink button on mobile */
-    .about-page-hero + section .btn-orange,
-    .about-page-hero .btn-orange {
-        font-size: 1rem;
-        padding: 8px 18px;
+    /* MENU PAGE — mobile button size */
+    .menu-page-hero .btn-orange {
+        font-size: 1rem;     /* slightly larger but still mobile-friendly */
+        padding: 10px 20px;      /* balanced size */
         border-radius: 6px;
+        margin-top: 18px;       /* spacing under paragraph */
     }
 
 
