@@ -514,7 +514,12 @@ nav.main-nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.7);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.7)
+    );
 }
 
 .index-hero-text {
@@ -539,10 +544,10 @@ nav.main-nav {
 
 .index-hero-text p {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     max-width: 600px;
     margin-top: 12px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .index-hero-divider {
@@ -555,8 +560,31 @@ nav.main-nav {
         0 6px 12px rgba(0,0,0,0.25),
         0 0 18px rgba(0,0,0,0.20);
 }
-/*
-HOME PAGE FEATURE CARDS*/
+
+@media (max-width: 768px) {
+
+    .index-hero-text {
+        top: 45%;
+        padding: 0 16px;
+    }
+
+    .index-hero-text h1 {
+        font-size: 2rem; /* key fix */
+        line-height: 1.2;
+    }
+
+    .index-hero-text p {
+        font-size: 1.2rem;
+        max-width: 90%;
+    }
+
+    /* HERO BUTTON ONLY */
+    .index-page-hero .btn-orange {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        border-radius: 6px;
+    }
+}
 
 /* GLOBAL HERO */
 .hero {
@@ -2197,7 +2225,12 @@ HOME PAGE FEATURE CARDS*/
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.6);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.7)
+    );
 }
 
 .about-hero-text {
@@ -2216,6 +2249,7 @@ HOME PAGE FEATURE CARDS*/
 .about-hero-text h1 {
     font-size: 3rem;
     color: #fff;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.6);
 }
 
 .about-hero-text p {
@@ -2223,7 +2257,7 @@ HOME PAGE FEATURE CARDS*/
     font-size: 1.2rem;
     max-width: 600px;
     margin-top: 12px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 
@@ -2445,7 +2479,7 @@ HOME PAGE FEATURE CARDS*/
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.7);
 }
 
 .catering-hero-text {
@@ -3134,11 +3168,6 @@ HOME PAGE FEATURE CARDS*/
 
 @media (max-width: 800px) {
 
-  .catering-page-hero {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-  }
-
     /* Stack feature cards */
     .index-page .feature-row {
         flex-direction: column;
@@ -3151,6 +3180,87 @@ HOME PAGE FEATURE CARDS*/
         max-width: 400px;
         margin: 0 auto;
     }
+
+    /* Menu hero text scaling for mobile */
+    .menu-page-hero .menu-hero-text h1 {
+        font-size: 2.5rem;       /* smaller headline */
+        line-height: 1.2;
+    }
+
+    .menu-page-hero .menu-hero-text p {
+        font-size: 1.3rem;       /* smaller subtext */
+        max-width: 90%;
+        margin: 10px auto 0;
+    }
+
+    /* Adjust hero text vertical position for mobile */
+    .menu-page-hero .menu-hero-text {
+        top: 45%;              /* slightly lower for better balance */
+        transform: translate(-50%, -50%);
+    }
+
+    /* ABOUT PAGE — shrink button on mobile */
+    .about-page-hero + section .btn-orange,
+    .about-page-hero .btn-orange {
+        font-size: 1rem;
+        padding: 8px 18px;
+        border-radius: 6px;
+    }
+
+
+    /* ABOUT PAGE — mobile hero adjustments */
+    .about-hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-shadow: 0 3px 10px rgba(0,0,0,0.85);
+    }
+
+    .about-hero-text p {
+        font-size: 1.2rem;
+        max-width: 90%;
+        margin-top: 10px;
+        text-shadow: 0 3px 10px rgba(0,0,0,0.85);
+    }
+
+    /* Adjust vertical placement for mobile */
+    .about-hero-text {
+        top: 45%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Reduce hero height so text isn't pushed too low */
+    .about-page-hero {
+        height: 75vh;
+        padding-bottom: 180px;
+    }
+
+
+    .catering-page-hero {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Catering hero text + button scaling for mobile */
+    .catering-page-hero h1 {
+        font-size: 2rem;        /* smaller headline */
+        line-height: 1.2;
+    }
+
+    .catering-page-hero p {
+        font-size: 1.2rem;        /* smaller subtext */
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    
+    /* Catering hero button — correct selector */
+    .catering-page-hero .btn-orange {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+        border-radius: 6px;
+        margin-top: 18px;
+    }
+
 
     .catering-page .gallery-card {
         width: 90%;
