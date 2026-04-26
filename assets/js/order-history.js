@@ -1,4 +1,11 @@
 import { getProfile } from "./wf-api.js";
+import { logout, requireAuthRedirect } from "./auth.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    requireAuthRedirect();
+
+    document.getElementById("signOutBtn")?.addEventListener("click", logout);
+});
 
 async function loadOrders() {
   const token = localStorage.getItem("token");

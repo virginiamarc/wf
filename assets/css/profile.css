@@ -187,6 +187,30 @@
         0 3px 8px rgba(0,0,0,0.25);
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2B4506;
+}
+
+.form-group input {
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #CC5500;
+}
+
 
 /* ================================
    Footer

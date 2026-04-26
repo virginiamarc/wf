@@ -126,23 +126,27 @@
                 <p class="wf-points">Points: <span id="profilePoints">0</span></p>
             </div>
 
-            <!-- ORDER HISTORY -->
-            <a href="order-history.html" class="wf-card wf-link">
-                <h2>Order History</h2>
-                <p>View your past orders</p>
-            </a>
-
             <!-- SECURITY -->
             <div class="wf-card">
                 <h2>Security</h2>
+
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword">
+
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword">
+
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword">
+                </div>
+
                 <button class="wf-btn" id="changePasswordBtn">Change Password</button>
                 <button class="wf-btn" id="twoFactorBtn">Two-Factor Authentication</button>
             </div>
-
         </div>
 
     </section>
-
 
 </main>
 
@@ -297,9 +301,9 @@
     </div>
 
 
+    <script src="assets/js/cart.js" defer></script>
     <script type="module" src="assets/js/script.js"></script>
     <script type="module" src="assets/js/profile.js"></script>
-    <script src="assets/js/cart.js" defer></script>
 
 </body>
 </html>
