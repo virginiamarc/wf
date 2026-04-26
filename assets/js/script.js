@@ -618,9 +618,6 @@ function closePaymentModal() {
     paymentView.classList.remove("hidden");
     reviewView.classList.add("hidden");
     successView2.classList.add("hidden");
-
-    resetCheckoutState();
-    initCheckoutState();
 }
 
 paymentClose?.addEventListener("click", closePaymentModal);
@@ -636,15 +633,11 @@ paymentModal?.addEventListener("click", (e) => {
 const paymentForm = document.getElementById("paymentForm");
 
 if (paymentForm) {
-  paymentForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    console.log("PAYMENT SUBMIT FIRED");
+  window.goToReview = function () {
     renderReviewSummary();
-
     paymentView.classList.add("hidden");
     reviewView.classList.remove("hidden");
-  });
+  };
 }
 
 
@@ -652,41 +645,42 @@ if (paymentForm) {
 const placeOrderFinalBtn = document.getElementById("placeOrderFinal");
 
 if (placeOrderFinalBtn) {
-  placeOrderFinalBtn.addEventListener("click", () => {
+    window.finalizeOrder = function () {
+      // calculate total BEFORE cart clears
+      const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
 
-    // calculate total BEFORE cart clears
-    const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
+      const total = cart.reduce((sum, item) => {
+        return sum + item.price * item.quantity;
+      }, 0);
 
-    const total = cart.reduce((sum, item) => {
-      return sum + item.price * item.quantity;
-    }, 0);
+      const token = localStorage.getItem("token");
 
-    const token = localStorage.getItem("token");
+      if (token) {
+        fetch("http://localhost:5000/api/points/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({ amountSpent: total })
+        })
+        .then(res => res.json())
+        .then(data => console.log("Points updated:", data))
+        .catch(err => console.error("Points error:", err));
+      }
 
-    if (token) {
-      fetch("http://localhost:5000/api/points/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ amountSpent: total })
-      })
-      .then(res => res.json())
-      .then(data => console.log("Points updated:", data))
-      .catch(err => console.error("Points error:", err));
-    }
+      // SHOW SUCCESS VIEW
+      reviewView.classList.add("hidden");
+      successView2.classList.remove("hidden");
 
-    // SHOW SUCCESS VIEW
-    reviewView.classList.add("hidden");
-    successView2.classList.remove("hidden");
+      // 🔥 Unified final reset
+      resetCheckoutState();
+      resetIdentityUI();
+      initCheckoutState();
+      localStorage.removeItem("guestInfo");
+  };
 
-    // 🔥 Unified final reset
-    resetCheckoutState();
-    resetIdentityUI();
-    initCheckoutState();
-    localStorage.removeItem("guestInfo");
-  });
+  placeOrderFinalBtn.addEventListener("click", window.finalizeOrder);
 }
 
 // DOWNLOAD RECEIPT

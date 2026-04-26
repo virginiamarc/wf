@@ -227,6 +227,87 @@ document.addEventListener("DOMContentLoaded", () => {
     window.renderReviewSummary = renderReviewSummary;
 
     // -----------------------------
+    // ⭐ PAYMENT FIELD FORMATTING
+    // -----------------------------
+
+    // CARD NUMBER — digits only, max 16
+    document.getElementById("cardNumber").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 16);
+    });
+
+    // EXPIRATION DATE — auto MM/YY
+    document.getElementById("cardExp").addEventListener("input", function () {
+        let v = this.value.replace(/\D/g, "").slice(0, 4);
+
+        if (v.length >= 3) {
+            this.value = v.slice(0, 2) + "/" + v.slice(2);
+        } else {
+            this.value = v;
+        }
+    });
+
+    // CVV — digits only, max 4
+    document.getElementById("cardCVV").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 4);
+    });
+
+    // -----------------------------
+    // ⭐ PAYMENT FORM VALIDATION
+    // -----------------------------
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const errors = [];
+
+        const cardName = document.getElementById("cardName").value.trim();
+        const cardNumber = document.getElementById("cardNumber").value.trim();
+        const cardExp = document.getElementById("cardExp").value.trim();
+        const cardCVV = document.getElementById("cardCVV").value.trim();
+
+        // Cardholder name
+        if (cardName.length < 2) {
+            errors.push("Please enter the cardholder name.");
+        }
+
+        // Card number
+        if (!/^\d{16}$/.test(cardNumber)) {
+            errors.push("Card number must be exactly 16 digits.");
+        }
+
+        // Expiration format
+        if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardExp)) {
+            errors.push("Expiration date must be in MM/YY format.");
+        } else {
+            // Only check expiration date if format is valid
+            const [expMonth, expYear] = cardExp.split("/").map(Number);
+            const fullYear = 2000 + expYear;
+
+            const now = new Date();
+            const currentMonth = now.getMonth() + 1;
+            const currentYear = now.getFullYear();
+
+            if (fullYear < currentYear || (fullYear === currentYear && expMonth < currentMonth)) {
+                errors.push("Expiration date cannot be in the past.");
+            }
+        }
+
+        // CVV
+        if (!/^\d{3,4}$/.test(cardCVV)) {
+            errors.push("CVV must be 3 or 4 digits.");
+        }
+
+        // Show errors
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return;
+        }
+
+        // SUCCESS — now you can safely place the order
+        window.goToReview();
+    });
+
+
+    // -----------------------------
     // ⭐ GENERATE RECEIPT PDF
     // -----------------------------
     function generateReceiptPDF() {
