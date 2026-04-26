@@ -62,9 +62,8 @@
                     <li><a href="catering.html">Catering</a></li>
                 </ul>
             </nav>
-        
+
             <div class="utility-nav">
-                <!-- ACCOUNT AREA (replaces old SIGN IN /JOIN button)-->
                 <div class="account-area">
                     <button class="auth-trigger" id="authHeaderBtn">
                         <svg class="user-icon" viewBox="0 0 24 24">
@@ -76,13 +75,12 @@
 
                     <div id="accountDropdown" class="account-dropdown hidden">
                         <p id="dropdownName"></p>
-                        <a href="#">Profile</a>
-                        <a href="#">Order History</a>
+                        <a href="profile.html">Profile</a>
+                        <a href="order-history.html">Order History</a>
                         <button id="signOutBtn">Sign Out</button>
                     </div>
                 </div>
 
-                <!-- Bag icon -->
                 <a href="checkout.html" class="bag-icon">
                     <svg viewBox="0 0 24 24" class="bag-svg">
                         <path d="M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3zm2 0h6V6a3 3 0 0 0-6 0v1z"></path>
@@ -92,9 +90,9 @@
             </div>
 
             <button class="hamburger">&#9776;</button>
-        
         </div>
     </header>
+
     
     <main>
         <section class="specials-hero">
@@ -452,7 +450,7 @@
 
     <script type="module" src="assets/js/script.js"></script>
     <script src="assets/js/cart.js" defer></script>
-    <script src="assets/js/rewards.js defer></script>
+    <script type="module" src="assets/js/rewards.js"></script>
 
 </body>
 </html>

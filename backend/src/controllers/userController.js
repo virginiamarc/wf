@@ -1,0 +1,45 @@
+import User from "../models/User.js";
+import bcrypt from "bcryptjs";
+
+/* GET PROFILE */
+export const getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    if (!user) return res.status(404).json({ error: "User not found" });
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+/* CHANGE PASSWORD */
+export const changePassword = async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    const user = await User.findById(req.user.id);
+
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) return res.status(400).json({ error: "Incorrect password" });
+
+    user.password = newPassword; // hashed by pre-save hook
+    await user.save();
+
+    res.json({ message: "Password updated" });
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+/* ENABLE 2FA */
+export const enable2FA = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    user.twoFactorEnabled = true;
+    await user.save();
+    res.json({ message: "2FA enabled" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

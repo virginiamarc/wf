@@ -1,0 +1,112 @@
+.order-history-header .main-nav {
+    display: none;
+}
+
+.order-history-header .header-center {
+    justify-content: flex-end;
+}
+
+.order-history-header .return-menu {
+    display: inline-block;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+
+    color: #fff;
+
+    background: linear-gradient(to bottom, #e86a00, #cc5500, #b44a00);
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 4px 10px rgba(0,0,0,0.25);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.order-history-header .return-menu:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 6px 14px rgba(0,0,0,0.35);
+}
+
+.order-history-header .return-menu:active {
+    transform: translateY(0);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        inset 0 -1px 2px rgba(0,0,0,0.3),
+        0 3px 8px rgba(0,0,0,0.25);
+}
+
+.order-history-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.order-card {
+  background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+}
+
+.order-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ff7b47;
+}
+
+.order-card p {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+.order-card ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.order-card li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+
+/* ================================
+   Footer
+================================ */
+.order-history-footer {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+.order-history-footer a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.order-history-footer a:hover {
+    color: #000;
+}

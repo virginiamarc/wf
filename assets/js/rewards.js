@@ -1,22 +1,18 @@
+import { getProfile } from "./wf-api.js";
+
 async function loadRewards() {
   const token = localStorage.getItem("token");
   if (!token) return;
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/me", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+    const user = await getProfile();
 
-    const user = await res.json();
+    const points = user.points || 0;
 
-    // show current points
-    document.getElementById("currentPoints").textContent = user.points;
+    document.getElementById("currentPoints").textContent = points;
 
-    // calculate next reward tier (example: every 100 points)
-    const nextTier = Math.ceil((user.points || 0) / 100) * 100;
-    const remaining = nextTier - user.points;
+    const nextTier = Math.ceil(points / 100) * 100;
+    const remaining = nextTier - points;
 
     document.getElementById("nextReward").textContent =
       remaining === 0 ? "Reward ready!" : `${remaining} pts until reward`;

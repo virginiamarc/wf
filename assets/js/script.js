@@ -1,4 +1,4 @@
-import { login, register } from "./wf-api.js";
+import { login, register, getProfile, addPoints } from "./wf-api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -123,7 +123,7 @@ function initCheckoutState() {
     const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
 
     // sync cart system
-    if (window.WheelFoodieCart) {
+    if (window.WheelFoodieCart && WheelFoodieCart.state) {
         WheelFoodieCart.state.cart = cart;
     }
 
@@ -645,42 +645,62 @@ if (paymentForm) {
 const placeOrderFinalBtn = document.getElementById("placeOrderFinal");
 
 if (placeOrderFinalBtn) {
-    window.finalizeOrder = function () {
-      // calculate total BEFORE cart clears
-      const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
+  placeOrderFinalBtn.addEventListener("click", async () => {
 
-      const total = cart.reduce((sum, item) => {
-        return sum + item.price * item.quantity;
-      }, 0);
+    const cart = JSON.parse(localStorage.getItem("wfCart")) || [];
 
-      const token = localStorage.getItem("token");
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const total = cart.reduce((sum, item) => {
+      return sum + item.price * item.quantity;
+    }, 0);
+
+    const token = localStorage.getItem("token");
+
+    try {
 
       if (token) {
-        fetch("http://localhost:5000/api/points/add", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          body: JSON.stringify({ amountSpent: total })
-        })
-        .then(res => res.json())
-        .then(data => console.log("Points updated:", data))
-        .catch(err => console.error("Points error:", err));
+        // ✅ CREATE ORDER IN DB
+        await fetch("http://localhost:5000/api/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                items: cart.map(item => ({
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image,
+                id: item.id
+                })),
+                total
+            })
+        });
+
+        // ✅ ADD POINTS
+        await addPoints(total);
       }
 
-      // SHOW SUCCESS VIEW
-      reviewView.classList.add("hidden");
-      successView2.classList.remove("hidden");
+    } catch (err) {
+      console.error("Order error:", err);
+    }
 
-      // 🔥 Unified final reset
-      resetCheckoutState();
-      resetIdentityUI();
-      initCheckoutState();
-      localStorage.removeItem("guestInfo");
-  };
+    // ✅ CLEAR UI + STATE
+    resetCheckoutState();
+    resetIdentityUI();
+    localStorage.removeItem("guestInfo");
 
-  placeOrderFinalBtn.addEventListener("click", window.finalizeOrder);
+    reviewView.classList.add("hidden");
+    successView2.classList.remove("hidden");
+
+    // ✅ UPDATE HEADER POINTS AFTER ORDER
+    updateHeaderPoints();
+  });
 }
 
 // DOWNLOAD RECEIPT
@@ -701,5 +721,21 @@ if (returnBtn) {
   });
 }
 
+async function updateHeaderPoints() {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    const user = await getProfile();
+
+    const el = document.getElementById("dropdownPoints");
+    if (el) el.textContent = `Points: ${user.points || 0}`;
+
+  } catch (err) {
+    console.error("Points load error:", err);
+  }
+}
+
 // INIT HEADER
 updateHeader();
+updateHeaderPoints();

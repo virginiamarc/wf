@@ -1,0 +1,210 @@
+.profile-header .main-nav {
+    display: none;
+}
+
+.profile-header .header-center {
+    justify-content: flex-end;
+}
+
+.profile-header .return-menu {
+    display: inline-block;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+
+    color: #fff;
+
+    background: linear-gradient(to bottom, #e86a00, #cc5500, #b44a00);
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 4px 10px rgba(0,0,0,0.25);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.profile-header .return-menu:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 6px 14px rgba(0,0,0,0.35);
+}
+
+.profile-header .return-menu:active {
+    transform: translateY(0);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        inset 0 -1px 2px rgba(0,0,0,0.3),
+        0 3px 8px rgba(0,0,0,0.25);
+}
+
+/* Container */
+.wf-profile {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+/* Header */
+.wf-profile-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.wf-profile-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #CC5500; /* brand orange */
+}
+
+.wf-profile-sub {
+    color: #2B4506; /* brand green */
+    font-weight: 500;
+    margin-top: .4rem;
+}
+
+/* Grid */
+.wf-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cards */
+.wf-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.8rem;
+    border: 2px solid #CC5500; /* subtle brand border */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.wf-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.wf-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2B4506; /* brand green */
+}
+
+/* Text */
+.wf-profile-user {
+    font-size: 1rem;
+    color: #444;
+}
+
+.wf-points {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #CC5500; /* brand orange */
+}
+
+/* Link cards */
+.wf-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Buttons — shiny, dimensional, branded */
+.wf-btn {
+    width: 100%;
+    margin-top: .6rem;
+    padding: .8rem 1rem;        /* unchanged */
+    border-radius: 10px;        /* unchanged */
+    border: none;               /* unchanged */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+
+    /* NEW glossy orange gradient */
+    background: linear-gradient(to bottom, #e86a00, #cc5500, #b44a00);
+
+    /* NEW bevel + shine depth */
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 4px 12px rgba(0,0,0,0.25);
+
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Top-left shine */
+.wf-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at top left,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0) 60%
+    );
+    pointer-events: none;
+}
+
+/* Bottom-right shine */
+.wf-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0) 70%
+    );
+    pointer-events: none;
+}
+
+/* Hover lift */
+.wf-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 8px 18px rgba(0,0,0,0.35);
+}
+
+/* Pressed state */
+.wf-btn:active {
+    transform: translateY(0);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        inset 0 -1px 2px rgba(0,0,0,0.3),
+        0 3px 8px rgba(0,0,0,0.25);
+}
+
+
+/* ================================
+   Footer
+================================ */
+.profile-footer {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+.profile-footer a {
+    color: #333;
+    text-decoration: underline;
+}
+
+.profile-footer a:hover {
+    color: #000;
+}

@@ -33,8 +33,15 @@ export async function register(name, email, password) {
 /**
  * GET USER PROFILE
  */
-export async function getUser(userId) {
-  const res = await fetch(`${API}/api/auth/me/${userId}`);
+export async function getProfile() {
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${API}/api/auth/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
   return res.json();
 }
 
@@ -64,13 +71,16 @@ export async function redeemReward(userId, rewardId) {
 /**
  * ADD POINTS (after purchase)
  */
-export async function addPoints(userId, amountSpent) {
+export async function addPoints(amountSpent) {
+  const token = localStorage.getItem("token");
+
   const res = await fetch(`${API}/api/points/add`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
     },
-    body: JSON.stringify({ userId, amountSpent })
+    body: JSON.stringify({ amountSpent })
   });
 
   return res.json();

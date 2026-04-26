@@ -299,14 +299,16 @@ function bindAddToOrderButtons() {
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       const itemData = {
-        id: btn.dataset.id,
-        name: btn.dataset.name,
-        price: parseFloat(btn.dataset.price || "0"),
-        image: btn.dataset.image || "",
-        hasFlavors: btn.dataset.hasFlavors === "true"
-      };
+      id: btn.dataset.id,
+      name: btn.dataset.name || btn.getAttribute("data-name") || btn.textContent.trim(),
+      price: parseFloat(btn.dataset.price || "0"),
+      image: btn.dataset.image || "",
+      hasFlavors: btn.dataset.hasFlavors === "true"
+    };
 
       CartModal.open(itemData);
+
+      console.log("MODAL OPEN ITEM:", itemData);
     });
   });
 }

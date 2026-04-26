@@ -5,7 +5,7 @@ import { verifyToken } from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 /* GET LOGGED-IN USER POINTS */
-router.get("/", verifyToken, getPoints);
+router.get("/me", verifyToken, getPoints);
 
 /* ADD POINTS AFTER PURCHASE */
 router.post("/add", verifyToken, addPoints);

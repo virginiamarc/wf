@@ -58,24 +58,40 @@
 /* RETURN TO MENU (checkout only) */
 .return-menu {
     display: inline-block;
-    padding: 6px 14px;
-    font-size: 17px;
-    font-weight: 600;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
 
-    /* Match hero-card style */
-    background: rgba(255, 255, 255, 0.25);  /*warm, earthy */
-    backdrop-filter: blur(2px);
-    transition: background 0.25s ease, color 0.25s ease;
-    box-shadow: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+
+    color: #fff;
+
+    background: linear-gradient(to bottom, #e86a00, #cc5500, #b44a00);
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 4px 10px rgba(0,0,0,0.25);
+
+    transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* Hover */
 .return-menu:hover {
-    background: rgba(0, 0, 0, 0.25); /* slightly stronger */
-    color: white;
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -2px 4px rgba(0,0,0,0.35),
+        0 6px 14px rgba(0,0,0,0.35);
+}
+
+.return-menu:active {
+    transform: translateY(0);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        inset 0 -1px 2px rgba(0,0,0,0.3),
+        0 3px 8px rgba(0,0,0,0.25);
 }
 
 /* ================================

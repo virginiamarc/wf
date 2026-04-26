@@ -50,7 +50,13 @@ export const getPoints = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    res.json({ points: user.points });
+    const nextTier = Math.ceil((user.points || 0) / 100) * 100;
+    const remaining = nextTier - user.points;
+
+    res.json({
+      points: user.points,
+      nextReward: remaining === 0 ? 0 : remaining
+    });
 
   } catch (err) {
     res.status(500).json({ error: err.message });

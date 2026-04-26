@@ -7,6 +7,9 @@ import authRoutes from "./src/routes/authRoutes.js";
 import rewardRoutes from "./src/routes/rewardRoutes.js";
 import pointsRoutes from "./src/routes/pointsRoutes.js";
 
+import orderRoutes from "./src/routes/orderRoutes.js";
+import userRoutes from "./src/routes/userRoutes.js";
+
 dotenv.config({ path: "./.env"});
 
 // DB connection
@@ -30,6 +33,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/rewards", rewardRoutes);
 app.use("/api/points", pointsRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/user", userRoutes);
 
 /**
  * HEALTH CHECK
