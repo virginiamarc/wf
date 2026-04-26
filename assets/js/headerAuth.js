@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // If token exists → fetch user info
-  fetch("http://127.0.0.1:5000/api/auth/me", {
+  fetch("https://wheelfoodie-backend.onrender.com/api/auth/me", {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => {

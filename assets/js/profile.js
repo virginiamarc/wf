@@ -63,7 +63,7 @@ async function handlePasswordChange() {
   }
 
   try {
-    const res = await fetch("http://127.0.0.1:5000/api/user/change-password", {
+    const res = await fetch("https://wheelfoodie-backend.onrender.com/api/user/change-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +90,7 @@ async function handlePasswordChange() {
 ------------------------------ */
 async function enable2FAHandler() {
   try {
-    const res = await fetch("http://127.0.0.1:5000/api/user/enable-2fa", {
+    const res = await fetch("https://wheelfoodie-backend.onrender.com/api/user/enable-2fa", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getToken()}`
@@ -129,7 +129,7 @@ function setupForgotPassword() {
     const email = prompt("Enter your email:");
     if (!email) return;
 
-    await fetch("http://127.0.0.1:5000/api/auth/forgot-password", {
+    await fetch("https://wheelfoodie-backend.onrender.com/api/auth/forgot-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email })

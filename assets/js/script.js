@@ -368,7 +368,7 @@ async function checkUser() {
   if (!token) return;
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/me", {
+    const res = await fetch("https://wheelfoodie-backend.onrender.com/api/auth/me", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -664,7 +664,7 @@ if (placeOrderFinalBtn) {
 
       if (token) {
         // ✅ CREATE ORDER IN DB
-        await fetch("http://localhost:5000/api/orders", {
+        await fetch("https://wheelfoodie-backend.onrender.com/api/orders", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

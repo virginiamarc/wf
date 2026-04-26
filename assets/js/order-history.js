@@ -12,7 +12,7 @@ async function loadOrders() {
   if (!token) return;
 
   try {
-    const res = await fetch("http://127.0.0.1:5000/api/orders/me", {
+    const res = await fetch("https://wheelfoodie-backend.onrender.com/api/orders/me", {
       headers: {
         Authorization: `Bearer ${token}`
       }
