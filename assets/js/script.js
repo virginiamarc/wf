@@ -73,6 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
         guestBtn.addEventListener("click", showGuestForm);
     }
 
+    // Hide JOIN NOW button if user is logged in
+    const token = localStorage.getItem("token");
+    const joinBtn = document.getElementById("openRewardsJoin");
+    if (token && joinBtn) {
+        joinBtn.style.display = "none";
+    }
+
     checkUser(); // keep this
     initCheckoutState();
 
