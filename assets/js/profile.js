@@ -97,19 +97,22 @@ async function enable2FAHandler() {
       }
     });
 
-    const text = await res.text();
+    const user = await res.json();
 
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error("Server did not return JSON: " + text);
-    }
-
-    if (!res.ok) throw new Error(data.error || "Request failed");
+    if (!res.ok) throw new Error(user.error);
 
     alert("2FA enabled");
-    loadUser();
+
+    // 👇 immediately update UI with fresh data
+    const info = document.getElementById("profileUser");
+
+    if (info) {
+      info.innerHTML = `
+        <p><strong>Name:</strong> ${user.name}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>2FA:</strong> ${user.twoFactorEnabled ? "Enabled" : "Disabled"}</p>
+      `;
+    }
 
   } catch (err) {
     alert(err.message);

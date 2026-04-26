@@ -28,6 +28,11 @@ const userSchema = new mongoose.Schema(
       default: 0
     },
 
+    twoFactorEnabled: {
+      type: Boolean,
+      default: false
+    },
+
     rewardHistory: [
       {
         title: String,

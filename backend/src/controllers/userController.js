@@ -35,10 +35,21 @@ export const changePassword = async (req, res) => {
 /* ENABLE 2FA */
 export const enable2FA = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
+    const userId = req.user.id || req.user.userId;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     user.twoFactorEnabled = true;
     await user.save();
-    res.json({ message: "2FA enabled" });
+
+    const updatedUser = await User.findById(userId).select("-password");
+
+    res.json(updatedUser); // 👈 THIS is the key fix
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
