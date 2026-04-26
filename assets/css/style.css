@@ -1405,7 +1405,7 @@ HOME PAGE FEATURE CARDS*/
 
 #cart-modal-item-img {
     width: 180px;
-    height: 180px;
+    max-height: 180px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
@@ -1525,6 +1525,40 @@ HOME PAGE FEATURE CARDS*/
     background: #1f3304 !important;
 }
 
+/* Limit modal height */
+#cart-modal {
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+/* Make the content scrollable */
+/* Default (desktop/tablet) */
+#cart-modal-content {
+    max-height: 55dvh;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* 📱 Mobile optimization */
+@media (max-width: 600px) {
+    #cart-modal-content {
+        max-height: 45vh; /* tighter on small screens */
+    }
+}
+
+#cart-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-modal-content::-webkit-scrollbar-track {
+    margin: 8px 0; /* 👈 THIS SHORTENS THE VISIBLE BAR */
+}
+
+#cart-modal-content::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 6px;
+}
+
 /* Shiny Checkout button */
 .checkout-btn {
     position: relative;
@@ -1611,12 +1645,13 @@ HOME PAGE FEATURE CARDS*/
 .flavor-selector {
     margin-top: 1rem;
     text-align: center;
+    padding-right: 6px; /* prevents scrollbar overlap */
 }
 
 .flavor-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 8px;
     margin-top: 0.8rem;
 }
 
@@ -1637,10 +1672,6 @@ HOME PAGE FEATURE CARDS*/
     background: #ffb36b;
     color: white;
     border-color: #ff7a00;
-}
-
-.flavor-selector {
-  display: none;
 }
 
 .hidden {

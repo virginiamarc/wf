@@ -321,10 +321,11 @@ document.addEventListener("click", function (e) {
   const flavor = card.dataset.flavor;
   const flavorImage = card.dataset.image;
 
+  // toggle selection
   card.classList.toggle("selected");
 
   if (card.classList.contains("selected")) {
-    selectedFlavors.push({ flavor, image: flavorImage });
+    selectedFlavors.push({ flavor, image: flavorImage }); 
   } else {
     selectedFlavors = selectedFlavors.filter(f => f.flavor !== flavor);
   }
@@ -338,6 +339,7 @@ document.addEventListener("click", function (e) {
         : "No flavor selected";
   }
 });
+
 
 // -----------------------------
 // Continue Shopping → Scroll to Full Menu
