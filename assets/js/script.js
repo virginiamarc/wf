@@ -26,6 +26,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+    /* --------------------------------
+    LIGHTBOX GALLERY
+    ---------------------------------- */
+    const cards = document.querySelectorAll(".gallery-card");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox-close");
+    
+    if (cards.length && lightbox && lightboxImg && closeBtn) {
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const imgUrl = card.dataset.img; // recommended method
+
+                console.log("clicked:", imgUrl);
+
+                lightboxImg.src = imgUrl;
+                lightbox.classList.remove("hidden");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            lightbox.classList.add("hidden");
+        });
+
+        // optional: click outside image closes it
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add("hidden");
+            }
+        });
+
+    }
+
     /* LOCATIONS PAGE MODAL */
     const locationModal = document.getElementById("locationModal");
     const locationBtn = document.getElementById("locationPopupBtn");

@@ -108,8 +108,71 @@
             </div>
         </section>
 
+        <h2 class="menu-intro">
+            Browse our complete catering selections, including entrées, sides, desserts, and add-ons.
+            All packages are customizable to fit your event.
+        </h2>
+        
+
+        <section class="gallery-section">
+            <h3>Catering Gallery</h3>
+            <div class="gallery-divider"></div>
+            <div class="gallery-row">
+                
+                <div class="gallery-card" data-img="assets/media/catering_gallery1.jpg">
+                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery1.jpg');"></div>
+                    <div class="gallery-overlay">View</div>
+                </div>
+            
+                <div class="gallery-card" data-img="assets/media/catering_gallery2.jpg">
+                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery2.jpg');"></div>
+                    <div class="gallery-overlay">View</div>
+                </div>
+                
+                <div class="gallery-card" data-img="assets/media/catering_gallery3.jpg">
+                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery3.jpg');"></div>
+                    <div class="gallery-overlay">View</div>
+                </div>
+        </section>
+
+        <section class="catering-table">
+            <h3>Catering Packages</h3>
+            <div class="gallery-divider"></div>
+
+            <table aria-label="Catering packages and pricing">
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Guests</th>
+                        <th>Includes</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic</td>
+                        <td>10–20</td>
+                        <td>3 Items + Drinks</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Standard</td>
+                        <td>20–40</td>
+                        <td>5 Items + Drinks</td>
+                        <td>$300</td>
+                    </tr>
+                    <tr>
+                        <td>Premium</td>
+                        <td>40–75</td>
+                        <td>Full Menu + Dessert</td>
+                        <td>$600</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <section class="menu-section">
-            <h2>Full Catering Menu</h2>
+            <h2>Explore Our Full Catering Options</h2>
             <div class="catering-menu-divider"></div>
             
             <!-- Signature Bowls -->
@@ -284,23 +347,6 @@
 
         </section>
 
-        <section class="gallery-section">
-            <h3>Catering Gallery</h3>
-            <div class="gallery-divider"></div>
-            <div class="gallery-row">
-                
-                <div class="gallery-card">
-                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery1.jpg');"></div>
-                </div>
-            
-                <div class="gallery-card">
-                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery2.jpg');"></div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-bg" style="background-image: url('assets/media/catering_gallery3.jpg');"></div>
-                </div>
-        </section>
 
         <section class="expect-section">
             <h2 class="expect-title">What to Expect</h2>
@@ -592,6 +638,12 @@
             </div>
 
         </div>
+    </div>
+
+    <!-- LIGHTBOX (put at bottom of page) -->
+    <div id="lightbox" class="lightbox hidden">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" alt="Expanded gallery image">
     </div>
 
     <script type="module" src="assets/js/script.js"></script>

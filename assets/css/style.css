@@ -1244,7 +1244,20 @@ nav.main-nav {
 }
 .menu-page .menu-section * {
     position: relative;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
     z-index: 1;
+}
+
+.menu-intro {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 700px;
+    margin: 20px auto 40px;
+    color: #555;
 }
 
 
@@ -2550,9 +2563,11 @@ nav.main-nav {
 
 /* Dropdown container */
 .catering-page .menu-dropdown {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     padding: 0;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
 }
 
 /* Dropdown button */
@@ -2560,8 +2575,9 @@ nav.main-nav {
     width: 100%;
     background: none;
     border: none;
-    padding: 12px 0;
-    font-size: 1.2rem;
+    padding: 16px 18px;
+    font-size: 1.1rem;
+    transition: background 0.25s ease, transform 0.15s ease;
     font-weight: 600;
     color: #000000;
     border-radius: 8px;
@@ -2585,6 +2601,13 @@ nav.main-nav {
     transition: transform 0.2s ease;
 }
 
+/* Click feedback */
+.catering-page .dropdown-toggle:active {
+    background: rgba(204, 85, 0, 0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transform: scale(0.98);
+}
+
 /* Rotate arrow when open */
 .catering-page .dropdown-toggle.active::after {
     transform: translateY(-50%) rotate(90deg);
@@ -2592,17 +2615,25 @@ nav.main-nav {
 
 /* Hover effect */
 .catering-page .dropdown-toggle:hover {
-    background: rgba(204, 85, 0, 0.1);
+    background: rgba(204, 85, 0, 0.08);
 }
 
 /* Dropdown content */
 .catering-page .dropdown-content {
     display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
     padding: 15px 20px;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 8px;
     margin-top: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* When active (your JS already toggles this) */
+.catering-page .dropdown-toggle.active + .dropdown-content {
+    max-height: 800px; /* large enough for content */
 }
 
 .catering-page .dropdown-content.two-col {
@@ -2656,29 +2687,152 @@ nav.main-nav {
 }
 
 
+
+/* IMAGE EFFECTS*/
 .catering-page .gallery-row {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px 0;
-    flex-wrap: wrap;
 }
 
 .catering-page .gallery-card {
     position: relative;
-    width: 280px;
-    height: 180px;
-    border-radius: 10px;
+    height: 220px; /* pick ONE height */
+    border-radius: 12px;
     overflow: hidden;
+    cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Background image */
 .catering-page .gallery-bg {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.catering-page .gallery-card:hover .gallery-bg {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+.catering-page .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.catering-page .gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/*CATERING TABLE*/
+/* FINAL CLEAN VERSION */
+.catering-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto;
+
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    text-align: left; /* 🔥 better for readability */
+}
+
+.catering-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.catering-table th {
+    background: #ff5a00;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.catering-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.catering-table tr:hover {
+    background: #f7f7f7;
+}
+
+.catering-table h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: #2b4506; /* deep green to match your feature card buttons */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.catering-table th:nth-child(1),
+.catering-table td:nth-child(1) {
+    width: 30%;
+}
+
+.catering-table th:nth-child(2),
+.catering-table td:nth-child(2) {
+    width: 25%; /* Includes column gets more space */
+}
+
+.catering-table th:nth-child(3),
+.catering-table td:nth-child(3) {
+    width: 30%;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox img {
+    max-width: 70vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2100;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
 /* Gradient overlay for readability */
